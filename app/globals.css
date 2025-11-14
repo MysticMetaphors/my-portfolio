@@ -4,8 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 body {
-  color: #000000;
-  /* color: #005ea1; */
+  color: #ffffff;
+  /* color: #006ebd; */
 }
 
 /* 

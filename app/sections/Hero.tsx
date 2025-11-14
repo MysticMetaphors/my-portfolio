@@ -25,8 +25,8 @@ export default function Hero() {
         </h1>
 
         <p className="mt-6 text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-          We craft intelligent, high-performance web solutions that help your
-          business grow — built with clarity, precision, and purpose.
+          Create functional, meaningful digital experiences built with clarity, 
+          precision, and purpose — helping ideas grow into powerful solutions.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">

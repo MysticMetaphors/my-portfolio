@@ -13,7 +13,7 @@ export default function Navigation() {
         <Image height={800} width={800} src="/bryan.png" alt="Arvo Logo" className="h-10 w-fit rounded-full" />
         <div>
           <h1 className="font-semibold text-white">Von Bryan</h1>
-          <p className="text-gray-300 text-sm font-light">Junior Developer</p>
+          <p className="text-gray-300 text-sm font-light">Junior Web Developer</p>
         </div>
       </div>
 
@@ -29,19 +29,14 @@ export default function Navigation() {
           Projects
         </Link>
         <Link
-          href="/team"
+          href="/blog"
           className="cursor-pointer hover:text-blue-primary hover:underline underline-offset-4 transition-all">
-          Team
+          Blog
         </Link>
         <Link
-          href="/pricing"
+          href="/resume"
           className="cursor-pointer hover:text-blue-primary hover:underline underline-offset-4 transition-all">
-          Pricing
-        </Link>
-        <Link
-          href="/services"
-          className="cursor-pointer hover:text-blue-primary hover:underline underline-offset-4 transition-all">
-          Services
+          Resume
         </Link>
         <Link
           href="/contact"
@@ -73,26 +68,20 @@ export default function Navigation() {
           >
             Projects
           </Link>
+
           <Link
-            href="/team"
+            href="/blog"
             className="cursor-pointer hover:text-blue-primary transition-all"
             onClick={() => setIsOpen(false)}
           >
-            Team
+            Blog
           </Link>
           <Link
-            href="/pricing"
+            href="/resume"
             className="cursor-pointer hover:text-blue-primary transition-all"
             onClick={() => setIsOpen(false)}
           >
-            Pricing
-          </Link>
-          <Link
-            href="/services"
-            className="cursor-pointer hover:text-blue-primary transition-all"
-            onClick={() => setIsOpen(false)}
-          >
-            Services
+            Resume
           </Link>
           <Link
             href="/contact"

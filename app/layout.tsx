@@ -1,60 +1,58 @@
-// import type { Metadata } from "next";
+import type { Metadata } from "next";
+import Footer from "./components/layouts/Footer";
 import Navigation from "./components/layouts/Navigation";
 import "./globals.css";
 
-// export const metadata: Metadata = {
-//   title: "Arvo | Creative Web Solutions & Development Studio",
-//   description:
-//     "Arvo crafts high-performing websites, e-commerce platforms, and digital experiences through innovation, design, and technology.",
-//   keywords: [
-//     "Arvo",
-//     "web development",
-//     "UI/UX design",
-//     "Next.js",
-//     "React",
-//     "Shopify development",
-//     "WordPress development",
-//     "CRM integration",
-//     "frontend development",
-//     "creative agency",
-//   ],
-//   authors: [{ name: "Arvo Team", url: "https://arvo-alpha.vercel.app/" }],
-//   openGraph: {
-//     title: "Arvo | Creative Web Solutions & Development Studio",
-//     description:
-//       "Building modern, responsive, and impactful digital experiences through design and innovation.",
-//     url: "https://arvo-alpha.vercel.app/",
-//     siteName: "Arvo",
-//     images: [
-//       {
-//         url: "https://arvo-alpha.vercel.app/og-image.png",
-//         width: 1200,
-//         height: 630,
-//         alt: "Arvo Web Studio",
-//       },
-//     ],
-//     locale: "en_US",
-//     type: "website",
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     title: "Arvo | Creative Web Solutions & Development Studio",
-//     description:
-//       "Arvo creates exceptional web and e-commerce experiences through design, performance, and innovation.",
-//     images: ["https://arvo-alpha.vercel.app/og-image.png"],
-//     creator: "@arvo_team",
-//   },
-//   icons: {
-//     icon: "/favicon.ico",
-//   },
-//   alternates: {
-//     canonical: "https://arvo-alpha.vercel.app/",
-//   },
-// };
+export const metadata: Metadata = {
+  title: "Von Bryan | Creative Web Solutions & Development Studio",
+  description:
+    "Von Bryan crafts high-performing websites, e-commerce platforms, and digital experiences through innovation, design, and technology.",
+  keywords: [
+    "Von Bryan Bañal",
+    "web development",
+    "UI/UX design",
+    "Next.js",
+    "Vue.js",
+    "React",
+    "frontend development"
+  ],
+  authors: [{ name: "Von Bryan Team", url: "https://von-bryan-five-92.vercel.app/" }],
+  openGraph: {
+    title: "Von Bryan | Creative Web Solutions & Development Studio",
+    description:
+      "Building modern, responsive, and impactful digital experiences through design and innovation.",
+    url: "https://von-bryan-five-92.vercel.app/",
+    siteName: "Von Bryan",
+    images: [
+      {
+        url: "https://von-bryan-five-92.vercel.app/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Von Bryan Web Studio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Von Bryan | Creative Web Solutions & Development Studio",
+    description:
+      "Von Bryan creates exceptional web and e-commerce experiences through design, performance, and innovation.",
+    images: ["https://von-bryan-five-92.vercel.app/og-image.png"],
+    creator: "Von Bryan",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+  alternates: {
+    canonical: "https://von-bryan-five-92.vercel.app/",
+  },
+};
 
-// export const viewport = {
-//   themeColor: "#0f172a",
-// };
+export const viewport = {
+  themeColor: "#0f172a",
+};
 
 export default function RootLayout({
   children,
@@ -72,6 +70,7 @@ export default function RootLayout({
           <Navigation />
         </div>
         {children}
+        <Footer />
       </body>
     </html>
   );

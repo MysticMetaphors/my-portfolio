@@ -10,50 +10,26 @@ export default function Projects() {
     {
       title: "Fluxo",
       description: "Fluxo is a showcase of clean and modern web design, featuring responsive layouts, elegant UI components.",
-      image: "fluxo.png",
+      image: "projects/fluxos.png",
       url: "https://fluxo-alpha.vercel.app/",
       design: true,
-      icons: ["react", "tailwindcss", "html5"]
+      icons: ["react", "tailwindcss", "javascript"]
     },
     {
-      title: "Fluxo",
-      description: "Fluxo is a showcase of clean and modern web design, featuring responsive layouts, elegant UI components.",
-      image: "fluxo.png",
-      url: "https://fluxo-alpha.vercel.app/",
+      title: "Arvo",
+      description: "Arvo is a creative web-solutions studio that crafts smart, high-performance digital experiences.",
+      image: "projects/arvo.png",
+      url: "https://arvo-alpha.vercel.app/",
       design: true,
-      icons: ["react", "tailwindcss", "html5"]
+      icons: ["nextjs", "tailwindcss", "typescript"]
     },
     {
-      title: "Fluxo",
-      description: "Fluxo is a showcase of clean and modern web design, featuring responsive layouts, elegant UI components.",
-      image: "fluxo.png",
-      url: "https://fluxo-alpha.vercel.app/",
+      title: "Arvo",
+      description: "Arvo is a creative web-solutions studio that crafts smart, high-performance digital experiences.",
+      image: "projects/pixelforge.png",
+      url: "https://arvo-alpha.vercel.app/",
       design: true,
-      icons: ["react", "tailwindcss", "html5"]
-    },
-    {
-      title: "Fluxo",
-      description: "Fluxo is a showcase of clean and modern web design, featuring responsive layouts, elegant UI components.",
-      image: "fluxo.png",
-      url: "https://fluxo-alpha.vercel.app/",
-      design: true,
-      icons: ["react", "tailwindcss", "html5"]
-    },
-    {
-      title: "Fluxo",
-      description: "Fluxo is a showcase of clean and modern web design, featuring responsive layouts, elegant UI components.",
-      image: "fluxo.png",
-      url: "https://fluxo-alpha.vercel.app/",
-      design: true,
-      icons: ["react", "tailwindcss", "html5"]
-    },
-    {
-      title: "Fluxo",
-      description: "Fluxo is a showcase of clean and modern web design, featuring responsive layouts, elegant UI components.",
-      image: "fluxo.png",
-      url: "https://fluxo-alpha.vercel.app/",
-      design: true,
-      icons: ["react", "tailwindcss", "html5"]
+      icons: ["react", "tailwindcss", "supabase", "javascript"]
     },
   ];
 
@@ -63,9 +39,9 @@ export default function Projects() {
         {/* <div className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3/4 w-full bg-gradient-to-t from-transparent via-darkblue-primary/35 to-transparent pointer-events-none"></div> */}
 
        <WavyBackground 
-        backgroundFill="#0a0a0a"
-        waveWidth={50}
-        blur={10}
+        backgroundFill="#0a0a0af1"
+        waveWidth={1}
+        blur={0}
         waveOpacity={0}
        >
          <div className="max-w-7xl mx-auto px-6 md:px-6 py-20 lg:py-30 z-10">
@@ -101,11 +77,11 @@ export default function Projects() {
               />
             ))}
           </div>
-          {/* <div className="flex w-full justify-center mt-10">
-            <Link href="/projects" className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary/70 text-black font-semibold hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
+          <div className="flex w-full justify-center mt-10">
+            <Link href="projects" className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary/70 text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
               View More
             </Link>
-          </div> */}
+          </div>
         </div>
        </WavyBackground>
       </section>
