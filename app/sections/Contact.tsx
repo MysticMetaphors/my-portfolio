@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 // import { useState } from "react";
 import { appendToast } from "@/lib/global";
+import { WavyBackground } from "../components/ui/wavy-background";
 // import { sub } from "framer-motion/client";
 
 type ContactProp = {
@@ -91,8 +92,16 @@ export default function Contact({ onView }: ContactProp) {
     };
 
   return (
-    <section id="contact" className="relative bg-linear-to-t from-blue-primary/20 from-5% via-black-primary via-50% to-black-primary">
-      <div className="mx-auto px-6 md:px-6 py-20 lg:py-30 max-w-7xl">
+    <section id="contact" className="relative overflow-hidden">
+    <div className="absolute z-11 top-0 left-0 h-full w-full bg-linear-to-t from-blue-primary/20 from-5% via-transparent via-50% to-transparent"></div>
+    <WavyBackground  
+        backgroundFill="#0a0a0af1"
+        waveWidth={1}
+        blur={0}
+        waveOpacity={0}
+
+      />
+      <div className="z-12 mx-auto px-6 py-0 md:py-30 max-w-7xl">
         <div className="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-2 gap-7">
 
           <div className="col-span-2 z-10">

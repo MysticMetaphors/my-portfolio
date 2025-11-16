@@ -54,7 +54,7 @@ export default function MyCard({
         alt={title}
         width={800}
         height={800}
-        className="h-[48%] w-full object-cover rounded-t-lg transition-opacity duration-300 group-hover:opacity-70"
+        className="h-[48%] w-full object-cover rounded-t-lg transition-opacity duration-300"
       />
 
       {/* Overlay */}

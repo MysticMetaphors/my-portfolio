@@ -5,7 +5,7 @@ import MyCard from "../components/ui/MyCard";
 import { motion } from "framer-motion";
 import { WavyBackground } from "../components/ui/wavy-background";
 
-export default function Projects() {
+export default function projects() {
   const projects = [
     {
       title: "Fluxo",
@@ -35,7 +35,7 @@ export default function Projects() {
 
   return (
     <>
-      <section id="projects" className="relative bg-black-primary overflow-hidden">
+      <section id="projects" className="relative bg-black-primary overflow-hidden sm:p-0 pt-25">
         {/* <div className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3/4 w-full bg-gradient-to-t from-transparent via-darkblue-primary/35 to-transparent pointer-events-none"></div> */}
 
        <WavyBackground 
@@ -76,11 +76,6 @@ export default function Projects() {
                 {...project}
               />
             ))}
-          </div>
-          <div className="flex w-full justify-center mt-10">
-            <Link href="projects" className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary/70 text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
-              View All
-            </Link>
           </div>
         </div>
        </WavyBackground>

@@ -5,7 +5,7 @@ import { FlipWords } from "../components/ui/flip-words";
 
 export default function Hero() {
   return (
-    <section className="relative flex flex-col inset-shadow- items-center justify-center min-h-screen text-center overflow-hidden px-6">
+    <section className="relative flex flex-col inset-shadow- items-center justify-center min-h-screen text-center overflow-hidden px-6 sm:p-0 pt-25 bg-darkblue-primary">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,153,0.08)_0%,transparent_70%)] pointer-events-none"></div>
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0)_0%,#0a0a0a_100%)] pointer-events-none"></div>
       <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100\\' height=\\'100\\'><rect width=\\'100\\' height=\\'100\\' fill=\\'none\\' stroke=\\'%2300FF99\\' stroke-width=\\'0.5\\'/></svg>')]"></div>
