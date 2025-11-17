@@ -54,18 +54,14 @@ export default function TechStack() {
 
 
                 {stacks.map((stack, i) => (
-                  <motion.div
+                  <div
                     key={i}
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
-                    viewport={{ once: true }} // bg-gray-900 border border-gray-800
                     className="flex flex-col items-center justify-center rounded-xl p-6 w-32 h-32"
                   >
                     <i className={`${stack.icon} text-5xl mb-3`} />
                     <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${stack.icon}/${stack.img}`} className="h-14 w-fit mb-3" />
                     <span className="text-gray-300 text-sm font-medium">{stack.name}</span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
 
