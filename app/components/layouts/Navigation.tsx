@@ -17,30 +17,30 @@ export default function Navigation() {
         </div>
       </div>
 
-      <div className="hidden md:flex gap-6 text-white">
+      <div className="hidden md:flex gap-2 text-white">
         <Link
           href="/"
-          className="cursor-pointer hover:text-blue-primary hover:underline underline-offset-4 transition-all">
+          className="cursor-pointer hover:bg-blue-primary/20 px-3 rounded-sm transition-all">
           Home
         </Link>
         <Link
           href="/projects"
-          className="cursor-pointer hover:text-blue-primary hover:underline underline-offset-4 transition-all">
+          className="cursor-pointer hover:bg-blue-primary/20 px-3 rounded-sm transition-all">
           Projects
         </Link>
-        <Link
+        {/* <Link
           href="/blog"
-          className="cursor-pointer hover:text-blue-primary hover:underline underline-offset-4 transition-all">
+          className="cursor-pointer hover:bg-blue-primary/20 px-3 rounded-sm transition-all">
           Blog
-        </Link>
+        </Link> */}
         <Link
           href="/resume"
-          className="cursor-pointer hover:text-blue-primary hover:underline underline-offset-4 transition-all">
+          className="cursor-pointer hover:bg-blue-primary/20 px-3 rounded-sm transition-all">
           Resume
         </Link>
         <Link
           href="/contact"
-          className="cursor-pointer hover:text-blue-primary hover:underline underline-offset-4 transition-all">
+          className="cursor-pointer hover:bg-blue-primary/20 px-3 rounded-sm transition-all">
           Contact
         </Link>
       </div>
@@ -69,13 +69,13 @@ export default function Navigation() {
             Projects
           </Link>
 
-          <Link
+          {/* <Link
             href="/blog"
             className="cursor-pointer hover:text-blue-primary transition-all"
             onClick={() => setIsOpen(false)}
           >
             Blog
-          </Link>
+          </Link> */}
           <Link
             href="/resume"
             className="cursor-pointer hover:text-blue-primary transition-all"

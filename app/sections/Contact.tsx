@@ -19,6 +19,8 @@ export default function Contact({ onView }: ContactProp) {
 
     const submitButton = e.currentTarget.querySelector('button[type="submit"]') as HTMLButtonElement;
     submitButton.disabled = true;
+
+    console.log(submitButton)
     submitButton.classList.add('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
 
     const form = e.target as HTMLFormElement;
@@ -93,7 +95,7 @@ export default function Contact({ onView }: ContactProp) {
 
   return (
     <section id="contact" className="relative overflow-hidden">
-    <div className="absolute z-11 top-0 left-0 h-full w-full bg-linear-to-t from-blue-primary/20 from-5% via-transparent via-50% to-transparent"></div>
+    {/* <div className="absolute z-11 top-0 left-0 h-full w-full bg-linear-to-t from-blue-primary/20 from-5% via-transparent via-50% to-transparent"></div> */}
     <WavyBackground  
         backgroundFill="#0a0a0af1"
         waveWidth={1}
@@ -101,7 +103,7 @@ export default function Contact({ onView }: ContactProp) {
         waveOpacity={0}
 
       />
-      <div className="z-12 mx-auto px-6 py-0 md:py-30 max-w-7xl">
+      <div className="z-12 mx-auto px-6 py-10 md:py-30 max-w-7xl">
         <div className="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-2 gap-7">
 
           <div className="col-span-2 z-10">

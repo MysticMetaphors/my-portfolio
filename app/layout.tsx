@@ -2,23 +2,29 @@ import type { Metadata } from "next";
 import Footer from "./components/layouts/Footer";
 import Navigation from "./components/layouts/Navigation";
 import "./globals.css";
+import ScrollToTopButton from "./components/ui/ScrollToTopButton";
 
 export const metadata: Metadata = {
-  title: "Von Bryan | Creative Web Solutions & Development Studio",
+  title: "Von Bryan | Creative Web Solutions",
   description:
-    "Von Bryan crafts high-performing websites, e-commerce platforms, and digital experiences through innovation, design, and technology.",
+    "I crafts high-performing websites, e-commerce platforms, and digital experiences through innovation, design, and technology.",
   keywords: [
     "Von Bryan Bañal",
     "web development",
     "UI/UX design",
+    "UI/UX",
     "Next.js",
     "Vue.js",
     "React",
-    "frontend development"
+    "web design",
+    "Laravel",
+    "frontend developer",
+    "Frontend developer",
+    "frontend development",
   ],
   authors: [{ name: "Von Bryan Team", url: "https://von-bryan-five-92.vercel.app/" }],
   openGraph: {
-    title: "Von Bryan | Creative Web Solutions & Development Studio",
+    title: "Von Bryan | Creative Web Solutions",
     description:
       "Building modern, responsive, and impactful digital experiences through design and innovation.",
     url: "https://von-bryan-five-92.vercel.app/",
@@ -36,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Von Bryan | Creative Web Solutions & Development Studio",
+    title: "Von Bryan | Creative Web Solutions",
     description:
-      "Von Bryan creates exceptional web and e-commerce experiences through design, performance, and innovation.",
+      "I create exceptional web and e-commerce experiences through design, performance, and innovation.",
     images: ["https://von-bryan-five-92.vercel.app/og-image.png"],
     creator: "Von Bryan",
   },
@@ -71,6 +77,7 @@ export default function RootLayout({
         {/* </div> */}
         {children}
         <Footer />
+        <ScrollToTopButton />
       </body>
     </html>
   );

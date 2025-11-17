@@ -1,14 +1,35 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 export default function Resume() {
   const exprience = [
     {
       company: "Arvo",
-      date: "September 10, 2025",
+      date: "September 2025",
       location: "Philippines, Antipolo City",
       description: "At Arvo, I focus on developing high-quality landing pages and crafting intuitive UI/UX experiences. My role combines frontend development with user-centered design, ensuring every interface is both visually engaging and functionally smooth. I collaborate closely with backend developers and our team lead to align design decisions with technical requirements, maintain consistency, and deliver polished, production-ready features.",
+      techstack: [
+        { stack: "nextjs", icon: "nextjs-original.svg" },
+        { stack: "tailwindcss", icon: "tailwindcss-original.svg" },
+      ],
+    },
+    // {
+    //   company: "Arvo",
+    //   date: "September 2025",
+    //   location: "Philippines, Antipolo City",
+    //   description: "At Arvo, I focus on developing high-quality landing pages and crafting intuitive UI/UX experiences. My role combines frontend development with user-centered design, ensuring every interface is both visually engaging and functionally smooth. I collaborate closely with backend developers and our team lead to align design decisions with technical requirements, maintain consistency, and deliver polished, production-ready features.",
+    //   techstack: [
+    //     { stack: "nextjs", icon: "nextjs-original.svg" },
+    //     { stack: "tailwindcss", icon: "tailwindcss-original.svg" },
+    //   ],
+    // },
+    {
+      company: "Freelance Developer | Self-Employed",
+      date: "May 2025 - Present",
+      location: "Philippines, Antipolo City",
+      description: "Communicate with clients to understand their design requirements and desired changes. Develop simple portfolios and custom pages based on client specifications. Implement requested modifications within agreed timeframes to ensure timely delivery. Offer assistance to students and individuals in creating functional web pages for their needs. ",
       techstack: [
         { stack: "react", icon: "react-original.svg" },
         { stack: "vuejs", icon: "vuejs-original.svg" },
@@ -16,30 +37,6 @@ export default function Resume() {
         { stack: "tailwindcss", icon: "tailwindcss-original.svg" },
       ],
     },
-    {
-      company: "Arvo",
-      date: "September 10, 2025",
-      location: "Philippines, Antipolo City",
-      description: "At Arvo, I focus on developing high-quality landing pages and crafting intuitive UI/UX experiences. My role combines frontend development with user-centered design, ensuring every interface is both visually engaging and functionally smooth. I collaborate closely with backend developers and our team lead to align design decisions with technical requirements, maintain consistency, and deliver polished, production-ready features.",
-      techstack: [
-        { stack: "react", icon: "react-original.svg" },
-        { stack: "vuejs", icon: "vuejs-original.svg" },
-        { stack: "nextjs", icon: "nextjs-original.svg" },
-        { stack: "tailwindcss", icon: "tailwindcss-original.svg" },
-      ],
-    },
-    {
-      company: "Arvo",
-      date: "September 10, 2025",
-      location: "Philippines, Antipolo City",
-      description: "At Arvo, I focus on developing high-quality landing pages and crafting intuitive UI/UX experiences. My role combines frontend development with user-centered design, ensuring every interface is both visually engaging and functionally smooth. I collaborate closely with backend developers and our team lead to align design decisions with technical requirements, maintain consistency, and deliver polished, production-ready features.",
-      techstack: [
-        { stack: "react", icon: "react-original.svg" },
-        { stack: "vuejs", icon: "vuejs-original.svg" },
-        { stack: "nextjs", icon: "nextjs-original.svg" },
-        { stack: "tailwindcss", icon: "tailwindcss-original.svg" },
-      ],
-    }
   ]
 
   return (
@@ -78,7 +75,7 @@ export default function Resume() {
               className={`w-full flex justify-start`}>
 
               <div className={`w-full pl-10`}>
-                <div className="relative bg-gray-900 border border-gray-700 rounded-md md:p-6 p-3 shadow-md">
+                <div className="relative bg-linear-to-t from-blue-primary/20 via-gray-900 to-gray-900 border border-gray-700 rounded-md md:p-6 p-3 shadow-md">
                   <div className={`absolute left-[-10px] top-5 h-5 w-5 rounded-full bg-gray-900 border border-gray-700`} />
                   <h1 className="text-2xl font-semibold text-white">{exp.company}</h1>
                   <span className="text-sm text-gray-400">
@@ -103,13 +100,13 @@ export default function Resume() {
         </div>
 
        <div className="flex mt-10 gap-6">
-         <button className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary/70 text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
+         {/* <button className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
           <i className="fa-solid fa-download mr-2"></i>Resume
-        </button>
+        </button> */}
 
-        <button className="cursor-pointer px-6 py-2 bg-blue-primary/5 rounded-md border border-blue-primary text-blue-primary hover:bg-blue-primary hover:text-black transition-all duration-300">
+        <Link href="/resume" className="cursor-pointer px-6 py-2 bg-blue-primary/5 rounded-md border border-blue-primary text-blue-primary hover:bg-blue-primary hover:text-black transition-all duration-300">
           <i className="fa-solid fa-eye mr-2"></i>View Full
-        </button>
+        </Link>
        </div>
 
       </div>

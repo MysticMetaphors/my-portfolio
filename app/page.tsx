@@ -11,7 +11,7 @@ export default function Home() {
       <Projects />
       <TechStack />
       <Resume />
-      <Contact />
+      <Contact onView={true} />
     </>
   );
 }

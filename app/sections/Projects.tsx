@@ -24,10 +24,10 @@ export default function Projects() {
       icons: ["nextjs", "tailwindcss", "typescript"]
     },
     {
-      title: "Arvo",
-      description: "Arvo is a creative web-solutions studio that crafts smart, high-performance digital experiences.",
+      title: "PixelForge",
+      description: "PixelForge offers free pixel art and AI resources to support developers and artists in creating their games.",
       image: "projects/pixelforge.png",
-      url: "https://arvo-alpha.vercel.app/",
+      url: "https://pixel-forge-omega.vercel.app/",
       design: true,
       icons: ["react", "tailwindcss", "supabase", "javascript"]
     },
@@ -78,7 +78,7 @@ export default function Projects() {
             ))}
           </div>
           <div className="flex w-full justify-center mt-10">
-            <Link href="projects" className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary/70 text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
+            <Link href="projects" className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
               View All
             </Link>
           </div>
