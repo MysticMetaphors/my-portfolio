@@ -104,8 +104,8 @@ export const WavyBackground = ({
     // I'm sorry but i have got to support it on safari.
     setIsSafari(
       typeof window !== "undefined" &&
-        navigator.userAgent.includes("Safari") &&
-        !navigator.userAgent.includes("Chrome")
+      navigator.userAgent.includes("Safari") &&
+      !navigator.userAgent.includes("Chrome")
     );
   }, []);
 
@@ -116,7 +116,7 @@ export const WavyBackground = ({
       )}
     >
       <canvas
-        className="absolute inset-0 z-0 h-full"
+        className="absolute inset-0 z-0 h-full w-full"
         ref={canvasRef}
         id="canvas"
         style={{
