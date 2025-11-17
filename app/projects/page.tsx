@@ -31,6 +31,7 @@ export default function projects() {
       design: true,
       icons: ["react", "tailwindcss", "supabase", "javascript"]
     },
+    
   ];
 
   return (
@@ -49,9 +50,8 @@ export default function projects() {
             {/* Section Header */}
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true }}
               className="mb-4 text-4xl leading-tight font-extrabold text-gray-300"
             >
               What I’ve <span className="text-blue-primary/70">Worked</span> On
@@ -61,7 +61,6 @@ export default function projects() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-              viewport={{ once: true }}
               className="text-gray-400 mb-12"
             >
               Just a few things I’ve built along the way.
