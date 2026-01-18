@@ -16,13 +16,13 @@ export default function Resume() {
       ],
     },
     // {
-    //   company: "Arvo",
-    //   date: "September 2025",
+    //   company: "Internship | Jerry",
+    //   date: "March 2025",
     //   location: "Philippines, Antipolo City",
     //   description: "At Arvo, I focus on developing high-quality landing pages and crafting intuitive UI/UX experiences. My role combines frontend development with user-centered design, ensuring every interface is both visually engaging and functionally smooth. I collaborate closely with backend developers and our team lead to align design decisions with technical requirements, maintain consistency, and deliver polished, production-ready features.",
     //   techstack: [
-    //     { stack: "nextjs", icon: "nextjs-original.svg" },
-    //     { stack: "tailwindcss", icon: "tailwindcss-original.svg" },
+    //     { stack: "vuejs", icon: "vuejs-original.svg" },
+    //     { stack: "css5", icon: "css5-original.svg" },
     //   ],
     // },
     {
@@ -99,15 +99,15 @@ export default function Resume() {
           ))}
         </div>
 
-       <div className="flex mt-10 gap-6">
-         {/* <button className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
-          <i className="fa-solid fa-download mr-2"></i>Resume
-        </button> */}
+        <div className="flex mt-10 gap-6">
+          {/*<button className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
+            <i className="fa-solid fa-download mr-2"></i>Resume
+          </button>*/}
 
-        <Link href="/resume" className="cursor-pointer px-6 py-2 bg-blue-primary/5 rounded-md border border-blue-primary text-blue-primary hover:bg-blue-primary hover:text-black transition-all duration-300">
-          <i className="fa-solid fa-eye mr-2"></i>View Full
-        </Link>
-       </div>
+          <Link href="/resume" className="cursor-pointer px-6 py-2 bg-blue-primary/5 rounded-md border border-blue-primary text-blue-primary hover:bg-blue-primary hover:text-black transition-all duration-300">
+            <i className="fa-solid fa-eye mr-2"></i>View Full
+          </Link>
+        </div>
 
       </div>
       <div className="absolute z-1 top-0 h-full w-full bg-linear-to-t from-transparent via-darkblue-primary/50 to-transparent"></div>

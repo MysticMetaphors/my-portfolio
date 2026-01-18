@@ -15,6 +15,16 @@ export default function resume() {
         { stack: "tailwindcss", icon: "tailwindcss-original.svg" },
       ],
     },
+    // {
+    //   company: "Internship | Jerry",
+    //   date: "March 2025",
+    //   location: "Philippines, Antipolo City",
+    //   description: "At Arvo, I focus on developing high-quality landing pages and crafting intuitive UI/UX experiences. My role combines frontend development with user-centered design, ensuring every interface is both visually engaging and functionally smooth. I collaborate closely with backend developers and our team lead to align design decisions with technical requirements, maintain consistency, and deliver polished, production-ready features.",
+    //   techstack: [
+    //     { stack: "vuejs", icon: "vuejs-original.svg" },
+    //     { stack: "tailwindcss", icon: "tailwindcss-original.svg" },
+    //   ],
+    // },
     {
       company: "Freelance Developer | Self-Employed",
       date: "May 2025 - Present",
@@ -28,6 +38,10 @@ export default function resume() {
       ],
     },
   ]
+
+  function downloadResume() {
+    console.log("clicked")
+  }
 
   return (
     <>
@@ -129,7 +143,7 @@ export default function resume() {
                 </motion.div>
               ))}
             </div>
-            {/* <button className="fixed bottom-5 left-5 cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-gray-900 font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
+            {/* <button onClick={downloadResume} className="fixed bottom-5 left-5 cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-gray-900 font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
               <i className="fa-solid fa-download mr-2"></i>Resume
             </button> */}
           </div>
