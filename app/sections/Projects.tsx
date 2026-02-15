@@ -13,7 +13,7 @@ export default function Projects() {
       image: "projects/seinna_brews.png",
       url: "https://sienna-brews.vercel.app/",
       design: true,
-      icons: ["nextjs", "tailwindcss"]
+      icons: ["nextjs", "tailwindcss", "typescript", "html5"]
     },
     {
       title: "Solara Grand",
@@ -21,7 +21,15 @@ export default function Projects() {
       image: "projects/solara_grand.png",
       url: "https://solara-grand.vercel.app/",
       design: true,
-      icons: ["nextjs", "tailwindcss"]
+      icons: ["nextjs", "tailwindcss", "typescript", "html5"]
+    },
+    {
+      title: "Cake2Go",
+      description: "A premium cake shop Demo website that offers a delightful selection of cakes for every occasion",
+      image: "projects/cake2go.png",
+      url: "https://cake2go.vercel.app/",
+      design: true,
+      icons: ["nextjs", "tailwindcss", "typescript", "html5"]
     },
     {
       title: "Fluxo",
@@ -29,7 +37,7 @@ export default function Projects() {
       image: "projects/fluxos.png",
       url: "https://fluxo-alpha.vercel.app/",
       design: true,
-      icons: ["react", "tailwindcss", "javascript"]
+      icons: ["react", "tailwindcss", "javascript", "html5"]
     },
     {
       title: "Arvo",
@@ -37,7 +45,7 @@ export default function Projects() {
       image: "projects/arvo.png",
       url: "https://arvo-alpha.vercel.app/",
       design: true,
-      icons: ["nextjs", "tailwindcss", "typescript"]
+      icons: ["nextjs", "tailwindcss", "typescript", "html5"]
     },
     {
       title: "PixelForge",
@@ -45,7 +53,7 @@ export default function Projects() {
       image: "projects/pixelforge.png",
       url: "https://pixel-forge-omega.vercel.app/",
       design: true,
-      icons: ["react", "tailwindcss", "supabase", "javascript"]
+      icons: ["react", "tailwindcss", "supabase", "javascript", "html5"]
     },
   ];
 

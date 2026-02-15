@@ -39,7 +39,7 @@ export default function MyCard({
       {...animationProps}
       transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="group h-fit relative border border-gray-900 rounded-lg bg-linear-to-t from-blue-primary/40 to-black overflow-hidden 
+      className="group hover:border-blue-primary h-fit relative border border-gray-900 rounded-lg bg-linear-to-t from-blue-primary/40 to-black overflow-hidden 
              transform transition-all duration-500 ease-out hover:-translate-y-3 hover:shadow-lg 
              hover:shadow-blue-primary/20"
     >

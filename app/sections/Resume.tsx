@@ -9,10 +9,15 @@ export default function Resume() {
       company: "Arvo",
       date: "September 2025",
       location: "Philippines, Antipolo City",
-      description: "At Arvo, I focus on developing high-quality landing pages and crafting intuitive UI/UX experiences. My role combines frontend development with user-centered design, ensuring every interface is both visually engaging and functionally smooth. I collaborate closely with backend developers and our team lead to align design decisions with technical requirements, maintain consistency, and deliver polished, production-ready features.",
+      description: "At Arvo, I focus on developing high-quality landing pages and crafting intuitive UI/UX experiences. My role combines frontend development with user-centered design, ensuring every interface is both visually engaging and functionally smooth. I collaborate closely with backend developers and our team lead to align design decisions with technical requirements, maintain consistency, and deliver polished, production-ready solutions.",
       techstack: [
         { stack: "nextjs", icon: "nextjs-original.svg" },
+        { stack: "react", icon: "react-original.svg" },
+        { stack: "vuejs", icon: "vuejs-original.svg" },
         { stack: "tailwindcss", icon: "tailwindcss-original.svg" },
+        { stack: "typescript", icon: "typescript-original.svg" },
+        { stack: "javascript", icon: "javascript-original.svg" },
+        { stack: "html5", icon: "html5-original.svg" },
       ],
     },
     // {
