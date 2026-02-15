@@ -73,7 +73,7 @@ export default function MyCard({
 
               </div>
               {url ?
-                <a href={url} className="px-2 py-1 w-fit bg-blue-primary/5 rounded-sm border border-blue-primary/20 text-blue-primary/60 hover:bg-blue-primary hover:text-black transition-all duration-300">
+                <a href={url} target="_blank" className="px-2 py-1 w-fit bg-blue-primary/5 rounded-sm border border-blue-primary/20 text-blue-primary/60 hover:bg-blue-primary hover:text-black transition-all duration-300">
                   <i className="fa-solid fa-arrow-up-right-from-square mr-1"></i> Live
                 </a>
                 : ''}
