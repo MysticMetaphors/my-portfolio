@@ -1,15 +1,23 @@
 "use client"
 
+import { downloadResume } from "@/lib/utils"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
 export default function Resume() {
   const exprience = [
     {
-      company: "Arvo",
+      company: "AR.VO IT Services | Frontend Developer & UI/UX Designer",
       date: "September 2025",
       location: "Philippines, Antipolo City",
-      description: "At Arvo, I focus on developing high-quality landing pages and crafting intuitive UI/UX experiences. My role combines frontend development with user-centered design, ensuring every interface is both visually engaging and functionally smooth. I collaborate closely with backend developers and our team lead to align design decisions with technical requirements, maintain consistency, and deliver polished, production-ready solutions.",
+      description: [
+        "Communicate directly with clients to understand their design requirements and desired changes.",
+        "Ensure that websites are not only appealing but performance efficient.",
+        "Communicate and Align with Backend Developers and Lead Developers",
+        "Maintain websites",
+        "Code level designing to close gap from design to code",
+        "Implement requested modifications within agreed timeframes to ensure timely delivery.",
+      ],
       techstack: [
         { stack: "nextjs", icon: "nextjs-original.svg" },
         { stack: "react", icon: "react-original.svg" },
@@ -20,21 +28,16 @@ export default function Resume() {
         { stack: "html5", icon: "html5-original.svg" },
       ],
     },
-    // {
-    //   company: "Internship | Jerry",
-    //   date: "March 2025",
-    //   location: "Philippines, Antipolo City",
-    //   description: "At Arvo, I focus on developing high-quality landing pages and crafting intuitive UI/UX experiences. My role combines frontend development with user-centered design, ensuring every interface is both visually engaging and functionally smooth. I collaborate closely with backend developers and our team lead to align design decisions with technical requirements, maintain consistency, and deliver polished, production-ready features.",
-    //   techstack: [
-    //     { stack: "vuejs", icon: "vuejs-original.svg" },
-    //     { stack: "css5", icon: "css5-original.svg" },
-    //   ],
-    // },
     {
       company: "Freelance Developer | Self-Employed",
       date: "May 2025 - Present",
       location: "Philippines, Antipolo City",
-      description: "Communicate with clients to understand their design requirements and desired changes. Develop simple portfolios and custom pages based on client specifications. Implement requested modifications within agreed timeframes to ensure timely delivery. Offer assistance to students and individuals in creating functional web pages for their needs. ",
+      description: [
+        "Communicate with clients to understand their design requirements and desired changes.",
+        "Develop simple portfolios and custom pages based on client specifications.",
+        "Implement requested modifications within agreed timeframes to ensure timely delivery.",
+        "Offer assistance to students and individuals in creating functional web pages for their needs.",
+      ],
       techstack: [
         { stack: "react", icon: "react-original.svg" },
         { stack: "vuejs", icon: "vuejs-original.svg" },
@@ -74,22 +77,27 @@ export default function Resume() {
             <motion.div
               key={i}
               initial={{ opacity: 0, x: 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-              viewport={{ once: true }}
+
               className={`w-full flex justify-start`}>
 
               <div className={`w-full pl-10`}>
-                <div className="relative bg-linear-to-t from-blue-primary/20 via-gray-900 to-gray-900 border border-gray-700 rounded-md md:p-6 p-3 shadow-md">
+                <div className="relative bg-linear-to-t from-blue-primary/20 via-gray-900 to-gray-900 border border-gray-700 rounded-md md:p-6 p-4 shadow-md">
                   <div className={`absolute left-[-10px] top-5 h-5 w-5 rounded-full bg-gray-900 border border-gray-700`} />
-                  <h1 className="text-2xl font-semibold text-white">{exp.company}</h1>
+                  <h1 className="md:text-2xl text-lg font-semibold text-white">{exp.company}</h1>
                   <span className="text-sm text-gray-400">
                     {exp.location} — {exp.date}
                   </span>
 
-                  <p className="mt-4 text-gray-300 leading-relaxed">
-                    {exp.description}
-                  </p>
+                  <ul className="mt-4 text-gray-300 leading-relaxed">
+                    {exp.description.map((desc, i) => (
+                      <li key={i} className="mb-2 flex flex-row items-start gap-2">
+                        <span className="text-white">•</span>
+                        <span>{desc}</span>
+                      </li>
+                    ))}
+                  </ul>
 
                   <div className="mt-4 flex flex-wrap gap-2">
                     {exp.techstack.map((tech, i) => (
@@ -104,10 +112,10 @@ export default function Resume() {
           ))}
         </div>
 
-        <div className="flex mt-10 gap-6">
-          {/*<button className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
+        <div className="flex md:justify-start justify-center mt-10 gap-6">
+          <button onClick={downloadResume} className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
             <i className="fa-solid fa-download mr-2"></i>Resume
-          </button>*/}
+          </button>
 
           <Link href="/resume" className="cursor-pointer px-6 py-2 bg-blue-primary/5 rounded-md border border-blue-primary text-blue-primary hover:bg-blue-primary hover:text-black transition-all duration-300">
             <i className="fa-solid fa-eye mr-2"></i>View Full

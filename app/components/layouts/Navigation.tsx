@@ -11,9 +11,9 @@ export default function Navigation() {
     <nav className="z-100 absolute z-10 top-5 left-1/2 transform -translate-x-1/2 max-w-7xl  w-full px-6 py-4 bg-transparent flex items-center justify-between rounded-full">
       <div className="flex gap-3 items-center z-110">
         <Image height={800} width={800} src="/bryan.png" alt="Arvo Logo" className="h-10 w-fit rounded-full" />
-        <div>
-          <h1 className="font-semibold text-white">Von Bryan</h1>
-          <p className="text-gray-300 text-sm font-light">Junior Web Developer</p>
+        <div className="ml-2">
+          <h1 className="font-semibold text-white">Von Bryan S. Bañal</h1>
+          <p className="text-gray-300 text-sm font-light">Frontend Developer & UI/UX Designer</p>
         </div>
       </div>
 
