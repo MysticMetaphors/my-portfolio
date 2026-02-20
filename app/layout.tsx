@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import Footer from "./components/layouts/Footer";
-import Navigation from "./components/layouts/Navigation";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
-import ScrollToTopButton from "./components/ui/ScrollToTopButton";
+import Providers from "@/providers/provide";
+import { auth0 } from "@/lib/auth0";
 
 export const metadata: Metadata = {
   title: "Von Bryan | Creative Web Solutions",
@@ -62,24 +61,25 @@ export const viewport = {
   themeColor: "#0f172a",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+
+  // 1. Fetch the session securely on the server
+  const session = await auth0.getSession();
+  const user = session?.user || null;
+
   return (
     <html lang="en">
-      <body
-        className="antialiased bg-darkblue-primary"
-      >
+      <body className="antialiased bg-darkblue-primary">
         <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-        {/* <div className="sm:p-0 pb-25"> */}
-        <Navigation />
-        {/* </div> */}
-        {children}
-        <Footer />
-        <ScrollToTopButton />
+
+        <Providers initialUser={user}>
+          {children}
+        </Providers>
 
         <Analytics />
         <SpeedInsights />

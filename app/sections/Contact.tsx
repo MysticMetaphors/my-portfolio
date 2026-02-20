@@ -98,12 +98,12 @@ export default function Contact({ onView }: ContactProp) {
                   initial={{ opacity: 0, y: 40 }}
                   {...animationY}
                   transition={{ duration: 0.5, delay: 0 * 0.1, ease: "easeOut" }}
-                  className="text-gray-400 text-lg text-justify mb-8">
+                  className="text-gray-400 md:text-lg text-md text-justify mb-8">
                   Let’s build something meaningful together. If you have questions, need guidance,
                   or want to start a project, I’m ready to support you every step of the way.
                 </motion.p>
 
-                <div className="space-y-8 p-8">
+                <div className="space-y-8 md:p-8">
                   <motion.div
                     initial={{ opacity: 0, x: -40 }}
                     {...animationX}

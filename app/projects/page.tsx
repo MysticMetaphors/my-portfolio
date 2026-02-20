@@ -4,6 +4,7 @@ import Link from "next/link";
 import MyCard from "../components/ui/MyCard";
 import { motion } from "framer-motion";
 import { WavyBackground } from "../components/ui/wavy-background";
+import DefaultLayout from "../components/layouts/DefaultLayout";
 
 export default function projects() {
   const projects = [
@@ -58,7 +59,7 @@ export default function projects() {
   ];
 
   return (
-    <>
+    <DefaultLayout>
       <section id="projects" className="relative bg-black-primary overflow-hidden sm:p-0 pt-25">
         {/* <div className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3/4 w-full bg-gradient-to-t from-transparent via-darkblue-primary/35 to-transparent pointer-events-none"></div> */}
 
@@ -102,6 +103,6 @@ export default function projects() {
           </div>
         </WavyBackground>
       </section>
-    </>
+    </DefaultLayout>
   )
 }

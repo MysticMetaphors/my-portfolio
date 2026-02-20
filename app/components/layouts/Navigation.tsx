@@ -3,8 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useAuth } from "@/hook/useAuth";
 
 export default function Navigation() {
+  const { isAuthenticated } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -17,7 +19,7 @@ export default function Navigation() {
         </div>
       </div>
 
-      <div className="hidden md:flex gap-2 text-white">
+      <div className="hidden md:flex items-center gap-2 text-white">
         <Link
           href="/"
           className="cursor-pointer hover:bg-blue-primary/20 px-3 rounded-sm transition-all">
@@ -43,6 +45,16 @@ export default function Navigation() {
           className="cursor-pointer hover:bg-blue-primary/20 px-3 rounded-sm transition-all">
           Contact
         </Link>
+        {
+          isAuthenticated && (
+            <Link
+              href="/dashboard"
+              className="cursor-pointer flex items-center gap-2 bg-charleston-green border border-[#3E3E3E] text-white font-semibold px-3 py-1 rounded-sm transition-all">
+              Dashboard
+              <div className="w-2 h-2 rounded-full bg-blue-primary/80 shadow-[0_0_5px_#0095ff]" />
+            </Link>
+          )
+        }
       </div>
 
       <button
