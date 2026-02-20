@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Footer from "./components/layouts/Footer";
 import Navigation from "./components/layouts/Navigation";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 import ScrollToTopButton from "./components/ui/ScrollToTopButton";
 
@@ -78,6 +80,9 @@ export default function RootLayout({
         {children}
         <Footer />
         <ScrollToTopButton />
+
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
