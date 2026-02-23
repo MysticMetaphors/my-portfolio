@@ -60,9 +60,10 @@ export default function Services() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid gap-8">
           {services.map((service, i) => {
-            const Icon = service.icon
+            const Icon = service.icon;
+            const isLastAndOdd = i === services.length - 1 && services.length % 2 !== 0;
 
             return (
               <motion.div
@@ -71,7 +72,13 @@ export default function Services() {
                 transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
                 viewport={{ once: true }}
                 key={i}
-                className="bg-gray-900/90 hover:bg-gray-900 group border border-gray-700 hover:border-blue-primary hover:shadow-blue-primary/20 hover:hover:-translate-y-2 transform shadow-lg rounded-lg h-full w-full p-2 z-10 transition-all duration-300"
+                className={`
+                  bg-gray-900/90 hover:bg-gray-900 group border border-gray-700 
+                  hover:border-blue-primary hover:shadow-blue-primary/20 
+                  hover:-translate-y-2 transform shadow-lg rounded-lg h-full w-full p-2 z-10 
+                  transition-all duration-300
+                  ${isLastAndOdd ? "lg:col-span-1 md:col-span-2" : "col-span-1"}
+                `}
               >
                 <div className="flex flex-col gap-4 border border-gray-700 rounded-lg h-full w-full p-8">
                   <div className="flex items-center gap-4">
@@ -89,8 +96,7 @@ export default function Services() {
                 </div>
               </motion.div>
             )
-          })
-          }
+          })}
         </div>
         {/* </WavyBackground> */}
       </div>

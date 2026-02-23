@@ -132,7 +132,7 @@ export default function resume() {
 
                   className={`w-full flex justify-start`}>
 
-                  <div className={`w-full pl-10`}>
+                  <div className={`w-full md:pl-10 pl-6`}>
                     <div className="relative bg-linear-to-t from-blue-primary/20 via-gray-900 to-gray-900 border border-gray-700 rounded-md md:p-6 p-4 shadow-md">
                       <div className={`absolute left-[-10px] top-5 h-5 w-5 rounded-full bg-gray-900 border border-gray-700`} />
                       <h1 className="md:text-2xl text-lg font-semibold text-white">{exp.company}</h1>

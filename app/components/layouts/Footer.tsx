@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="bg-black-primary border-t-3 border-blue-primary/70">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-15">
         <div className="sm:flex sm:items-center sm:justify-between">
-          <div className="flex gap-3 items-center z-110">
+          <div className="flex gap-3 items-center">
             <Image height={800} width={800} src="/bryan.png" alt="Arvo Logo" className="h-10 w-fit rounded-full" />
             <div>
               <h1 className="font-semibold text-white">Von Bryan</h1>
