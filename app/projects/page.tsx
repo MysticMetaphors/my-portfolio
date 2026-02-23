@@ -25,7 +25,7 @@ export default function projects() {
       icons: ["nextjs", "tailwindcss", "typescript", "html5"]
     },
     {
-      title: "Cake2Go",
+      title: "Slice",
       description: "A premium cake shop Demo website that offers a delightful selection of cakes for every occasion",
       image: "projects/cake2go.png",
       url: "https://cake2go.vercel.app/",
