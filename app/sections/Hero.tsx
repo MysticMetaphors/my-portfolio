@@ -16,25 +16,40 @@ export default function Hero() {
         transition={{ duration: 1 }}
         className="relative z-10 max-w-4xl"
       >
+        <div className="flex-wrap items-center justify-center md:flex hidden gap-4 mb-3">
+          <span className="bg-white/5 rounded-full border border-white/10 py-1 px-3 flex font-semibold items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-blue-primary/80 shadow-[0_0_5px_#0095ff]" />
+            Custom Design
+          </span>
+          <span className="bg-white/5 rounded-full border border-white/10 py-1 px-3 flex font-semibold items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-blue-primary/80 shadow-[0_0_5px_#0095ff]" />
+            Open for Hire
+          </span>
+          {/* <span className="bg-white/5 rounded-full border border-white/10 py-1 px-3 flex font-semibold items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-blue-primary/80 shadow-[0_0_5px_#0095ff]" />
+            Fast Development
+          </span> */}
+        </div>
         <h1 className="relative text-5xl md:text-7xl font-extrabold tracking-tight text-white leading-tight">
           Let’s Build Something
           <span className="relative inline-block border-b-5 border-blue-primary/50 pb-1 text-blue-primary">
-             <FlipWords words={["Meaningful", "Powerful", "Beautiful", "Functional"]} duration={1000}/>
+            <FlipWords words={["Meaningful", "Powerful", "Beautiful", "Functional"]} duration={1000} />
           </span>
           Together
         </h1>
 
-        <p className="mt-6 text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-          Create functional, meaningful digital experiences built with clarity, 
-          precision, and purpose — helping ideas grow into powerful solutions.
+        <p className="mt-6 text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
+          I offer <span className="font-bold">100% custom websites</span>, designed and coded from the ground up to reflect your brand.
+          You can also have access to <span className="font-bold">Reliable Maintenance</span> and {" "}
+          <span className="font-bold">Technical Support</span> of your site
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#resume" className="px-6 py-2 rounded-full bg-blue-primary shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black font-semibold hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
-            Resume
-          </a>
-          <a href="#projects" className="px-6 py-2 bg-blue-primary/5 rounded-full border border-blue-primary text-blue-primary hover:bg-blue-primary hover:text-black transition-all duration-300">
+          <a href="#projects" className="px-6 py-2 rounded-full bg-blue-primary shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black font-semibold hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
             Projects
+          </a>
+          <a href="#contact" className="px-6 py-2 bg-blue-primary/5 rounded-full border border-blue-primary text-blue-primary hover:bg-blue-primary hover:text-black transition-all duration-300">
+            Contact
           </a>
         </div>
       </motion.div>

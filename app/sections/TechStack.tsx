@@ -25,7 +25,7 @@ export default function TechStack() {
 
   return (
     <section id="techStack" className="py-20 bg-black-primary text-white">
-      <div className="max-w-6xl mx-auto px-6 text-center">
+      <div className="max-w-7xl mx-auto px-6 text-center">
         {/* Section Header */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -49,8 +49,8 @@ export default function TechStack() {
 
         <div className="flex justify-center">
           <div className="bg-gray-900 border border-gray-700 rounded-xl p-2 w-fit">
-            <div className="overflow-hidden relative bg-gray-900 border border-gray-700 rounded-xl p-6 max-w-4xl w-full">
-              <div className="relative z-100 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 justify-items-center">
+            <div className="overflow-hidden relative bg-gray-900 border border-gray-700 rounded-xl p-6 max-w-7xl w-full">
+              <div className="relative z-100 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-8 justify-items-center">
 
 
                 {stacks.map((stack, i) => (

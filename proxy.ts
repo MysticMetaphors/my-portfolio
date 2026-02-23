@@ -13,7 +13,6 @@ export async function proxy(request: NextRequest) {
 
   if (pathname.startsWith("/dashboard")) {
     const session = await auth0.getSession(request);
-    console.log(session);
 
     if (!session) {
       return NextResponse.redirect(new URL("/auth/login", request.url));

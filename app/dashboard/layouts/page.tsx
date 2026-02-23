@@ -43,54 +43,54 @@ const layoutsData = [
     preview: '/assets/previews/about-preview.webp',
     availableVariants: ['Team Grid', 'Timeline', 'Story Split', 'Statistics Focus'],
   },
+  // {
+  //   name: 'Content',
+  //   icon: AlignLeft,
+  //   href: '/dashboard/layouts/content',
+  //   description: 'Optimized reading environments with perfect line-lengths, subtle typography hierarchy, and dark mode support.',
+  //   preview: '/assets/previews/content-preview.webp',
+  //   availableVariants: ['Blog Post', 'Documentation', 'Two Column', 'Image Heavy'],
+  // },
+  // {
+  //   name: 'CTA',
+  //   icon: Zap,
+  //   href: '/dashboard/layouts/cta',
+  //   description: 'Call-to-Action blocks featuring prominent buttons and magnetic hover states to drive engagement.',
+  //   preview: '/assets/previews/cta-preview.webp',
+  //   availableVariants: ['Centered Floating', 'Full Width', 'Newsletter Signup', 'Two Option Split'],
+  // },
   {
-    name: 'Content',
-    icon: AlignLeft,
-    href: '/dashboard/layouts/content',
-    description: 'Optimized reading environments with perfect line-lengths, subtle typography hierarchy, and dark mode support.',
-    preview: '/assets/previews/content-preview.webp',
-    availableVariants: ['Blog Post', 'Documentation', 'Two Column', 'Image Heavy'],
-  },
-  {
-    name: 'CTA',
-    icon: Zap,
-    href: '/dashboard/layouts/cta',
-    description: 'Call-to-Action blocks featuring prominent buttons and magnetic hover states to drive engagement.',
-    preview: '/assets/previews/cta-preview.webp',
-    availableVariants: ['Centered Floating', 'Full Width', 'Newsletter Signup', 'Two Option Split'],
-  },
-  {
-    name: 'Navbar',
+    name: 'Navigation',
     icon: Navigation,
     href: '/dashboard/layouts/navbar',
     description: 'Responsive top-level navigation systems featuring backdrop blurs and sticky positioning.',
     preview: '/assets/previews/navbar-preview.webp',
     availableVariants: ['Simple Links', 'With Search', 'Floating Pill', 'Glassmorphism'],
   },
-  {
-    name: 'Sidebar',
-    icon: PanelLeft,
-    href: '/dashboard/layouts/sidebar',
-    description: 'Collapsible, vertical navigation structures perfect for complex dashboards and web apps.',
-    preview: '/assets/previews/sidebar-preview.webp',
-    availableVariants: ['Collapsible Mini', 'Full Width', 'With Icons Only', 'Dark Integrated'],
-  },
-  {
-    name: 'Topbar',
-    icon: PanelTop,
-    href: '/dashboard/layouts/topbar',
-    description: 'Utility-focused headers for app layouts, holding profile controls, breadcrumbs, and global search.',
-    preview: '/assets/previews/topbar-preview.webp',
-    availableVariants: ['Standard Utility', 'With Breadcrumbs', 'Minimalist User', 'Action Heavy'],
-  },
-  {
-    name: 'Mega Menu',
-    icon: LayoutGrid,
-    href: '/dashboard/layouts/mega-menu',
-    description: 'Expansive dropdown panels to organize large site architectures into readable, structured grids.',
-    preview: '/assets/previews/mega-menu-preview.webp',
-    availableVariants: ['Multi-Column', 'With Featured Image', 'Icon Grid', 'List Style'],
-  },
+  // {
+  //   name: 'Sidebar',
+  //   icon: PanelLeft,
+  //   href: '/dashboard/layouts/sidebar',
+  //   description: 'Collapsible, vertical navigation structures perfect for complex dashboards and web apps.',
+  //   preview: '/assets/previews/sidebar-preview.webp',
+  //   availableVariants: ['Collapsible Mini', 'Full Width', 'With Icons Only', 'Dark Integrated'],
+  // },
+  // {
+  //   name: 'Topbar',
+  //   icon: PanelTop,
+  //   href: '/dashboard/layouts/topbar',
+  //   description: 'Utility-focused headers for app layouts, holding profile controls, breadcrumbs, and global search.',
+  //   preview: '/assets/previews/topbar-preview.webp',
+  //   availableVariants: ['Standard Utility', 'With Breadcrumbs', 'Minimalist User', 'Action Heavy'],
+  // },
+  // {
+  //   name: 'Mega Menu',
+  //   icon: LayoutGrid,
+  //   href: '/dashboard/layouts/mega-menu',
+  //   description: 'Expansive dropdown panels to organize large site architectures into readable, structured grids.',
+  //   preview: '/assets/previews/mega-menu-preview.webp',
+  //   availableVariants: ['Multi-Column', 'With Featured Image', 'Icon Grid', 'List Style'],
+  // },
   {
     name: 'Footer',
     icon: PanelBottom,
@@ -99,38 +99,38 @@ const layoutsData = [
     preview: '/assets/previews/footer-preview.webp',
     availableVariants: ['Simple Copyright', 'Multi-Column Grid', 'Newsletter Integrated', 'Large Typography'],
   },
-  {
-    name: 'Bento',
-    icon: Grip,
-    href: '/dashboard/layouts/bento',
-    description: 'Dynamic, card-based grid layouts that create highly engaging, Apple-style content presentations.',
-    preview: '/assets/previews/bento-preview.webp',
-    availableVariants: ['3x3 Grid', 'Asymmetrical', 'Feature Highlight', 'Profile Overview'],
-  },
-  {
-    name: '404',
-    icon: SearchX,
-    href: '/dashboard/layouts/404',
-    description: 'Engaging "Page Not Found" screens that guide users back to safety with style.',
-    preview: '/assets/previews/404-preview.webp',
-    availableVariants: ['Playful Animated', 'Minimalist Text', 'Search Integrated', 'Return Home Focus'],
-  },
-  {
-    name: '500',
-    icon: ServerCrash,
-    href: '/dashboard/layouts/500',
-    description: 'Graceful error states that communicate server issues while maintaining brand consistency.',
-    preview: '/assets/previews/500-preview.webp',
-    availableVariants: ['Technical Details', 'Simple Apology', 'Support Redirect', 'Branded Illustration'],
-  },
-  {
-    name: 'Blank',
-    icon: File,
-    href: '/dashboard/layouts/blank',
-    description: 'A pure, unstyled canvas for starting completely from scratch without overriding defaults.',
-    preview: '/assets/previews/blank-preview.webp',
-    availableVariants: ['Empty Container', 'Centered Wrapper', 'Full Viewport'],
-  }
+  // {
+  //   name: 'Bento',
+  //   icon: Grip,
+  //   href: '/dashboard/layouts/bento',
+  //   description: 'Dynamic, card-based grid layouts that create highly engaging, Apple-style content presentations.',
+  //   preview: '/assets/previews/bento-preview.webp',
+  //   availableVariants: ['3x3 Grid', 'Asymmetrical', 'Feature Highlight', 'Profile Overview'],
+  // },
+  // {
+  //   name: '404',
+  //   icon: SearchX,
+  //   href: '/dashboard/layouts/404',
+  //   description: 'Engaging "Page Not Found" screens that guide users back to safety with style.',
+  //   preview: '/assets/previews/404-preview.webp',
+  //   availableVariants: ['Playful Animated', 'Minimalist Text', 'Search Integrated', 'Return Home Focus'],
+  // },
+  // {
+  //   name: '500',
+  //   icon: ServerCrash,
+  //   href: '/dashboard/layouts/500',
+  //   description: 'Graceful error states that communicate server issues while maintaining brand consistency.',
+  //   preview: '/assets/previews/500-preview.webp',
+  //   availableVariants: ['Technical Details', 'Simple Apology', 'Support Redirect', 'Branded Illustration'],
+  // },
+  // {
+  //   name: 'Blank',
+  //   icon: File,
+  //   href: '/dashboard/layouts/blank',
+  //   description: 'A pure, unstyled canvas for starting completely from scratch without overriding defaults.',
+  //   preview: '/assets/previews/blank-preview.webp',
+  //   availableVariants: ['Empty Container', 'Centered Wrapper', 'Full Viewport'],
+  // }
 ];
 
 export default function Layouts() {
@@ -176,13 +176,13 @@ export default function Layouts() {
                   </div>
 
                   {/* Variants */}
-                  <div className="mt-4 flex items-center flex-wrap gap-2">
+                  {/* <div className="mt-4 flex items-center flex-wrap gap-2">
                     {item.availableVariants.map((variant) => (
                       <span key={variant} className="px-2 py-1 text-xs font-medium text-blue-primary bg-blue-primary/10 rounded-full">
                         {variant}
                       </span>
                     ))}
-                  </div>
+                  </div> */}
 
                   {/* Footer Action */}
                   <div className="mt-6 flex items-center text-sm font-medium text-blue-primary opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">

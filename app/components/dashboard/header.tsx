@@ -29,11 +29,7 @@ export default function Header({ title, subtitle, children }: HeaderProps) {
   }, [isOpen]);
 
   return (
-    <div className="flex h-[65px] bg-eerie-black px-8 py-[25px] border-b border-charleston-green flex-col md:flex-row justify-between items-start md:items-center gap-4">
-      <div>
-        <h1 className="text-2xl font-bold text-white">{title}</h1>
-        <p className="text-gray-500 text-sm">{subtitle}</p>
-      </div>
+    <div className="flex h-[65px] bg-eerie-black px-8 py-[25px] border-b border-charleston-green flex-col md:flex-row justify-end items-start md:items-center gap-4">
       <div className="flex gap-3">
         {children}
         <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer relative">

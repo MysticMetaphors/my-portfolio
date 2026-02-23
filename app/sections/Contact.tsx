@@ -92,15 +92,15 @@ export default function Contact({ onView }: ContactProp) {
                   {...animationY}
                   transition={{ duration: 0.5, delay: 0 * 0.1, ease: "easeOut" }}
                   className="mb-4 text-4xl leading-tight font-extrabold text-white">
-                  Let’s <span className="text-blue-primary">Connect</span>
+                  Let's <span className="text-blue-primary">Connect</span>
                 </motion.h2>
                 <motion.p
                   initial={{ opacity: 0, y: 40 }}
                   {...animationY}
                   transition={{ duration: 0.5, delay: 0 * 0.1, ease: "easeOut" }}
                   className="text-gray-400 md:text-lg text-md text-justify mb-8">
-                  Let’s build something meaningful together. If you have questions, need guidance,
-                  or want to start a project, I’m ready to support you every step of the way.
+                  Send email to me with all the details you want for your new website, and I'll get back to you within 24 hours. 
+                  Prefer to talk? Give me a call to connect right away. If I can't answer right away, I'll return your call the same day.
                 </motion.p>
 
                 <div className="space-y-8 md:p-8">
