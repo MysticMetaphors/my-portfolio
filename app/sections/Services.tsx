@@ -1,8 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { WavyBackground } from "../components/ui/wavy-background"
-import { CircleGauge, ComputerIcon, FastForward, Settings, TabletSmartphone } from "lucide-react"
+import {  Database, FastForward, GitFork, KeyRound, Settings, TabletSmartphone } from "lucide-react"
 
 export default function Services() {
   const services = [
@@ -24,7 +23,24 @@ export default function Services() {
       icon: Settings,
       link_to: "/contact"
     },
-
+    {
+      name: "Security Implementation",
+      description: "I implement authentication, role-based access control, secure data validation, and encryption standards to ensure your system stay protected and secure.",
+      icon: KeyRound,
+      link_to: "/contact"
+    },
+    {
+      name: "Database Design",
+      description: "I design and create normalized, efficient database structures and optimize queries to ensure fast performance and accurate data handling.",
+      icon: Database,
+      link_to: "/contact"
+    },
+    {
+      name: "API Development",
+      description: "I develop secure and scalable APIs that connects between systems that allow them to comunicate effeciently and seamlessly.",
+      icon: GitFork,
+      link_to: "/contact"
+    }
   ]
 
   return (

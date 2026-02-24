@@ -5,6 +5,8 @@ import { WavyBackground } from "../components/ui/wavy-background"
 import Image from "next/image"
 import { downloadResume } from "@/lib/utils"
 import DefaultLayout from "../components/layouts/DefaultLayout"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faDownload } from "@fortawesome/free-solid-svg-icons"
 
 export default function resume() {
   const exprience = [
@@ -206,7 +208,7 @@ export default function resume() {
               </div>
             </div>
             <button onClick={downloadResume} className="fixed z-50 bottom-5 left-5 cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-gray-900 font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
-              <i className="fa-solid fa-download mr-2"></i>Resume
+              <FontAwesomeIcon icon={faDownload} className="mr-1"/> Resume
             </button>
           </div>
         </div>
