@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import { appendToast } from "@/lib/global";
 import { WavyBackground } from "../components/ui/wavy-background";
 import { useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 // import { sub } from "framer-motion/client";
 
 type ContactProp = {
@@ -109,24 +112,25 @@ export default function Contact({ onView }: ContactProp) {
                     {...animationX}
                     transition={{ duration: 0.5, delay: 0 * 0.1, ease: "easeOut" }}
                     className="flex gap-4 items-center">
-                    <li className="fa-solid fa-envelope text-lg p-2 rounded-sm bg-blue-primary/30"></li>
-                    <p className="text-md">vonbanalbryan18v@gmail.com</p>
+                    <FontAwesomeIcon icon={faEnvelope} className="text-xl p-1.5 rounded-sm bg-blue-primary/30"/>
+                    <a href="mailto:vonbanalbryan18v@gmail.com" className="text-md underline underline-offset-5">vonbanalbryan18v@gmail.com</a>
                   </motion.div>
                   <motion.div
                     initial={{ opacity: 0, x: -40 }}
                     {...animationX}
                     transition={{ duration: 0.5, delay: 1 * 0.1, ease: "easeOut" }}
                     className="flex gap-4 items-center">
-                    <li className="fa-solid fa-phone text-lg p-2 rounded-sm bg-blue-primary/30"></li>
-                    <p className="text-md">+63 960 687 4147</p>
+                    <FontAwesomeIcon icon={faPhone} className="text-xl p-1.5 rounded-sm bg-blue-primary/30"/>
+                    <a href="tel:+639606874147" className="text-md underline underline-offset-5"><span className="font-bold">(+63)</span>-960-687-4147</a>
                   </motion.div>
                   <motion.a
                     initial={{ opacity: 0, x: -40 }}
                     {...animationX}
+                    target="_blank"
                     transition={{ duration: 0.5, delay: 2 * 0.1, ease: "easeOut" }}
                     href="https://www.linkedin.com/in/von-bryan-ba%C3%B1al-1a1188314/"
                     className="flex gap-4 items-center">
-                    <li className="fa-brands fa-linkedin-in bg-blue-primary/70 px-2 text-xl p-1.5 rounded"></li>
+                    <FontAwesomeIcon icon={faLinkedinIn} className="bg-blue-primary/70 text-xl p-1.5 rounded"/>
                     <p className="text-md underline underline-offset-5">Von Bryan</p>
                   </motion.a>
                 </div>
@@ -148,7 +152,7 @@ export default function Contact({ onView }: ContactProp) {
                       type="text"
                       id="name"
                       name="name"
-                      placeholder="Enter your name"
+                      placeholder="Your name"
                       className="w-full p-3 py-2 rounded-sm bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-primary"
                     />
                   </div>
@@ -160,7 +164,7 @@ export default function Contact({ onView }: ContactProp) {
                         type="email"
                         id="email"
                         name="email"
-                        placeholder="Enter your email"
+                        placeholder="example@gmail.com"
                         className="w-full p-3 py-2 rounded-sm bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-primary"
                       />
                     </div>
@@ -171,7 +175,7 @@ export default function Contact({ onView }: ContactProp) {
                         type="tel"
                         id="number"
                         name="number"
-                        placeholder="Enter your phone number"
+                        placeholder="+1-800-123-4567"
                         className="w-full p-3 py-2 rounded-sm bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-primary"
                       />
                     </div>
@@ -182,7 +186,7 @@ export default function Contact({ onView }: ContactProp) {
                     <textarea
                       id="message"
                       name="message"
-                      placeholder="Write your message here..."
+                      placeholder="Describe your project idea..."
                       rows={5}
                       className="w-full p-3 py-2 rounded-sm bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-primary"
                     ></textarea>

@@ -1,5 +1,7 @@
 "use client";
 
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 
 export default function ScrollToTopButton() {
@@ -21,12 +23,12 @@ export default function ScrollToTopButton() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 z-50 p-3 py-2 rounded-full bg-blue-primary text-gray-900 hover:bg-blue-primary/60 hover:text-white cursor-pointer shadow-lg transition-opacity duration-300 ${
+      className={`fixed bottom-6 right-6 z-50 p-2 rounded-full bg-blue-primary text-gray-900 hover:bg-blue-primary/60 hover:text-white cursor-pointer shadow-lg transition-opacity duration-300 ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       aria-label="Scroll to top"
     >
-      <i className="fa-solid fa-chevron-up text-lg"></i>
+      <FontAwesomeIcon icon={faChevronUp} className="text-xl"/>
     </button>
   );
 }

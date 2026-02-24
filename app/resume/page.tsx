@@ -152,7 +152,7 @@ export default function resume() {
                       <div className="mt-4 flex flex-wrap gap-2">
                         {exp.techstack.map((tech, i) => (
                           <span key={i} className="px-3 py-1 text-xs rounded-md bg-gray-800 border border-gray-700 text-gray-300">
-                            <img src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${tech.stack}/${tech.icon}`} className="h-6 w-fit" />
+                            <Image alt={tech.stack} height={100} width={100} quality={75} src={`/techstack/${tech.icon}`} className="h-6 w-fit" />
                           </span>
                         ))}
                       </div>
@@ -192,11 +192,12 @@ export default function resume() {
                     viewport={{ once: true }}
                     className="flex flex-col hover:border-blue-primary items-center justify-center shadow-md p-6 w-32 h-32 rounded-xl transition-all duration-500 border border-gray-200 text-black bg-gray-800/[0.50] border-white/10 text-gray-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-lg"
                   >
-                    <img
+                    <Image
                       alt={stack.name}
                       width={400}
                       height={400}
-                      src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${stack.icon}/${stack.img}`}
+                      quality={75}
+                      src={`/techstack/${stack.img}`}
                       className={`w-13 mb-3 ${stack.name === "WordPress" ? "invert-100 brightness-0" : ""}`} // if wordpress turn the logo white
                     />
                     <span className="text-sm font-medium">{stack.name}</span>

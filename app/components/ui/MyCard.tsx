@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ArrowUpRightFromSquare } from "lucide-react";
 
 type ArvoCardProps = {
   title?: string;
@@ -54,6 +56,7 @@ export default function MyCard({
         alt={title}
         width={800}
         height={800}
+        quality={75}
         className="h-[48%] w-full object-cover rounded-t-lg transition-opacity duration-300"
       />
 
@@ -63,18 +66,18 @@ export default function MyCard({
           <div>
             <h3 className="text-white lg:text-lg mb:text-md font-semibold tracking-tight mb-2">{title}</h3>
             <p className="text-gray-400 lg:text-md md:text-md mb-2">{description}</p>
-            <div className="flex justify-between sm:flex-row flex-col gap-4 mt-4">
+            <div className="flex justify-between flex-row gap-4 mt-4">
               <div className="flex flex-wrap gap-4">
                 {icons ?
                   icons.map((icon, i) => (
-                    <Image key={i} width={800} height={800} alt={icon} src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${icon}/${icon}-original.svg`} className="w-6" />
+                    <Image key={i} width={10} height={10} quality={75} alt={icon} src={`/techstack/${icon}-original.svg`} className="w-6 grayscale-100 group-hover:grayscale-0" />
                   ))
                   : ''}
 
               </div>
               {url ?
-                <a href={url} target="_blank" className="px-2 py-1 w-fit bg-blue-primary/5 rounded-sm border border-blue-primary/20 text-blue-primary/60 hover:bg-blue-primary hover:text-black transition-all duration-300">
-                  <i className="fa-solid fa-arrow-up-right-from-square mr-1"></i> Live
+                <a href={url} target="_blank" className="px-2 flex justify-center items-center gap-2 py-1 w-fit h-fit mt-auto bg-blue-primary/5 rounded-sm border border-blue-primary/20 text-blue-primary/60 hover:bg-blue-primary hover:text-black transition-all duration-300">
+                  <ArrowUpRightFromSquare size={18} /> Live
                 </a>
                 : ''}
             </div>
