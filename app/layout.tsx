@@ -4,6 +4,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 import Providers from "@/providers/provide";
 import { auth0 } from "@/lib/auth0";
+import { domMax, LazyMotion } from "framer-motion";
 
 export const metadata: Metadata = {
   title: "Von Bryan | Creative Web Solutions",
@@ -78,7 +79,9 @@ export default async function RootLayout({
         {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /> */}
 
         <Providers initialUser={user}>
-          {children}
+          <LazyMotion features={domMax}>
+            {children}
+          </LazyMotion>
         </Providers>
 
         <Analytics />

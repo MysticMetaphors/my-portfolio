@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link";
 import MyCard from "../components/ui/MyCard";
 import { motion } from "framer-motion";
 import { WavyBackground } from "../components/ui/wavy-background";

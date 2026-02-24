@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ArrowUpRightFromSquare } from "lucide-react";
 
 type ArvoCardProps = {
@@ -19,7 +19,7 @@ type ArvoCardProps = {
 export default function MyCard({
   title = '',
   description = '',
-  design,
+  // design,
   url,
   image = '',
   icons = [],

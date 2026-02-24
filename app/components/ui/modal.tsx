@@ -1,6 +1,6 @@
 export default function Modal({
-  open,
-  onOpenChange,
+  // open,
+  // onOpenChange,
   children,
 }: {
   open: boolean;
