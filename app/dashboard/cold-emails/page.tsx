@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 // import { sendEmail } from "@/app/actions/sendEmail";
 import Header from "@/app/components/dashboard/header";
 import { appendToast } from "@/lib/global";
+import { Loader } from "lucide-react";
 
 export default function EmailManager() {
   const [loading, setLoading] = useState(false)
@@ -89,7 +90,7 @@ export default function EmailManager() {
             
             <tr>
                 <td>
-                    <img src="https://von-bryan-five-92.vercel.app/email.png" alt="Smartphone" width="100%" style="display: block; width: 100%; height: auto; object-fit: cover;">
+                    <img src="https://von-bryan-five-92.vercel.app/email_bg.png" alt="Smartphone" width="100%" style="display: block; width: 100%; height: auto; object-fit: cover;">
                 </td>
             </tr>
 
@@ -178,23 +179,27 @@ export default function EmailManager() {
 </html>
     `;
 
-      const res = await fetch("/api/emailer", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          to: formData.email,
-          subject: "Ready to take your business online?",
-          html: emailHtml, // Using the new HTML content
-        }),
-      });
+      if (formData.name && formData.email) {
+        const res = await fetch("/api/emailer", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            to: formData.email,
+            subject: "Ready to take your business online?",
+            html: emailHtml,
+          }),
+        });
 
-      const data = await res.json();
-      appendToast('append-toast', 'success', `Email sent to ${formData.name}`);
-      setFormData({
-        name: '',
-        email: ''
-      })
-      console.log(data);
+        const data = await res.json();
+        appendToast('append-toast', 'success', `Email sent to ${formData.name}`);
+        setFormData({
+          name: '',
+          email: ''
+        })
+        return
+      }
+
+      appendToast('append-toast', 'error', `Fill all fields`);
 
     } catch (error) {
       console.error("Error sending email:", error);
@@ -229,6 +234,7 @@ export default function EmailManager() {
               name="name"
               type="text"
               id="name"
+              value={formData.name}
               onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value, }))}
               className="p-2 px-3 bg-white/5 border border-white/10 rounded-sm outline-none focus:border-blue-500"
               placeholder="Recipient Name"
@@ -243,43 +249,15 @@ export default function EmailManager() {
               placeholder="recipient@gmail.com"
             />
           </div>
-          <button type="submit" className="bg-blue-600 hover:bg-blue-500 p-2 px-6 rounded-sm transition-colors cursor-pointer">
-            Send Email
+          <button type="submit" className="p-2 px-6 bg-blue-primary shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black font-semibold hover:shadow-[0_0_40px_#0095ff] rounded-sm transition-all cursor-pointer">
+            {loading ?
+            <Loader className="animate-spin"/>
+            : "Send Email"
+            }
           </button>
         </form>
 
-        {/* Table Section */}
-        {/* <div className="w-full h-80 bg-charleston-green border border-white/10 rounded-md overflow-hidden">
-          <table className="w-full text-left border-collapse">
-            <thead className="bg-white/5 text-xs uppercase text-gray-400">
-              <tr>
-                <th className="p-3 border-b border-white/10">Name</th>
-                <th className="p-3 border-b border-white/10">Email</th>
-                <th className="p-3 border-b border-white/10">Time</th>
-                <th className="p-3 border-b border-white/10">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {history.map((item) => (
-                <tr key={item.id} className="border-b border-white/5 hover:bg-white/2">
-                  <td className="p-3 text-sm">{item.name}</td>
-                  <td className="p-3 text-sm text-gray-300">{item.email}</td>
-                  <td className="p-3 text-xs text-gray-500">{item.date}</td>
-                  <td className="p-3">
-                    <span className="text-[10px] bg-green-500/20 text-green-400 px-2 py-1 rounded-full uppercase font-bold">
-                      {item.status}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-              {history.length === 0 && (
-                <tr>
-                  <td colSpan={4} className="p-10 text-center text-gray-500 italic">No emails sent yet.</td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div> */}
+
       </div>
     </>
   );

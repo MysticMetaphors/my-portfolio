@@ -9,32 +9,48 @@ type ToastProps = {
 }
 
 export default function Toast({ theme, text }: ToastProps) {
+  const isError = theme === "error";
+
   return (
-  <motion.div
-    initial={{ opacity: 0, x: -20 }}          
-    animate={{ opacity: 1, x: 0 }}            
-    transition={{ duration: 0.5, ease: "easeOut" }} 
-    exit={{ opacity: 0, x: 50 }}              
-  >
     <motion.div
-      initial={{ opacity: 1, x: -40 }}
-      animate={{ opacity: 0, x: 0}}
-      transition={{ delay: 4, duration: 1, ease: "easeOut" }} // fade out at 4s
-      className="max-w-md border text-sm rounded-lg bg-gray-900 border-white/20 text-white"
-      role="alert"
+      initial={{ opacity: 0, y: 20, scale: 0.1 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
+      transition={{ type: "spring", stiffness: 300, damping: 25 }}
+      className="relative overflow-hidden"
     >
-      <div id="hs-toast-soft-color-dark-label" className="flex p-4">
+      <div 
+        className={`
+          flex items-center min-w-[200px] max-w-md p-2 rounded-md border shadow-2xl backdrop-blur-md
+          ${isError 
+            ? "bg-white/5 border-white/10 text-red-100" 
+            : "bg-emerald-950/20 border-emerald-500/50 text-emerald-200"}
+        `}
+      >
+        {/* Status Icon with subtle glow */}
         <div className="shrink-0 mr-4">
-          {theme === "error" ? (
-            <XCircle className="text-lg text-red-400"/>
+          {isError ? (
+            <XCircle className="w-6 h-6 text-red-400 drop-shadow-[0_0_8px_rgba(248,113,113,0.5)]" />
           ) : (
-            <CheckCircle className="text-lg text-green-500"/>
+            <CheckCircle className="w-6 h-6 text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
           )}
         </div>
-        <p className="mr-3">{text ? text : "Message Sent."}</p>
+
+        {/* Text Content */}
+        <div className="flex-1">
+          <p className="text-sm font-medium tracking-wide">
+            {text || (isError ? "Something went wrong" : "Action Successful")}
+          </p>
+        </div>
+
+        {/* Animated Progress Bar (Visual Timer) */}
+        <motion.div
+          initial={{ width: "100%" }}
+          animate={{ width: "0%" }}
+          transition={{ duration: 4, ease: "linear" }}
+          className={`absolute bottom-0 left-0 h-[3px] ${isError ? "bg-red-500" : "bg-emerald-500"}`}
+        />
       </div>
     </motion.div>
-  </motion.div>
-
-  )
-}
+  );
+};
