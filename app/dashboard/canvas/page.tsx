@@ -165,7 +165,7 @@ export default function CanvasPage() {
         </section>
 
 
-        <div className="flex flex-col items-center gap-4 mt-4">
+        {/* <div className="flex flex-col items-center gap-4 mt-4">
           <div className="flex items-center gap-2">
             <button className="bg-brand-primary text-white px-8 py-3 rounded-md font-bold uppercase tracking-wider text-sm hover:bg-brand-primary transition-all shadow-xl shadow-brand-primary/30 flex items-center justify-center gap-2 group">Primary</button>
             <button className="bg-white border-2 border-brand-primary text-brand-primary p-2 rounded-full font-bold uppercase tracking-wider text-sm hover:bg-brand-primary hover:text-white transition-all flex items-center justify-center">
@@ -193,7 +193,7 @@ export default function CanvasPage() {
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
 
     </>

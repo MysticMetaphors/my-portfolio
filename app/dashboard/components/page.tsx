@@ -29,14 +29,14 @@ export const componentsData = [
     preview: '/assets/previews/button-preview.webp',
     availableVariants: ['Primary', 'Secondary', 'Outline', 'Ghost', 'Icon Only'],
   },
-  {
-    name: 'Card',
-    icon: PanelTop,
-    href: '/dashboard/components/card',
-    description: 'Minimalist container elements that group related content using ample whitespace and subtle borders.',
-    preview: '/assets/previews/card-preview.webp',
-    availableVariants: ['Default', 'Glassmorphism', 'Interactive Hover', 'Stat Card'],
-  },
+  // {
+  //   name: 'Card',
+  //   icon: PanelTop,
+  //   href: '/dashboard/components/card',
+  //   description: 'Minimalist container elements that group related content using ample whitespace and subtle borders.',
+  //   preview: '/assets/previews/card-preview.webp',
+  //   availableVariants: ['Default', 'Glassmorphism', 'Interactive Hover', 'Stat Card'],
+  // },
   // {
   //   name: 'Dropdown',
   //   icon: MenuSquare,

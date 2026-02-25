@@ -1,7 +1,9 @@
 'use client';
 
 import { useAuth } from "@/hook/useAuth";
-import { LogOut, Settings } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { LogOut, Mail, Settings } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 interface HeaderProps {
@@ -29,9 +31,12 @@ export default function Header({ title, subtitle, children }: HeaderProps) {
   }, [isOpen]);
 
   return (
-    <div className="flex h-[65px] bg-eerie-black px-8 py-[25px] border-b border-charleston-green flex-col md:flex-row justify-end items-start md:items-center gap-4">
-      <div className="flex gap-3">
+    <div className="flex h-[65px] bg-eerie-black px-8 py-[25px] border-b border-charleston-green flex-col md:flex-row justify-end items-center md:items-center gap-4">
+      <div className="flex gap-3 items-center">
         {children}
+        <Link href="/dashboard/cold-emails" className="text-[#A0A0A0] border border-transparent hover:bg-charleston-green hover:text-white p-2 rounded-sm">
+          <Mail size={20}/>
+        </Link>
         <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer relative">
           <img src={user.picture} alt="" className="w-8 h-8 rounded-full" />
         </div>

@@ -6,13 +6,13 @@ import Link from 'next/link'; // Assuming you are using Next.js
 import Header from '../components/dashboard/header';
 
 const dashboardItems = [
-  {
-    name: 'Templates',
-    icon: Box,
-    href: '/dashboard/templates',
-    description: 'Complete, responsive webpage templates for quick starts and rapid prototyping.',
-    count: 12,
-  },
+  // {
+  //   name: 'Templates',
+  //   icon: Box,
+  //   href: '/dashboard/templates',
+  //   description: 'Complete, responsive webpage templates for quick starts and rapid prototyping.',
+  //   count: 12,
+  // },
   {
     name: 'Components',
     icon: Component,
@@ -20,27 +20,27 @@ const dashboardItems = [
     description: 'Pre-built, modular UI elements like badges, buttons, and intricate cards.',
     count: 48,
   },
-  {
-    name: 'AI Prompts',
-    icon: Sparkles, // Using Sparkles as the standard Lucide equivalent to Sparkle
-    href: '/dashboard/ai-prompts',
-    description: 'A curated library of highly effective prompts to accelerate LLM workflows.',
-    count: 24,
-  },
-  {
-    name: 'Utilities',
-    icon: SquareDashed, // Closest standard Lucide icon to VectorSquare
-    href: '/dashboard/utilities',
-    description: 'Handy CSS/JS utilities, custom hooks, and layout helper functions.',
-    count: 18,
-  },
-  {
-    name: 'Scripts',
-    icon: Code,
-    href: '/dashboard/scripts',
-    description: 'Reusable code snippets, backend logic, and automation scripts.',
-    count: 35,
-  },
+  // {
+  //   name: 'AI Prompts',
+  //   icon: Sparkles, 
+  //   href: '/dashboard/ai-prompts',
+  //   description: 'A curated library of highly effective prompts to accelerate LLM workflows.',
+  //   count: 24,
+  // },
+  // {
+  //   name: 'Utilities',
+  //   icon: SquareDashed, 
+  //   href: '/dashboard/utilities',
+  //   description: 'Handy CSS/JS utilities, custom hooks, and layout helper functions.',
+  //   count: 18,
+  // },
+  // {
+  //   name: 'Scripts',
+  //   icon: Code,
+  //   href: '/dashboard/scripts',
+  //   description: 'Reusable code snippets, backend logic, and automation scripts.',
+  //   count: 35,
+  // },
 ];
 
 export default function DashboardGrid() {

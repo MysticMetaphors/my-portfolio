@@ -204,10 +204,6 @@ export default function Contact({ onView }: ContactProp) {
           </div>
         </div>
       </WavyBackground>
-      {/* toast append */}
-      <div id="append-toast" className="w-fit space-y-3 fixed top-5 left-10 md:left-15 z-100 flex flex-col">
-
-      </div>
     </section>
   )
 }

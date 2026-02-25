@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { CheckCircle, XCircle } from "lucide-react";
 
 type ToastProps = {
   theme?: string,
@@ -25,9 +26,9 @@ export default function Toast({ theme, text }: ToastProps) {
       <div id="hs-toast-soft-color-dark-label" className="flex p-4">
         <div className="shrink-0 mr-4">
           {theme === "error" ? (
-            <i className="fa-solid text-lg fa-circle-xmark text-red-400"></i>
+            <XCircle className="text-lg text-red-400"/>
           ) : (
-            <i className="fa-solid text-lg fa-circle-check text-green-500"></i>
+            <CheckCircle className="text-lg text-green-500"/>
           )}
         </div>
         <p className="mr-3">{text ? text : "Message Sent."}</p>
