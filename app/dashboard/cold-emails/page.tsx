@@ -1,27 +1,78 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-// import { sendEmail } from "@/app/actions/sendEmail";
+import { FormEvent, useEffect, useState } from "react";
 import Header from "@/app/components/dashboard/header";
 import { appendToast } from "@/lib/global";
 import { Loader } from "lucide-react";
 
+type EmailRecord = {
+  id: number;
+  name: string;
+  sent_to: string;
+  sent_by: string;
+  custom_id: string;
+  created_at: string;
+}
+
 export default function EmailManager() {
   const [loading, setLoading] = useState(false)
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState<EmailRecord[]>([]);
   const [formData, setFormData] = useState({
     name: '',
     email: ''
   })
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch("/api/emailer", {
+          method: "GET",
+        });
+
+        if (!response.ok) {
+          throw new Error(`Failed to fetch: ${response.statusText}`);
+        }
+
+        const emails = await response.json();
+        setHistory(emails)
+
+
+      } catch (error) {
+        console.error("Error loading email history:", error);
+        appendToast('append-toast', 'danger', "Failed to load email history.");
+      }
+    }
+
+    fetchData()
+  }, [])
+  console.log("history:", history)
+
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+  };
+
   const sendEmail = async (e: FormEvent) => {
     e.preventDefault()
-    try {
-      setLoading(true);
+    if (formData.name && formData.email) {
+      // 1. Prepare data
+      const customId = window.crypto.randomUUID();
+      const payloadContact = {
+        name: formData.name,
+        email: formData.email,
+        custom_id: customId,
+      };
 
-      // We wrap your entire Tabular HTML inside these backticks
-      const emailHtml = `
-<!DOCTYPE html>
+      const payloadEmail = {
+        to: formData.email,
+        name: formData.name,
+        subject: "Ready to take your business online?",
+        html: `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -176,42 +227,50 @@ export default function EmailManager() {
     </center>
 
 </body>
-</html>
-    `;
+</html>`,
+      }
 
-      if (formData.name && formData.email) {
-        const res = await fetch("/api/emailer", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            to: formData.email,
-            subject: "Ready to take your business online?",
-            html: emailHtml,
+      setLoading(true)
+      try {
+        const [ 
+          emailRes, 
+          // contactRes
+        ] = await Promise.all([
+          fetch("/api/emailer", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payloadEmail),
           }),
-        });
+          // fetch("/api/contact", {
+          //   method: "POST",
+          //   headers: { "Content-Type": "application/json" },
+          //   body: JSON.stringify(payloadContact),
+          // })
+        ]);
 
-        const data = await res.json();
-        appendToast('append-toast', 'success', `Email sent to ${formData.name}`);
+        if (emailRes.ok) {
+          setLoading(false)
+          appendToast('append-toast', 'success', `Email sent to ${formData.name}`);
+          setFormData({
+            name: '',
+            email: ''
+          });
+        } else {
+          setLoading(false)
+          const errorMsg = !emailRes.ok ? "Email failed to send" : "Contact failed to save";
+          appendToast('append-toast', 'danger', errorMsg);
+        }
+      } catch (error) {
+        setLoading(false)
+        appendToast('append-toast', 'error', `Failed to send Email to ${formData.name}`);
         setFormData({
           name: '',
           email: ''
         })
-        return
       }
-
-      appendToast('append-toast', 'error', `Fill all fields`);
-
-    } catch (error) {
-      console.error("Error sending email:", error);
-      appendToast('append-toast', 'error', `Failed to send Email to ${formData.name}`);
-      setFormData({
-        name: '',
-        email: ''
-      })
-    } finally {
-      setLoading(false);
     }
-  };
+    return appendToast('append-toast', 'error', 'Fill all fields')
+  }
 
   return (
     <>
@@ -249,15 +308,77 @@ export default function EmailManager() {
               placeholder="recipient@gmail.com"
             />
           </div>
-          <button type="submit" className="p-2 px-6 bg-blue-primary shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black font-semibold hover:shadow-[0_0_40px_#0095ff] rounded-sm transition-all cursor-pointer">
+          <button type="submit" disabled={loading} className="p-2 px-6 bg-blue-primary shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black font-semibold hover:shadow-[0_0_40px_#0095ff] rounded-sm transition-all cursor-pointer">
             {loading ?
-            <Loader className="animate-spin"/>
-            : "Send Email"
+              <Loader className="animate-spin" />
+              : "Send Email"
             }
           </button>
         </form>
 
+        <div className="overflow-hidden rounded-md border border-white/10 bg-charleston-green shadow-2xl">
+          <table className="min-w-full divide-y divide-white/10 text-sm">
+            <thead className="bg-white/5">
+              <tr>
+                <th className="whitespace-nowrap px-6 py-4 text-left font-semibold text-white tracking-wider">
+                  Recipient
+                </th>
+                <th className="whitespace-nowrap px-6 py-4 text-left font-semibold text-white tracking-wider">
+                  Email Address
+                </th>
+                <th className="whitespace-nowrap px-6 py-4 text-left font-semibold text-white tracking-wider">
+                  Sent_by
+                </th>
+                <th className="whitespace-nowrap px-6 py-4 text-left font-semibold text-white tracking-wider">
+                  Date Sent
+                </th>
+                <th className="whitespace-nowrap px-6 py-4 text-left font-semibold text-white tracking-wider">
+                  Tracking ID
+                </th>
+              </tr>
+            </thead>
 
+            <tbody className="divide-y divide-white/5">
+              {history.length > 0 ? (
+                history.map((item) => (
+                  <tr
+                    key={item.id}
+                    className="hover:bg-white/[0.03] transition-colors duration-200 group"
+                  >
+                    <td className="whitespace-nowrap px-6 py-4">
+                      <span className="font-medium text-white group-hover:text-blue-400 transition-colors">
+                        {item.name || "Unnamed Contact"}
+                      </span>
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-white/70">
+                      {item.sent_to}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-white/70">
+                      {item.sent_by.slice(0, 14)}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-white/50">
+                      {formatDate(item.created_at)}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4">
+                      <span className="rounded-md bg-white/5 px-2 py-1 font-mono text-xs text-white/40 border border-white/10">
+                        {item.custom_id.split('-')[0]}...
+                      </span>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={4} className="px-6 py-12 text-center">
+                    <div className="flex flex-col items-center justify-center space-y-2">
+                      <span className="text-white/20 text-lg">No records found</span>
+                      <p className="text-white/10 text-xs">When you send emails, they will appear here.</p>
+                    </div>
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
