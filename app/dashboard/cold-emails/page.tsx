@@ -368,7 +368,7 @@ export default function EmailManager() {
                 ))
               ) : (
                 <tr>
-                  <td colSpan={4} className="px-6 py-12 text-center">
+                  <td colSpan={5} className="px-6 py-12 text-center">
                     <div className="flex flex-col items-center justify-center space-y-2">
                       <span className="text-white/20 text-lg">No records found</span>
                       <p className="text-white/10 text-xs">When you send emails, they will appear here.</p>
