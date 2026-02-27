@@ -9,6 +9,7 @@ type EmailRecord = {
   id: number;
   name: string;
   sent_to: string;
+  social: string;
   sent_by: string;
   custom_id: string;
   created_at: string;
@@ -19,7 +20,8 @@ export default function EmailManager() {
   const [history, setHistory] = useState<EmailRecord[]>([]);
   const [formData, setFormData] = useState({
     name: '',
-    email: ''
+    email: '',
+    social: ''
   })
 
   useEffect(() => {
@@ -59,7 +61,7 @@ export default function EmailManager() {
 
   const sendEmail = async (e: FormEvent) => {
     e.preventDefault()
-    if (formData.name && formData.email) {
+    if (formData.name && formData.email && formData.social) {
       // 1. Prepare data
       const customId = window.crypto.randomUUID();
       const payloadContact = {
@@ -71,6 +73,7 @@ export default function EmailManager() {
       const payloadEmail = {
         to: formData.email,
         name: formData.name,
+        social: formData.social,
         subject: "Ready to take your business online?",
         html: `<!DOCTYPE html>
 <html lang="en">
@@ -232,8 +235,8 @@ export default function EmailManager() {
 
       setLoading(true)
       try {
-        const [ 
-          emailRes, 
+        const [
+          emailRes,
           // contactRes
         ] = await Promise.all([
           fetch("/api/emailer", {
@@ -253,7 +256,8 @@ export default function EmailManager() {
           appendToast('append-toast', 'success', `Email sent to ${formData.name}`);
           setFormData({
             name: '',
-            email: ''
+            email: '',
+            social: ''
           });
           return
         } else {
@@ -267,7 +271,8 @@ export default function EmailManager() {
         appendToast('append-toast', 'error', `Failed to send Email to ${formData.name}`);
         setFormData({
           name: '',
-          email: ''
+          email: '',
+          social: ''
         })
       }
     }
@@ -309,6 +314,15 @@ export default function EmailManager() {
               className="p-2 px-3 bg-white/5 border border-white/10 rounded-sm outline-none focus:border-blue-500"
               placeholder="recipient@gmail.com"
             />
+            <input
+              name="social"
+              type="text"
+              id="social"
+              value={formData.social}
+              onChange={(e) => setFormData((prev) => ({ ...prev, social: e.target.value, }))}
+              className="p-2 px-3 bg-white/5 border border-white/10 rounded-sm outline-none focus:border-blue-500"
+              placeholder="Recipient Social Link"
+            />
           </div>
           <button type="submit" disabled={loading} className="p-2 px-6 bg-blue-primary shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black font-semibold hover:shadow-[0_0_40px_#0095ff] rounded-sm transition-all cursor-pointer">
             {loading ?
@@ -327,6 +341,9 @@ export default function EmailManager() {
                 </th>
                 <th className="whitespace-nowrap px-6 py-4 text-left font-semibold text-white tracking-wider">
                   Email Address
+                </th>
+                <th className="whitespace-nowrap px-6 py-4 text-left font-semibold text-white tracking-wider">
+                  Socials
                 </th>
                 <th className="whitespace-nowrap px-6 py-4 text-left font-semibold text-white tracking-wider">
                   Sent_by
@@ -354,6 +371,9 @@ export default function EmailManager() {
                     </td>
                     <td className="whitespace-nowrap px-6 py-4 text-white/70">
                       {item.sent_to}
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-white/70">
+                      {item.social}
                     </td>
                     <td className="whitespace-nowrap px-6 py-4 text-white/70">
                       {item.sent_by.slice(0, 14)}

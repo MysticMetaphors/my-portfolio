@@ -21,7 +21,6 @@ export async function GET(req: NextRequest) {
     // Table names with hyphens must be in double quotes
     const sentEmails = await sql`
       SELECT * FROM "cold-email"
-      WHERE sent_by = ${user.sub}
       ORDER BY created_at DESC
     `;
 
@@ -46,7 +45,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { to, subject, html, name } = body;
+    const { to, subject, html, name, social } = body;
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -66,8 +65,8 @@ export async function POST(req: NextRequest) {
     const customId = crypto.randomUUID();
 
     const result = await sql`
-      INSERT INTO "cold-email" (custom_id, name, sent_to, sent_by)
-      VALUES (${customId}, ${name}, ${to}, ${user.sub})
+      INSERT INTO "cold-email" (custom_id, name, sent_to, sent_by, social)
+      VALUES (${customId}, ${name}, ${to}, ${user.sub}, ${social})
       RETURNING *
     `;
     console.log("executed: ", result)
