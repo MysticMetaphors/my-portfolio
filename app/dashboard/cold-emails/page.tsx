@@ -157,11 +157,11 @@ export default function EmailManager() {
                     </h1>
                     
                     <p style="font-size: 15px; color: #4a4a4a; line-height: 1.6; margin: 0 0 20px 0;">
-                        having a website landing page today is crucial for any growing business. A well-built website landing page increases your visibility, builds credibility, and gives customers the best way to explore your products and services anytime, anywhere.
+                        having a <span style="font-weight: bold;">website landing page</span> today is crucial for any growing business. A well-built website increases your visibility, builds credibility, and gives customers the best way to explore your products and services anytime, anywhere.
                     </p>
                     
                     <p style="font-size: 15px; color: #4a4a4a; line-height: 1.6; margin: 0 0 20px 0;">
-                        A landing page also helps support long-term business growth by making it easier for potential clients to find you, trust you, and take action.
+                        A landing page also helps support long-term <span style="font-weight: bold;">business growth</span> by making it easier for potential clients to find you, trust you, and take action.
                     </p>
                     
                     <p style="font-size: 15px; color: #4a4a4a; line-height: 1.6; margin: 0 0 20px 0;">
