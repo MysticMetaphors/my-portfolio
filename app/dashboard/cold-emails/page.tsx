@@ -255,10 +255,12 @@ export default function EmailManager() {
             name: '',
             email: ''
           });
+          return
         } else {
           setLoading(false)
           const errorMsg = !emailRes.ok ? "Email failed to send" : "Contact failed to save";
           appendToast('append-toast', 'danger', errorMsg);
+          return
         }
       } catch (error) {
         setLoading(false)
