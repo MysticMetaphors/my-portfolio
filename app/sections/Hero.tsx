@@ -16,6 +16,7 @@ export default function Hero() {
         transition={{ duration: 1 }}
         className="relative z-10 max-w-4xl"
       >
+        {/* <StorageToast /> */}
         <div className="flex-wrap items-center justify-center md:flex hidden gap-4 mb-3">
           <span className="bg-white/5 rounded-full border border-white/10 py-1 px-3 flex font-semibold items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-blue-primary/80 shadow-[0_0_5px_#0095ff]" />
@@ -57,3 +58,47 @@ export default function Hero() {
     </section>
   );
 }
+// const StorageToast = () => {
+//   return (
+//     <div className="flex items-start gap-3 font-sans w-full max-w-lg p-8">
+//       {/* Main Toast Container */}
+//       <div className="flex flex-col w-[400px]">
+        
+//         {/* Top Header Section (Aligned Right) */}
+//         <div className="relative self-end bg-[#1e1e1e] px-4 py-2.5 rounded-t-[20px] flex items-center gap-2 z-10">
+          
+//           {/* Magic Inverted Corner */}
+//           <div className="absolute -left-5 bottom-0 w-5 h-5 bg-transparent rounded-br-[20px] shadow-[10px_10px_0_10px_#1e1e1e]" />
+
+//           {/* Warning Circle Icon */}
+//           <div className="flex items-center justify-center w-5 h-5 rounded-full border border-yellow-600 bg-[#3f2e04]">
+//             <svg 
+//               width="12" 
+//               height="12" 
+//               viewBox="0 0 24 24" 
+//               fill="none" 
+//               stroke="#facc15" 
+//               strokeWidth="3" 
+//               strokeLinecap="round" 
+//               strokeLinejoin="round"
+//             >
+//               <line x1="12" y1="8" x2="12" y2="12"></line>
+//               <line x1="12" y1="16" x2="12.01" y2="16"></line>
+//             </svg>
+//           </div>
+
+//           {/* Header Text */}
+//           <span className="text-[#facc15] font-semibold text-sm tracking-wide">
+//             Storage Almost Full
+//           </span>
+//         </div>
+
+//         {/* Bottom Body Section (Full Width) */}
+//         <div className="relative bg-[#1e1e1e] px-5 py-4 rounded-b-[20px] rounded-tl-[20px] text-[#9ca3af] text-[15px] leading-relaxed">
+//           You've used 95% of your available storage. Please upgrade your plan to continue.
+//         </div>
+        
+//       </div>
+//     </div>
+//   );
+// };
