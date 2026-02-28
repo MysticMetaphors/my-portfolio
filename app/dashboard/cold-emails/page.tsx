@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import Header from "@/app/components/dashboard/header";
 import { appendToast } from "@/lib/global";
 import { Link2, Loader } from "lucide-react";
@@ -18,7 +18,9 @@ type EmailRecord = {
 
 export default function EmailManager() {
   const [loading, setLoading] = useState(false)
+  const [dataLoading, setDataLoading] = useState(true)
   const [history, setHistory] = useState<EmailRecord[]>([]);
+  const totalEmails = useRef(0)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,16 +35,18 @@ export default function EmailManager() {
         });
 
         if (!response.ok) {
+          setDataLoading(false)
           throw new Error(`Failed to fetch: ${response.statusText}`);
         }
 
-        const emails = await response.json();
-        setHistory(emails)
-
-
+        const data = await response.json();
+        totalEmails.current = data[1]
+        setHistory(data[0])
+        setDataLoading(false)
       } catch (error) {
         console.error("Error loading email history:", error);
         appendToast('append-toast', 'danger', "Failed to load email history.");
+        setDataLoading(false)
       }
     }
 
@@ -64,12 +68,12 @@ export default function EmailManager() {
     e.preventDefault()
     if (formData.name && formData.email && formData.social) {
       // 1. Prepare data
-      const customId = window.crypto.randomUUID();
-      const payloadContact = {
-        name: formData.name,
-        email: formData.email,
-        custom_id: customId,
-      };
+      // const customId = window.crypto.randomUUID();
+      // const payloadContact = {
+      //   name: formData.name,
+      //   email: formData.email,
+      //   custom_id: customId,
+      // };
 
       const payloadEmail = {
         to: formData.email,
@@ -286,14 +290,25 @@ export default function EmailManager() {
       <div className="space-y-4 p-8 pb-30 min-h-screen text-white overflow-y-scroll scrollbar-custom">
 
         {/* Header Section */}
-        <div className="mb-12 max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold tracking-tight text-white mb-2">
-            Manage <span className="text-blue-primary">Emails</span>
-          </h1>
-          <p className="text-slate-400 max-w-2xl">
-            Manage all possible leads and contacts
-          </p>
+        <div className="mb-12 max-w-7xl mx-auto flex justify-between items-center">
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight text-white mb-2">
+              Manage <span className="text-blue-primary">Emails</span>
+            </h1>
+            <p className="text-slate-400 max-w-2xl">
+              Manage all possible leads and contacts
+            </p>
+          </div>
+          <div className="flex flex-col items-center justify-center p-1 px-3 bg-charleston-green rounded-md border border-white/10 shadow-sm">
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">
+              Total Emails Sent
+            </p>
+            <h2 className="text-4xl font-extrabold text-white tracking-tight">
+              {totalEmails.current}
+            </h2>
+          </div>
         </div>
+
         {/* Form Section */}
         <form onSubmit={(e) => sendEmail(e)} className="w-full p-3 bg-charleston-green border border-white/10 rounded-md flex justify-between items-center gap-4">
           <div className="flex justify-center items-center gap-4">
@@ -359,47 +374,57 @@ export default function EmailManager() {
             </thead>
 
             <tbody className="divide-y divide-white/5">
-              {history.length > 0 ? (
-                history.map((item) => (
-                  <tr
-                    key={item.id}
-                    className="hover:bg-white/[0.03] transition-colors duration-200 group"
-                  >
-                    <td className="whitespace-nowrap px-6 py-4">
-                      <span className="font-medium text-white group-hover:text-blue-400 transition-colors">
-                        {item.name || "Unnamed Contact"}
-                      </span>
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-white/70">
-                      {item.sent_to}
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-white/70">
-                      <Link href={item.social} target="_blank">
-                        <Link2 />
-                      </Link>
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-white/70">
-                      {item.sent_by.slice(0, 14)}
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-white/50">
-                      {formatDate(item.created_at)}
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4">
-                      <span className="rounded-md bg-white/5 px-2 py-1 font-mono text-xs text-white/40 border border-white/10">
-                        {item.custom_id.split('-')[0]}...
-                      </span>
-                    </td>
-                  </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan={5} className="px-6 py-12 text-center">
+              {dataLoading ? (
+                <tr className="whitespace-nowrap px-6 py-4">
+                  <td colSpan={6} className="px-6 py-12 text-center">
                     <div className="flex flex-col items-center justify-center space-y-2">
-                      <span className="text-white/20 text-lg">No records found</span>
-                      <p className="text-white/10 text-xs">When you send emails, they will appear here.</p>
+                      <Loader className="animate-spin text-blue-primary" />
                     </div>
                   </td>
                 </tr>
+              ) : (
+                history.length > 0 ? (
+                  history.map((item) => (
+                    <tr
+                      key={item.id}
+                      className="hover:bg-white/[0.03] transition-colors duration-200 group"
+                    >
+                      <td className="whitespace-nowrap px-6 py-4">
+                        <span className="font-medium text-white group-hover:text-blue-400 transition-colors">
+                          {item.name || "Unnamed Contact"}
+                        </span>
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-4 text-white/70">
+                        {item.sent_to}
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-4 text-white/70">
+                        <Link href={item.social} target="_blank">
+                          <Link2 />
+                        </Link>
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-4 text-white/70">
+                        {item.sent_by.slice(0, 14)}
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-4 text-white/50">
+                        {formatDate(item.created_at)}
+                      </td>
+                      <td className="whitespace-nowrap px-6 py-4">
+                        <span className="rounded-md bg-white/5 px-2 py-1 font-mono text-xs text-white/40 border border-white/10">
+                          {item.custom_id.split('-')[0]}...
+                        </span>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={6} className="px-6 py-12 text-center">
+                      <div className="flex flex-col items-center justify-center space-y-2">
+                        <span className="text-white/20 text-lg">No records found</span>
+                        <p className="text-white/10 text-xs">When you send emails, they will appear here.</p>
+                      </div>
+                    </td>
+                  </tr>
+                )
               )}
             </tbody>
           </table>

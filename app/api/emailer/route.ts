@@ -18,13 +18,22 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // Table names with hyphens must be in double quotes
-    const sentEmails = await sql`
-      SELECT * FROM "cold-email"
-      ORDER BY created_at DESC
-    `;
+    const [sentEmails, totalCountResult] = await Promise.all([
+      // Get the actual email data
+      sql`
+        SELECT * FROM "cold-email"
+        ORDER BY created_at DESC
+      `,
+      // Get just the total count
+      sql`
+        SELECT COUNT(*) as total_amount FROM "cold-email"
+       `
+    ]);
 
-    return NextResponse.json(sentEmails, { status: 200 });
+    // The count query returns an array with one object, so we extract it:
+    const totalAmount = totalCountResult[0].total_amount;
+
+    return NextResponse.json([sentEmails, totalAmount], { status: 200 });
   } catch (error) {
     console.error("GET Error:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
@@ -70,9 +79,9 @@ export async function POST(req: NextRequest) {
       RETURNING *
     `;
     console.log("executed: ", result)
-    return NextResponse.json({ 
-      success: true, 
-      data: result[0] 
+    return NextResponse.json({
+      success: true,
+      data: result[0]
     }, { status: 201 });
 
   } catch (error) {
