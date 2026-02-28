@@ -3,7 +3,8 @@
 import { FormEvent, useEffect, useState } from "react";
 import Header from "@/app/components/dashboard/header";
 import { appendToast } from "@/lib/global";
-import { Loader } from "lucide-react";
+import { Link2, Loader } from "lucide-react";
+import Link from "next/link";
 
 type EmailRecord = {
   id: number;
@@ -282,7 +283,7 @@ export default function EmailManager() {
   return (
     <>
       <Header />
-      <div className="space-y-4 p-6 min-h-screen text-white">
+      <div className="space-y-4 p-8 pb-30 min-h-screen text-white overflow-y-scroll scrollbar-custom">
 
         {/* Header Section */}
         <div className="mb-12 max-w-7xl mx-auto">
@@ -373,7 +374,9 @@ export default function EmailManager() {
                       {item.sent_to}
                     </td>
                     <td className="whitespace-nowrap px-6 py-4 text-white/70">
-                      {item.social}
+                      <Link href={item.social} target="_blank">
+                        <Link2 />
+                      </Link>
                     </td>
                     <td className="whitespace-nowrap px-6 py-4 text-white/70">
                       {item.sent_by.slice(0, 14)}
