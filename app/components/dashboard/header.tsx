@@ -29,7 +29,7 @@ export default function Header({ title, subtitle, children }: HeaderProps) {
   }, [isModalOpen]);
 
   return (
-    <div className="fixed top-0 md:w-[calc(100vw-289px)] w-full">
+    <div className="fixed top-0 md:w-[calc(100vw-289px)] w-full z-50">
       <div className={`flex h-[65px] bg-eerie-black px-8 py-[25px] border-b border-charleston-green items-center relative`}>
       <div className="flex-1 flex justify-start items-center">
         <MenuToggle />
