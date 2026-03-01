@@ -62,7 +62,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         <div className="h-screen bg-eerie-black/90 w-full overflow-hidden">
           <div className="flex relative h-screen">
             <Sidebar title="Employee" icon={<Users size={24} className="text-white" />} menus={MenuItems} user={user} />
-            <main className="flex-1 h-[calc(100vh)] flex flex-col transition-all overflow-hidden">
+            <main className="flex-1 relative overflow-y-scroll scrollbar-custom">
               <Header />
               {children}
             </main>

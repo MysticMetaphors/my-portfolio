@@ -45,7 +45,7 @@ const dashboardItems = [
 export default function DashboardGrid() {
   return (
     <>
-      <div className="min-h-screen md:p-8 p-6 pb-30 text-slate-200 font-sans overflow-y-scroll scrollbar-custom">
+      <div className="min-h-screen md:p-8 p-6 mt-[65px] pb-30 text-slate-200 font-sans">
 
         {/* Header Section */}
         <div className="mb-12 max-w-7xl mx-auto">

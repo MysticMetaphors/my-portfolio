@@ -139,7 +139,7 @@ export default function Components() {
 
   return (
     <>
-      <div className="min-h-screen p-8 pb-30 text-slate-200 font-sans overflow-y-scroll scrollbar-custom">
+      <div className="min-h-screen mt-[65px] p-8 pb-30 text-slate-200 font-sans overflow-y-scroll scrollbar-custom">
 
         {/* Header Section */}
         <div className="mb-12 max-w-7xl mx-auto">

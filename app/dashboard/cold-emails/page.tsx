@@ -296,7 +296,7 @@ export default function EmailManager() {
 
   return (
     <>
-      <div className="space-y-4 md:pb-30 md:p-8 p-6 pb-30 min-h-screen text-white overflow-y-scroll scrollbar-custom">
+      <div className="space-y-4 mt-[65px] md:pb-30 md:p-8 p-6 pb-30 min-h-screen text-white">
 
         {/* Header Section */}
         <div className="md:mb-12 mb-4 max-w-7xl mx-auto flex justify-between items-center md:flex-row flex-col gap-4">
