@@ -5,6 +5,7 @@ import "./globals.css";
 import Providers from "@/providers/provide";
 import { auth0 } from "@/lib/auth0";
 import { domMax, LazyMotion } from "framer-motion";
+import { Toaster } from 'sileo';
 
 export const metadata: Metadata = {
   title: "Von Bryan | Creative Web Solutions",
@@ -86,9 +87,18 @@ export default async function RootLayout({
 
         <Analytics />
         <SpeedInsights />
-        <div id="append-toast" className="w-fit space-y-3 fixed top-5 left-10 md:left-15 z-100 flex flex-col">
-
-        </div>
+        <Toaster
+          position="top-left"
+          options={{
+            fill: "#252525",
+            roundness: 10,
+            styles: {
+              description: "text-white/75!",
+              badge: "bg-white/10!",
+              button: "bg-white/10! hover:bg-white/15! border border-white",
+            },
+          }}
+        />
       </body>
     </html>
   );

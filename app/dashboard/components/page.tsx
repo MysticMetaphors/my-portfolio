@@ -139,7 +139,6 @@ export default function Components() {
 
   return (
     <>
-      <Header />
       <div className="min-h-screen p-8 pb-30 text-slate-200 font-sans overflow-y-scroll scrollbar-custom">
 
         {/* Header Section */}

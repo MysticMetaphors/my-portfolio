@@ -3,7 +3,6 @@
 import React from 'react';
 import { Box, Component, Sparkles, SquareDashed, Code, ArrowRight } from 'lucide-react';
 import Link from 'next/link'; // Assuming you are using Next.js
-import Header from '../components/dashboard/header';
 
 const dashboardItems = [
   // {
@@ -46,8 +45,7 @@ const dashboardItems = [
 export default function DashboardGrid() {
   return (
     <>
-      <Header />
-      <div className="min-h-screen p-8 pb-30 text-slate-200 font-sans overflow-y-scroll scrollbar-custom">
+      <div className="min-h-screen md:p-8 p-6 pb-30 text-slate-200 font-sans overflow-y-scroll scrollbar-custom">
 
         {/* Header Section */}
         <div className="mb-12 max-w-7xl mx-auto">

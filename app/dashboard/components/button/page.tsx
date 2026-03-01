@@ -1,6 +1,5 @@
 "use client";
 
-import Header from "@/app/components/dashboard/header";
 import { useEffect, useState } from "react";
 import { Resource } from "@/types/type";
 import ResourceCard from "@/app/components/ui/resource-card";
@@ -22,9 +21,7 @@ export default function ButtonPage() {
   }, []);
 
   return (
-    <>
-      <Header />
-      <div className="min-h-screen p-8 pb-30 text-slate-200 font-sans overflow-y-scroll scrollbar-custom">
+      <div className="min-h-screen md:p-8 p-6 pb-30 text-slate-200 font-sans ">
 
         {/* Header Section */}
         <div className="mb-12 max-w-7xl mx-auto">
@@ -49,7 +46,5 @@ export default function ButtonPage() {
           )}
         </div>
       </div>
-
-    </>
   )
 }

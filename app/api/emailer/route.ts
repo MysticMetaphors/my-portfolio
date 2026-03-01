@@ -56,6 +56,21 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const { to, subject, html, name, social } = body;
 
+    // --- 2. Check if email already exists in Neon ---
+    const existingEntry = await sql`
+      SELECT id FROM "cold-email" 
+      WHERE sent_to = ${to} 
+      LIMIT 1
+    `;
+
+    if (existingEntry.length > 0) {
+      return NextResponse.json({ 
+        success: false, 
+        message: 'Email already exists in database. No email sent.' 
+      }, { status: 409 }); // 409 Conflict
+    }
+
+    // --- 3. Send the Email ---
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -71,6 +86,7 @@ export async function POST(req: NextRequest) {
       html: html,
     });
 
+    // --- 4. Save to Database ---
     const customId = crypto.randomUUID();
 
     const result = await sql`
@@ -78,7 +94,8 @@ export async function POST(req: NextRequest) {
       VALUES (${customId}, ${name}, ${to}, ${user.sub}, ${social})
       RETURNING *
     `;
-    console.log("executed: ", result)
+
+    console.log("executed: ", result);
     return NextResponse.json({
       success: true,
       data: result[0]

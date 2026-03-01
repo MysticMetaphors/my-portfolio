@@ -2,12 +2,14 @@
 
 import { motion } from "framer-motion";
 // import { useState } from "react";
-import { appendToast } from "@/lib/global";
+// import { appendToast } from "@/lib/global";
 import { WavyBackground } from "../components/ui/wavy-background";
 import { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { sileo } from "sileo";
+import { Bug, MailWarning, Rocket } from "lucide-react";
 // import { sub } from "framer-motion/client";
 
 type ContactProp = {
@@ -28,7 +30,10 @@ export default function Contact({ onView }: ContactProp) {
 
     //require all fields Name, Email, Message
     if (!name || !email || !message) {
-      appendToast("append-toast", "error", "Please fill all fields!");
+      sileo.error({
+        title: "Please fill all fields!",
+        icon: <MailWarning className="size-3.5" />
+      })
       return;
     }
 
@@ -45,11 +50,18 @@ export default function Contact({ onView }: ContactProp) {
       }),
     });
     if (response.ok) {
-      appendToast("append-toast", "success", "Thanks for reaching out!");
+      // appendToast("append-toast", "success", "Thanks for reaching out!");
+      sileo.success({
+        title: "Thanks for reaching out!",
+        icon: <Rocket className="size-3.5" />
+      })
       resetForm();
     } else {
-      console.log(response);
-      appendToast("append-toast", "error", "Unexpected Error Occured!");
+      sileo.error({
+        title: "Unexpected Error Occured!",
+        description: "Oops there could be problem in the system",
+        icon: <Bug className="size-3.5" />
+      })
     }
   };
 

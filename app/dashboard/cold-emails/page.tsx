@@ -1,10 +1,9 @@
 "use client";
 
-import { FormEvent, useEffect, useRef, useState } from "react";
-import Header from "@/app/components/dashboard/header";
-import { appendToast } from "@/lib/global";
-import { Link2, Loader } from "lucide-react";
+import React, { FormEvent, useEffect, useRef, useState } from "react";
+import { Link2, Loader, Rocket } from "lucide-react";
 import Link from "next/link";
+import { sileo } from "sileo";
 
 type EmailRecord = {
   id: number;
@@ -28,31 +27,33 @@ export default function EmailManager() {
   })
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch("/api/emailer", {
-          method: "GET",
-        });
-
-        if (!response.ok) {
-          setDataLoading(false)
-          throw new Error(`Failed to fetch: ${response.statusText}`);
-        }
-
-        const data = await response.json();
-        totalEmails.current = data[1]
-        setHistory(data[0])
-        setDataLoading(false)
-      } catch (error) {
-        console.error("Error loading email history:", error);
-        appendToast('append-toast', 'danger', "Failed to load email history.");
-        setDataLoading(false)
-      }
-    }
-
     fetchData()
   }, [])
-  console.log("history:", history)
+
+  async function fetchData() {
+    try {
+      const response = await fetch("/api/emailer", {
+        method: "GET",
+      });
+
+      if (!response.ok) {
+        setDataLoading(false)
+        throw new Error(`Failed to fetch: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      totalEmails.current = data[1]
+      setHistory(data[0])
+      setDataLoading(false)
+    } catch (error) {
+      console.error("Error loading email history:", error);
+      sileo.error({
+        title: "Failed to load email history",
+        description: "there could be unexpected errors try to reload the tab CTRL + R"
+      })
+      setDataLoading(false)
+    }
+  }
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -155,11 +156,7 @@ export default function EmailManager() {
 
             <tr>
                 <td class="content-padding" style="padding: 50px 40px;">
-                    
-                    <div style="font-size: 13px; font-weight: 800; letter-spacing: 2px; color: #333333; text-transform: uppercase; margin-bottom: 15px;">
-                        VON BRYAN B.
-                    </div>
-                    
+                  
                     <h1 style="font-size: 34px; font-weight: 800; color: #1a1a1a; margin: 0 0 25px 0; line-height: 1.1; letter-spacing: -0.5px;">
                         Have you ever considered having your own site?
                     </h1>
@@ -216,7 +213,7 @@ export default function EmailManager() {
                                 <img src="https://von-bryan-five-92.vercel.app/logo.png" alt="Von Logo" width="60" style="display: block; border-radius: 50%; margin-bottom: 20px;">
                                 <div style="font-size: 13px; color: #666666; line-height: 1.6;">
                                     Antipolo City, Philippines<br>
-                                    Copyright &copy; 2022 All rights reserved.
+                                    Copyright &copy; 2025  VonBryan™. All rights reserved.
                                 </div>
                             </td>
                             
@@ -228,6 +225,10 @@ export default function EmailManager() {
                             </td>
                         </tr>
                     </table>
+
+                    <div style="font-size: 12px; color: #999999; line-height: 1.6; margin-top: 25px; text-align: center;">
+                      This email was sent automatically. Please do not reply to this message.
+                    </div>
                 </td>
             </tr>
 
@@ -254,11 +255,15 @@ export default function EmailManager() {
           //   headers: { "Content-Type": "application/json" },
           //   body: JSON.stringify(payloadContact),
           // })
-        ]);
+        ]).then(responses => Promise.all(responses.map(r => r.json())));
 
-        if (emailRes.ok) {
+        if (emailRes.success) {
           setLoading(false)
-          appendToast('append-toast', 'success', `Email sent to ${formData.name}`);
+          sileo.success({
+            title: `Email sent to ${formData.name}.`,
+            icon: <Rocket className="size-3.5" />
+          })
+          fetchData()
           setFormData({
             name: '',
             email: '',
@@ -267,13 +272,16 @@ export default function EmailManager() {
           return
         } else {
           setLoading(false)
-          const errorMsg = !emailRes.ok ? "Email failed to send" : "Contact failed to save";
-          appendToast('append-toast', 'danger', errorMsg);
+          sileo.error({
+            title: !emailRes.success ? emailRes.message : `Failed to send Email to ${formData.name}.`
+          })
           return
         }
       } catch (error) {
         setLoading(false)
-        appendToast('append-toast', 'error', `Failed to send Email to ${formData.name}`);
+        sileo.error({
+          title: `Failed to send Email to ${formData.name}.`
+        })
         setFormData({
           name: '',
           email: '',
@@ -281,17 +289,18 @@ export default function EmailManager() {
         })
       }
     }
-    return appendToast('append-toast', 'error', 'Fill all fields')
+    return sileo.error({
+      title: "Please fill all fields!"
+    })
   }
 
   return (
     <>
-      <Header />
-      <div className="space-y-4 p-8 pb-30 min-h-screen text-white overflow-y-scroll scrollbar-custom">
+      <div className="space-y-4 md:pb-30 md:p-8 p-6 pb-30 min-h-screen text-white overflow-y-scroll scrollbar-custom">
 
         {/* Header Section */}
-        <div className="mb-12 max-w-7xl mx-auto flex justify-between items-center">
-          <div>
+        <div className="md:mb-12 mb-4 max-w-7xl mx-auto flex justify-between items-center md:flex-row flex-col gap-4">
+          <div className="w-full">
             <h1 className="text-4xl font-bold tracking-tight text-white mb-2">
               Manage <span className="text-blue-primary">Emails</span>
             </h1>
@@ -299,10 +308,7 @@ export default function EmailManager() {
               Manage all possible leads and contacts
             </p>
           </div>
-          <div className="flex flex-col items-center justify-center p-1 px-3 bg-charleston-green rounded-md border border-white/10 shadow-sm">
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">
-              Total Emails Sent
-            </p>
+          <div className="flex flex-col items-center justify-center md:w-fit w-full p-1 px-3 bg-charleston-green rounded-md border border-white/10 shadow-sm">
             <h2 className="text-4xl font-extrabold text-white tracking-tight">
               {totalEmails.current}
             </h2>
@@ -310,15 +316,15 @@ export default function EmailManager() {
         </div>
 
         {/* Form Section */}
-        <form onSubmit={(e) => sendEmail(e)} className="w-full p-3 bg-charleston-green border border-white/10 rounded-md flex justify-between items-center gap-4">
-          <div className="flex justify-center items-center gap-4">
+        <form onSubmit={(e) => sendEmail(e)} className="w-full p-3 bg-charleston-green border border-white/10 rounded-md flex justify-between items-center md:flex-row flex-col gap-4">
+          <div className="flex md:w-fit w-full justify-center items-center md:flex-row flex-col gap-4">
             <input
               name="name"
               type="text"
               id="name"
               value={formData.name}
               onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value, }))}
-              className="p-2 px-3 bg-white/5 border border-white/10 rounded-sm outline-none focus:border-blue-500"
+              className="p-2 px-3 bg-white/5 md:w-fit w-full border border-white/10 rounded-sm outline-none focus:border-blue-500"
               placeholder="Recipient Name"
             />
             <input
@@ -327,7 +333,7 @@ export default function EmailManager() {
               id="email"
               value={formData.email}
               onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value, }))}
-              className="p-2 px-3 bg-white/5 border border-white/10 rounded-sm outline-none focus:border-blue-500"
+              className="p-2 px-3 bg-white/5 md:w-fit w-full border border-white/10 rounded-sm outline-none focus:border-blue-500"
               placeholder="recipient@gmail.com"
             />
             <input
@@ -336,11 +342,11 @@ export default function EmailManager() {
               id="social"
               value={formData.social}
               onChange={(e) => setFormData((prev) => ({ ...prev, social: e.target.value, }))}
-              className="p-2 px-3 bg-white/5 border border-white/10 rounded-sm outline-none focus:border-blue-500"
+              className="p-2 px-3 bg-white/5 md:w-fit w-full border border-white/10 rounded-sm outline-none focus:border-blue-500"
               placeholder="Recipient Social Link"
             />
           </div>
-          <button type="submit" disabled={loading} className="p-2 px-6 bg-blue-primary shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black font-semibold hover:shadow-[0_0_40px_#0095ff] rounded-sm transition-all cursor-pointer">
+          <button type="submit" disabled={loading} className="p-2 px-6 md:w-fit w-full bg-blue-primary shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black font-semibold hover:shadow-[0_0_40px_#0095ff] rounded-sm transition-all cursor-pointer">
             {loading ?
               <Loader className="animate-spin" />
               : "Send Email"
@@ -350,7 +356,7 @@ export default function EmailManager() {
 
         <div className="overflow-hidden rounded-md border border-white/10 bg-charleston-green shadow-2xl">
           <table className="min-w-full divide-y divide-white/10 text-sm">
-            <thead className="bg-white/5">
+            <thead className="bg-white/5 md:table-header-group hidden">
               <tr>
                 <th className="whitespace-nowrap px-6 py-4 text-left font-semibold text-white tracking-wider">
                   Recipient
@@ -384,36 +390,55 @@ export default function EmailManager() {
                 </tr>
               ) : (
                 history.length > 0 ? (
-                  history.map((item) => (
-                    <tr
-                      key={item.id}
-                      className="hover:bg-white/[0.03] transition-colors duration-200 group"
-                    >
-                      <td className="whitespace-nowrap px-6 py-4">
-                        <span className="font-medium text-white group-hover:text-blue-400 transition-colors">
-                          {item.name || "Unnamed Contact"}
-                        </span>
-                      </td>
-                      <td className="whitespace-nowrap px-6 py-4 text-white/70">
-                        {item.sent_to}
-                      </td>
-                      <td className="whitespace-nowrap px-6 py-4 text-white/70">
-                        <Link href={item.social} target="_blank">
-                          <Link2 />
-                        </Link>
-                      </td>
-                      <td className="whitespace-nowrap px-6 py-4 text-white/70">
-                        {item.sent_by.slice(0, 14)}
-                      </td>
-                      <td className="whitespace-nowrap px-6 py-4 text-white/50">
-                        {formatDate(item.created_at)}
-                      </td>
-                      <td className="whitespace-nowrap px-6 py-4">
-                        <span className="rounded-md bg-white/5 px-2 py-1 font-mono text-xs text-white/40 border border-white/10">
-                          {item.custom_id.split('-')[0]}...
-                        </span>
-                      </td>
-                    </tr>
+                  history.map((item, i) => (
+                    <React.Fragment key={i}>
+                      {/* Desktop: Table Row */}
+                      <tr className="hidden md:table-row hover:bg-white/[0.03] transition-colors duration-200 group">
+                        <td className="whitespace-nowrap px-6 py-4">
+                          <span className="font-medium text-white group-hover:text-blue-400">{item.name || "Unnamed"}</span>
+                        </td>
+                        <td className="px-6 py-4 text-white/70">{item.sent_to}</td>
+                        <td className="px-6 py-4">
+                          <Link href={item.social} target="_blank"><Link2 size={16} /></Link>
+                        </td>
+                        <td className="px-6 py-4 text-white/70">{item.sent_by.slice(0, 14)}</td>
+                        <td className="px-6 py-4 text-white/50">{formatDate(item.created_at)}</td>
+                        <td className="px-6 py-4">
+                          <span className="rounded-md bg-white/5 px-2 py-1 font-mono text-xs text-white/40 border border-white/10">
+                            {item.custom_id.split('-')[0]}...
+                          </span>
+                        </td>
+                      </tr>
+
+                      {/* Mobile: Card View */}
+                      <tr className="md:hidden p-4 border-b border-white/40 bg-charleston-green">
+                        <td className="p-4">
+                          <div className="flex justify-between items-start mb-3">
+                            <span className="font-bold text-white text-lg">{item.name || "Unnamed Contact"}</span>
+                            <span className="rounded-md bg-white/5 px-2 py-1 font-mono text-xs text-white/40 border border-white/10">
+                              {item.custom_id.split('-')[0]}...
+                            </span>
+                          </div>
+
+                          <div className="space-y-2 text-sm text-white/60">
+                            <div className="flex justify-between">
+                              <span>Sent To:</span>
+                              <span className="text-white">{item.sent_to}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Sent By:</span>
+                              <span>{item.sent_by.slice(0, 14)}</span>
+                            </div>
+                            <div className="flex justify-between items-center mt-4 pt-4 border-t border-white/5">
+                              <span className="text-xs text-white/40">{formatDate(item.created_at)}</span>
+                              <Link href={item.social} target="_blank" className="text-blue-400">
+                                <Link2 size={18} />
+                              </Link>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </React.Fragment>
                   ))
                 ) : (
                   <tr>

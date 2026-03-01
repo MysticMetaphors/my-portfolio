@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/hook/useAuth';
 import { useState } from 'react';
+import { useSidebar } from '@/context/SidebarContext';
+import MenuToggle from '../ui/MenuToggle';
 
 interface SidebarProps {
   title: string;
@@ -24,28 +26,22 @@ interface SidebarProps {
 export default function Sidebar({ menus = [], user }: SidebarProps) {
   const { logout } = useAuth();
   const pathname = usePathname();
+  const { isOpen } = useSidebar()
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   return (
-    <aside className="w-72 bg-eerie-black border-r border-charleston-green flex flex-col h-[calc(100vh)] left-0 top-[89px] z-50">
-
-      {/* Header Section */}
-      <div className="p-6 py-4 flex items-center gap-3 border-b border-charleston-green relative">
+    <aside className={`fixed top-0 w-72 bg-eerie-black border-r border-charleston-green flex flex-col h-[calc(100vh)] left-0 z-50 transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}>
+      <div className="p-6 py-4 flex items-center justify-between gap-3 border-b border-charleston-green relative">
         <Link href="/" className="w-8 h-8 rounded-lg bg-charleston-green border border-[#3E3E3E] flex items-center justify-center">
           <div className="w-3 h-3 rounded-full bg-blue-primary" />
         </Link>
+        <MenuToggle />
       </div>
 
       {/* Navigation */}
       <nav className="flex-1 px-4 py-6 pb-16 space-y-1 overflow-y-auto scrollbar-custom">
-        {/* Optional Header */}
-        {/* <p className="px-4 text-xs font-bold text-[#A0A0A0] uppercase tracking-wider mb-3">
-      {title} Management
-    </p> */}
-
         {menus.length > 0 && menus.map((item, i) => {
           const isActive = pathname === item.href;
-          console.log(pathname, item.href);
           const Icon = item.icon;
 
           return (
@@ -64,7 +60,12 @@ export default function Sidebar({ menus = [], user }: SidebarProps) {
                 />
                 {item.name}
                 {item.more && (
-                  <div onClick={() => openMenu === item.name ? setOpenMenu(null) : setOpenMenu(item.name)} className="absolute hover:bg-eerie-black/50 rounded-full p-1 right-4 z-10">
+                  <div onClick={(e) => {
+                    e.preventDefault(); // Prevents link navigation when clicking the dropdown arrow
+                    openMenu === item.name ? setOpenMenu(null) : setOpenMenu(item.name)
+                  }}
+                    className="absolute hover:bg-eerie-black/50 rounded-full p-1 right-4 z-10"
+                  >
                     <ChevronDown size={16} className="text-[#A0A0A0] group-hover:text-white transition-colors" />
                   </div>
                 )}
@@ -91,8 +92,6 @@ export default function Sidebar({ menus = [], user }: SidebarProps) {
             </div>
           );
         })}
-
-
       </nav>
 
       {/* Footer Section */}
