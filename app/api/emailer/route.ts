@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { neon } from "@neondatabase/serverless";
 import { auth0 } from "@/lib/auth0";
+import { request } from "https";
 
 const sql = neon(process.env.DATA_BASE_URL_NEON!);
 
@@ -10,6 +11,7 @@ const sql = neon(process.env.DATA_BASE_URL_NEON!);
 // ==========================================
 export async function GET(req: NextRequest) {
   try {
+    const searchParams = req.nextUrl.searchParams;
     const session = await auth0.getSession();
     const user = session?.user;
 
@@ -18,13 +20,21 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
+    const page = Number(searchParams.get("page")) || 1;
+    const limit = Number(searchParams.get("limit")) || 10;
+    const offset = (page - 1) * limit;
+
     const [sentEmails, totalCountResult] = await Promise.all([
       // Get the actual email data
+      // Example: If page = 2 and limit = 10, you skip the first 10 and take the next 10.
+
       sql`
         SELECT * FROM "cold-email"
         ORDER BY created_at DESC
-      `,
-      // Get just the total count
+        LIMIT ${limit}
+        OFFSET ${offset}
+      `,    
+    // Get just the total count
       sql`
         SELECT COUNT(*) as total_amount FROM "cold-email"
        `
@@ -64,9 +74,9 @@ export async function POST(req: NextRequest) {
     `;
 
     if (existingEntry.length > 0) {
-      return NextResponse.json({ 
-        success: false, 
-        message: 'Email already exists in database. No email sent.' 
+      return NextResponse.json({
+        success: false,
+        message: 'Email already exists in database. No email sent.'
       }, { status: 409 }); // 409 Conflict
     }
 

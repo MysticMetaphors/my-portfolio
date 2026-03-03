@@ -1,6 +1,7 @@
 import DefaultLayout from "./components/layouts/DefaultLayout";
 import Contact from "./sections/Contact";
 import Hero from "./sections/Hero";
+import Offers from "./sections/Offers";
 import Projects from "./sections/Projects";
 // import Resume from "./sections/Resume";
 import Services from "./sections/Services";
@@ -11,6 +12,7 @@ export default function Home() {
     <DefaultLayout>
       <Hero />
       <Services />
+      <Offers />
       <Projects />
       <TechStack />
       {/* <Resume /> */}

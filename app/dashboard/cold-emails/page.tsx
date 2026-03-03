@@ -18,7 +18,11 @@ type EmailRecord = {
 export default function EmailManager() {
   const [loading, setLoading] = useState(false)
   const [dataLoading, setDataLoading] = useState(true)
-  const [history, setHistory] = useState<EmailRecord[]>([]);
+  const [history, setHistory] = useState({
+    page: 1,
+    limit: 10,
+    data: [] as EmailRecord[]
+  });
   const totalEmails = useRef(0)
   const [formData, setFormData] = useState({
     name: '',
@@ -28,11 +32,11 @@ export default function EmailManager() {
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [history.page, history.limit])
 
   async function fetchData() {
     try {
-      const response = await fetch("/api/emailer", {
+      const response = await fetch("/api/emailer?page=" + history.page + "&limit=" + history.limit, {
         method: "GET",
       });
 
@@ -43,7 +47,10 @@ export default function EmailManager() {
 
       const data = await response.json();
       totalEmails.current = data[1]
-      setHistory(data[0])
+      setHistory(prev => ({
+        ...prev,
+        data: data[0]
+      }))
       setDataLoading(false)
     } catch (error) {
       console.error("Error loading email history:", error);
@@ -316,15 +323,15 @@ export default function EmailManager() {
         </div>
 
         {/* Form Section */}
-        <form onSubmit={(e) => sendEmail(e)} className="w-full p-3 bg-charleston-green border border-white/10 rounded-md flex justify-between items-center md:flex-row flex-col gap-4">
-          <div className="flex md:w-fit w-full justify-center items-center md:flex-row flex-col gap-4">
+        <form onSubmit={(e) => sendEmail(e)} className="w-full p-3 bg-charleston-green border border-white/10 rounded-md flex justify-between items-center lg:flex-row flex-col gap-4">
+          <div className="flex lg:w-fit w-full justify-center items-center lg:flex-row flex-col gap-4">
             <input
               name="name"
               type="text"
               id="name"
               value={formData.name}
               onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value, }))}
-              className="p-2 px-3 bg-white/5 md:w-fit w-full border border-white/10 rounded-sm outline-none focus:border-blue-500"
+              className="p-2 px-3 bg-white/5 lg:w-fit w-full border border-white/10 rounded-sm outline-none focus:border-blue-500"
               placeholder="Recipient Name"
             />
             <input
@@ -333,7 +340,7 @@ export default function EmailManager() {
               id="email"
               value={formData.email}
               onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value, }))}
-              className="p-2 px-3 bg-white/5 md:w-fit w-full border border-white/10 rounded-sm outline-none focus:border-blue-500"
+              className="p-2 px-3 bg-white/5 lg:w-fit w-full border border-white/10 rounded-sm outline-none focus:border-blue-500"
               placeholder="recipient@gmail.com"
             />
             <input
@@ -342,11 +349,11 @@ export default function EmailManager() {
               id="social"
               value={formData.social}
               onChange={(e) => setFormData((prev) => ({ ...prev, social: e.target.value, }))}
-              className="p-2 px-3 bg-white/5 md:w-fit w-full border border-white/10 rounded-sm outline-none focus:border-blue-500"
+              className="p-2 px-3 bg-white/5 lg:w-fit w-full border border-white/10 rounded-sm outline-none focus:border-blue-500"
               placeholder="Recipient Social Link"
             />
           </div>
-          <button type="submit" disabled={loading} className="p-2 px-6 md:w-fit w-full bg-blue-primary shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black font-semibold hover:shadow-[0_0_40px_#0095ff] rounded-sm transition-all cursor-pointer">
+          <button type="submit" disabled={loading} className="p-2 px-6 lg:w-fit w-full bg-blue-primary shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black font-semibold hover:shadow-[0_0_40px_#0095ff] rounded-sm transition-all cursor-pointer">
             {loading ?
               <Loader className="animate-spin" />
               : "Send Email"
@@ -356,7 +363,7 @@ export default function EmailManager() {
 
         <div className="overflow-hidden rounded-md border border-white/10 bg-charleston-green shadow-2xl">
           <table className="min-w-full divide-y divide-white/10 text-sm">
-            <thead className="bg-white/5 md:table-header-group hidden">
+            <thead className="bg-white/5 lg:table-header-group hidden">
               <tr>
                 <th className="whitespace-nowrap px-6 py-4 text-left font-semibold text-white tracking-wider">
                   Recipient
@@ -389,15 +396,15 @@ export default function EmailManager() {
                   </td>
                 </tr>
               ) : (
-                history.length > 0 ? (
-                  history.map((item, i) => (
+                history.data.length > 0 ? (
+                  history.data.map((item, i) => (
                     <React.Fragment key={i}>
                       {/* Desktop: Table Row */}
-                      <tr className="hidden md:table-row hover:bg-white/[0.03] transition-colors duration-200 group">
+                      <tr className="hidden lg:table-row hover:bg-white/[0.03] transition-colors duration-200 group">
                         <td className="whitespace-nowrap px-6 py-4">
-                          <span className="font-medium text-white group-hover:text-blue-400">{item.name || "Unnamed"}</span>
+                          <span className="font-medium text-white group-hover:text-blue-400">{item.name.length >= 14 ? `${item.name.slice(0, 14)}...` : item.name || "Unnamed"}</span>
                         </td>
-                        <td className="px-6 py-4 text-white/70">{item.sent_to}</td>
+                        <td className="px-6 py-4 text-white/70">{item.sent_to.slice(0, 20)}...</td>
                         <td className="px-6 py-4">
                           <Link href={item.social} target="_blank"><Link2 size={16} /></Link>
                         </td>
@@ -411,7 +418,7 @@ export default function EmailManager() {
                       </tr>
 
                       {/* Mobile: Card View */}
-                      <tr className="md:hidden p-4 border-b border-white/40 bg-charleston-green">
+                      <tr className="lg:hidden p-4 border-b border-white/40 bg-charleston-green">
                         <td className="p-4">
                           <div className="flex justify-between items-start mb-3">
                             <span className="font-bold text-white text-lg">{item.name || "Unnamed Contact"}</span>
@@ -423,7 +430,7 @@ export default function EmailManager() {
                           <div className="space-y-2 text-sm text-white/60">
                             <div className="flex justify-between">
                               <span>Sent To:</span>
-                              <span className="text-white">{item.sent_to}</span>
+                              <span className="text-white">{item.sent_to.slice(0, 20)}...</span>
                             </div>
                             <div className="flex justify-between">
                               <span>Sent By:</span>
@@ -453,6 +460,29 @@ export default function EmailManager() {
               )}
             </tbody>
           </table>
+
+          <div className="flex lg:justify-between justify-end items-center p-4 border-t border-white/10">
+            <span className="text-sm text-white/70 lg:block hidden">{history.page * history.limit} of {totalEmails.current} Emails</span>
+            <div className="flex items-center gap-2 text-sm text-white/70">
+              <span>Page {history.page} of {Math.ceil(totalEmails.current / history.limit)}</span>
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => setHistory(prev => ({ ...prev, page: Math.max(prev.page - 1, 1) }))}
+                  disabled={history.page === 1}
+                  className="px-2 py-1 bg-white/5 rounded-md hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  Previous
+                </button>
+                <button
+                  onClick={() => setHistory(prev => ({ ...prev, page: prev.page + 1 }))}
+                  disabled={history.page >= Math.ceil(totalEmails.current / history.limit)}
+                  className="px-2 py-1 bg-white/5 rounded-md hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
