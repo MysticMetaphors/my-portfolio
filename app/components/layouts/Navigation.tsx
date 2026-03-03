@@ -36,7 +36,7 @@ export default function Navigation() {
       <div className="flex gap-3 items-center z-110">
         <Image height={10} width={10} quality={75} src="/bryan.png" alt="Von Bryan Profile" className="h-10 w-fit rounded-full" />
         <div className="md:mr-2 mr-5">
-          <h1 className="font-semibold text-white">Von Bryan S. Bañal</h1>
+          <h1 className="font-semibold text-white">Von Bryan</h1>
           <p className="text-gray-300 text-sm font-normal">Frontend Developer & UI/UX Designer</p>
         </div>
       </div>

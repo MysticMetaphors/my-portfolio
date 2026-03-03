@@ -110,7 +110,7 @@ export default function resume() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="h-full relative bg-linear-to-t from-blue-primary/20 via-gray-900 to-gray-900 border border-gray-700 rounded-md md:p-6 p-3 shadow-md mb-6">
-                <h1 className="text-lg font-bold mb-3">Von Bryan S. Bañal</h1>
+                <h1 className="text-lg font-bold mb-3">Von Bryan</h1>
                 <span className="text-sm text-gray-400">Frontend Developer & UI/UX Designer</span>
                 <p className="mt-3">
                   I build modern, responsive, and user-focused web interfaces using the latest frontend technologies.
