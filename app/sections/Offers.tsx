@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Check, LayoutPanelTop } from "lucide-react";
+import Link from "next/link";
 
 export default function Offers() {
   return (
@@ -113,24 +114,34 @@ export default function Offers() {
               </motion.p>
 
               <div className="gap-4 py-8 grid lg:grid-row-2 grid-cols-1">
-                <div className="mb-4 flex items-start gap-4">
+                <motion.div
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 1 * 0.1, ease: "easeOut" }}
+                  className="mb-4 flex items-start gap-4">
                   <div className="bg-blue-primary/60 rounded-full p-1">
                     <Check size={18} />
                   </div>
 
                   <div>
-                    <h2 className="text-2xl font-semibold text-white mb-2">
-                    Strategic Multi-Page Suite
-                  </h2>
-                  <p className="text-gray-400 text-justify">
-                    I design and develop websites (up to 5 pages) tailored to your brand.
-                    If you need more pages, we can discuss custom solutions that fit your 
-                    needs and budget. I am flexible and committed to delivering a website 
-                    that meets your requirements.
-                  </p>
+                    <h2 className="text-2xl font-bold text-white mb-2">
+                      Strategic Multi-Page Suite
+                    </h2>
+                    <p className="text-gray-400 text-justify">
+                      I design and develop websites (up to 5 pages) tailored to your brand.
+                      If you need more pages, we can discuss custom solutions that fit your
+                      needs and budget. I am flexible and committed to delivering a website
+                      that meets your requirements.
+                    </p>
                   </div>
-                </div>
-                <div className="mb-4 flex items-start gap-4">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 1 * 0.2, ease: "easeOut" }}
+                  className="mb-4 flex items-start gap-4">
                   <div className="bg-blue-primary/60 rounded-full p-1">
                     <Check size={18} />
                   </div>
@@ -145,8 +156,13 @@ export default function Offers() {
                       improve efficiency, allowing you to focus on what matters most to you.
                     </p>
                   </div>
-                </div>
-                <div className="mb-4 flex items-start gap-4">
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 1 * 0.3, ease: "easeOut" }}
+                  className="mb-4 flex items-start gap-4">
                   <div className="bg-blue-primary/60 rounded-full p-1">
                     <Check size={18} />
                   </div>
@@ -157,12 +173,16 @@ export default function Offers() {
                     </h2>
                     <p className="text-gray-400 text-justify">
                       If your current website or application has usability issues or an outdated design,
-                      I can conduct a thorough audit and provide actionable recommendations to enhance the 
+                      I can conduct a thorough audit and provide actionable recommendations to enhance the
                       user experience and modernize your interface.
                     </p>
                   </div>
-                </div>
+                </motion.div>
               </div>
+
+              <Link href="/contact" className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
+                Contact Me
+              </Link>
             </div>
           </div>
 

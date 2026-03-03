@@ -101,9 +101,12 @@ export default function Projects() {
                 />
               ))}
             </div>
-            <div className="flex w-full justify-center mt-10">
+            <div className="flex w-full justify-center mt-10 gap-4">
               <Link href="projects" className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
                 View All
+              </Link>
+              <Link href="resume" className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary/5 hover:bg-blue-primary hover:text-black text-blue-primary border border-blue-primary font-semibold transition-all duration-300">
+                Resume
               </Link>
             </div>
           </div>

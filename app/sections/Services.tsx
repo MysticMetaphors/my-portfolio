@@ -62,7 +62,7 @@ export default function Services() {
             viewport={{ once: true }}
             className="mb-4 text-4xl text-center leading-tight font-extrabold text-gray-300"
           >
-            What I can <span className="text-blue-primary/70">Do</span>
+            What I <span className="text-blue-primary/70">Do</span>
           </motion.h1>
 
           <motion.p
