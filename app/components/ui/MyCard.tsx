@@ -70,7 +70,7 @@ export default function MyCard({
               <div className="flex flex-wrap gap-4">
                 {icons ?
                   icons.map((icon, i) => (
-                    <Image key={i} width={10} height={10} quality={75} alt={icon} src={`/techstack/${icon}-original.svg`} className="w-6 opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                    <Image key={i} width={10} height={10} quality={75} alt={icon} src={`/techstack/${icon}-original.svg`} className="w-6 opacity-100 md:opacity-0 group-hover:opacity-100 transition-all duration-300" />
                   ))
                   : ''}
 
