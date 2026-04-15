@@ -13,6 +13,7 @@ export const WavyBackground = ({
   blur = 10,
   speed = "fast",
   waveOpacity = 0.5,
+  sizeOveride,
   ...props
 }: {
   children?: any;
@@ -116,7 +117,7 @@ export const WavyBackground = ({
       )}
     >
       <canvas
-        className="absolute inset-0 z-0 h-full w-full"
+        className={`absolute inset-0 z-0 ${sizeOveride ? sizeOveride : 'h-full w-full'}`}
         ref={canvasRef}
         id="canvas"
         style={{

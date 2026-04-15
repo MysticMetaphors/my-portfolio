@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     "frontend developer",
     "Frontend developer",
     "frontend development",
+    "fullstack developer",
+    "Full-Stack Developer",
+    "FullStack Developer"
   ],
   authors: [{ name: "Von Bryan Team", url: "https://von-bryan-five-92.vercel.app/" }],
   openGraph: {

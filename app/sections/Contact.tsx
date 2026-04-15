@@ -10,6 +10,7 @@ import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { sileo } from "sileo";
 import { Bug, MailWarning, Rocket } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 // import { sub } from "framer-motion/client";
 
 type ContactProp = {
@@ -18,7 +19,11 @@ type ContactProp = {
 
 export default function Contact({ onView }: ContactProp) {
   // const [loading, setLoading] = useState(false);
+  const searchParams = useSearchParams();
   const formRef = useRef<HTMLFormElement>(null);
+
+  const demoParam = searchParams.get("demo");
+  const defaultMessage = demoParam ? `I want to request a demo for "${demoParam}" Project` : "";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -198,6 +203,7 @@ export default function Contact({ onView }: ContactProp) {
                     <textarea
                       id="message"
                       name="message"
+                      defaultValue={defaultMessage}
                       placeholder="Describe your project idea..."
                       rows={5}
                       className="w-full p-3 py-2 rounded-sm bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-primary"

@@ -154,7 +154,7 @@ export default function resume() {
                       <div className="mt-4 flex flex-wrap gap-2">
                         {exp.techstack.map((tech, i) => (
                           <span key={i} className="px-3 py-1 text-xs rounded-md bg-gray-800 border border-gray-700 text-gray-300">
-                            <Image alt={tech.stack} height={100} width={100} quality={75} src={`/techstack/${tech.icon}`} className="h-6 w-fit" />
+                            <Image alt={tech.stack} height={100} width={100} quality={75} src={`/techstack/${tech.icon}`} loading="lazy" className="h-6 w-fit" />
                           </span>
                         ))}
                       </div>
@@ -200,6 +200,7 @@ export default function resume() {
                       height={400}
                       quality={75}
                       src={`/techstack/${stack.img}`}
+                      loading="lazy"
                       className={`w-13 mb-3 ${stack.name === "WordPress" ? "invert-100 brightness-0" : ""}`} // if wordpress turn the logo white
                     />
                     <span className="text-sm font-medium">{stack.name}</span>

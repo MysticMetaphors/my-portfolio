@@ -58,7 +58,7 @@ export default function TechStack() {
                     key={i}
                     className="flex flex-col items-center justify-center rounded-xl p-6 w-32 h-32"
                   >
-                    <Image alt={stack.icon} height={100} width={100} src={`/techstack/${stack.img}`} className="h-14 w-fit mb-3" />
+                    <Image alt={stack.icon} height={100} width={100} quality={50} src={`/techstack/${stack.img}`} className="h-14 w-fit mb-3" />
                     <span className="text-gray-300 text-sm font-medium">{stack.name}</span>
                   </div>
                 ))}

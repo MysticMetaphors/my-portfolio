@@ -8,6 +8,30 @@ import DefaultLayout from "../components/layouts/DefaultLayout";
 export default function projects() {
   const projects = [
     {
+      title: "Student Information System",
+      description: "The Student Information System (SIS) is a centralized web-based platform designed to manage and streamline school operations from Grade 1 to Grade 12. It supports multiple user roles and handles the full student lifecycle—from initial inquiry to enrollment and academic management.",
+      images: [
+        'projects/SIS/image_1.png',
+        'projects/SIS/image_2.png',
+        'projects/SIS/image_3.png',
+        // 'projects/SIS/image_4.png',
+      ],
+      collaborators: [
+        {
+          name: 'Von Bryan',
+          avatar: 'bryan.png',
+          linkedin: 'https://www.linkedin.com/in/von-bryan-ba%C3%B1al-1a1188314/'
+        },
+        {
+          name: 'Darhyl Borcelis',
+          avatar: 'collaborators/darhyl.png',
+          linkedin: 'https://www.linkedin.com/in/darhyl-borcelis-159640403/'
+        }
+      ],
+      icons: ["nextjs", "tailwindcss", "typescript", "laravel"],
+      featured: true
+    },
+    {
       title: "Seinna Brews",
       description: "A cozy café experience focused on comfort, calm moments, and a warm escape from everyday life.",
       image: "projects/seinna_brews.png",
@@ -67,40 +91,40 @@ export default function projects() {
           waveWidth={1}
           blur={0}
           waveOpacity={0}
-        >
-          <div className="max-w-7xl mx-auto px-6 md:px-6 py-20 lg:py-30 z-10">
-            <div className="text-left flex flex-col">
-              {/* Section Header */}
-              <motion.h2
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="mb-4 text-4xl leading-tight font-extrabold text-gray-300"
-              >
-                What I’ve <span className="text-blue-primary/70">Worked</span> On
-              </motion.h2>
+          sizeOveride={'mt-50 h-250 w-[calc(100% + 20)]'}
+        />
+        <div className="max-w-7xl mx-auto px-6 md:px-6 py-20 lg:py-30 relative z-10">
+          <div className="text-left flex flex-col">
+            {/* Section Header */}
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="mb-4 text-4xl leading-tight font-extrabold text-gray-300"
+            >
+              What I’ve <span className="text-blue-primary/70">Worked</span> On
+            </motion.h2>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                className="text-gray-400 mb-12"
-              >
-                Just a few things I’ve built along the way.
-              </motion.p>
-            </div>
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 lg:py-12 md:p-2 sm:p-6">
-              {projects.map((project, i) => (
-                <MyCard
-                  onView={true}
-                  key={i}
-                  index={i}
-                  {...project}
-                />
-              ))}
-            </div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="text-gray-400 mb-12"
+            >
+              Just a few things I’ve built along the way.
+            </motion.p>
           </div>
-        </WavyBackground>
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 lg:py-12 md:p-2 sm:p-6">
+            {projects.map((project, i) => (
+              <MyCard
+                onView={true}
+                key={i}
+                index={i}
+                {...project}
+              />
+            ))}
+          </div>
+        </div>
       </section>
     </DefaultLayout>
   )

@@ -8,6 +8,30 @@ import { WavyBackground } from "../components/ui/wavy-background";
 export default function Projects() {
   const projects = [
     {
+      title: "Student Information System",
+      description: "The Student Information System (SIS) is a centralized web-based platform designed to manage and streamline school operations from Grade 1 to Grade 12. It supports multiple user roles and handles the full student lifecycle—from initial inquiry to enrollment and academic management.",
+      images: [
+        'projects/SIS/image_1.png',
+        'projects/SIS/image_2.png',
+        'projects/SIS/image_3.png',
+        // 'projects/SIS/image_4.png',
+      ],
+      collaborators: [
+        {
+          name: 'Von Bryan',
+          avatar: 'bryan.png',
+          linkedin: 'https://www.linkedin.com/in/von-bryan-ba%C3%B1al-1a1188314/'
+        },
+        {
+          name: 'Darhyl Borcelis',
+          avatar: 'collaborators/darhyl.png',
+          linkedin: 'https://www.linkedin.com/in/darhyl-borcelis-159640403/'
+        }
+      ],
+      icons: ["nextjs", "tailwindcss", "typescript", "laravel"],
+      featured: true
+    },
+    {
       title: "Seinna Brews",
       description: "A cozy café experience focused on comfort, calm moments, and a warm escape from everyday life.",
       image: "projects/seinna_brews.png",
@@ -31,30 +55,6 @@ export default function Projects() {
       design: true,
       icons: ["nextjs", "tailwindcss", "typescript", "html5"]
     },
-    {
-      title: "Fluxo",
-      description: "Fluxo is a showcase of clean and modern web design, featuring responsive layouts, elegant UI components.",
-      image: "projects/fluxos.png",
-      url: "https://fluxo-alpha.vercel.app/",
-      design: true,
-      icons: ["react", "tailwindcss", "javascript", "html5"]
-    },
-    {
-      title: "Arvo",
-      description: "Arvo is a creative web-solutions studio that crafts smart, high-performance digital experiences.",
-      image: "projects/arvo.png",
-      url: "https://arvo-alpha.vercel.app/",
-      design: true,
-      icons: ["nextjs", "tailwindcss", "typescript", "html5"]
-    },
-    {
-      title: "PixelForge",
-      description: "PixelForge offers free pixel art and AI resources to support developers and artists in creating their games.",
-      image: "projects/pixelforge.png",
-      url: "https://pixel-forge-omega.vercel.app/",
-      design: true,
-      icons: ["react", "tailwindcss", "supabase", "javascript", "html5"]
-    },
   ];
 
   return (
@@ -67,7 +67,8 @@ export default function Projects() {
           waveWidth={1}
           blur={0}
           waveOpacity={0}
-        >
+          sizeOveride={'mt-50 h-250 w-[calc(100% + 20)]'}
+        />
           <div className="max-w-7xl mx-auto px-6 md:px-6 py-20 lg:py-30 z-10">
             <div className="text-left flex flex-col">
               {/* Section Header */}
@@ -86,7 +87,7 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="text-gray-400 mb-12 text-center"
+                className="text-gray-400 md:mb-0 mb-12 text-center"
               >
                 Just a few things I’ve built along the way.
               </motion.p>
@@ -110,7 +111,7 @@ export default function Projects() {
               </Link>
             </div>
           </div>
-        </WavyBackground>
+        {/* </WavyBackground> */}
       </section>
     </>
   )

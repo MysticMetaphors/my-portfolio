@@ -126,7 +126,7 @@ export default function Offers() {
 
                   <div>
                     <h2 className="text-2xl font-bold text-white mb-2">
-                      Strategic Multi-Page Suite
+                      Web Design & Development
                     </h2>
                     <p className="text-gray-400 text-justify">
                       I design and develop websites (up to 5 pages) tailored to your brand.
