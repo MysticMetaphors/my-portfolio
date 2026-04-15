@@ -41,8 +41,8 @@ export default function Sidebar({ menus = [], user }: SidebarProps) {
       {/* Navigation */}
       <nav className="flex-1 px-4 py-6 pb-16 space-y-1 overflow-y-auto scrollbar-custom">
         {menus.length > 0 && menus.map((item, i) => {
-          const isActive = pathname === item.href;
-          const Icon = item.icon;
+          const isActive: boolean = pathname === item.href;
+          const Icon = item.icon
 
           return (
             <div key={i}>
@@ -54,10 +54,8 @@ export default function Sidebar({ menus = [], user }: SidebarProps) {
                     : 'text-[#A0A0A0] border border-transparent hover:bg-charleston-green hover:text-white'
                   }`}
               >
-                <Icon
-                  size={18}
-                  className={`transition-colors ${isActive ? 'text-white' : 'text-[#A0A0A0] group-hover:text-white'}`}
-                />
+                {/* @ts-ignore */}
+                <Icon className={`transition-colors ${isActive ? 'text-white' : 'text-[#A0A0A0] group-hover:text-white'}`}/>
                 {item.name}
                 {item.more && (
                   <div onClick={(e) => {

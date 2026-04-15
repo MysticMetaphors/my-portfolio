@@ -31,10 +31,8 @@ export default function Navigation() {
     },
   ]
 
-  console.log("render nav")
-
   return (
-    <nav className="absolute z-20 top-5 left-1/2 transform -translate-x-1/2 max-w-7xl  w-full px-6 py-4 bg-transparent flex items-center justify-between rounded-full">
+    <nav className="absolute z-40 top-5 left-1/2 transform -translate-x-1/2 max-w-7xl w-full px-6 py-4 bg-transparent flex items-center justify-between rounded-full">
       <div className="flex gap-3 items-center z-110">
         <Image height={10} width={10} quality={75} src="/bryan.png" alt="Von Bryan Profile" className="h-10 w-fit rounded-full" />
         <div className="md:mr-2 mr-5">
