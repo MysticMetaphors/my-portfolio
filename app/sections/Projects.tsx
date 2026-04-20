@@ -48,10 +48,10 @@ export default function Projects() {
       icons: ["nextjs", "tailwindcss", "typescript", "html5"]
     },
     {
-      title: "Slice",
-      description: "A premium cake shop Demo website that offers a delightful selection of cakes for every occasion",
-      image: "projects/cake2go.png",
-      url: "https://cake2go.vercel.app/",
+      title: "Outpost",
+      description: "A premier indie game studio that builds atmospheric digital worlds through clean code and immersive design",
+      image: "projects/outpost.png",
+      url: "https://indie-web-ikp3.vercel.app/",
       design: true,
       icons: ["nextjs", "tailwindcss", "typescript", "html5"]
     },

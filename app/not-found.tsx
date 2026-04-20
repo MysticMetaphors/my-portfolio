@@ -6,11 +6,11 @@ import GlobeBG from "./components/ui/GlobeBG"
 export default function NotFound() {
   return (
     <GlobeBG>
-      <div className="absolute inset-0 z-[1] flex flex-col items-center justify-start pt-40 text-white font-sans pointer-events-none">
+      <div className="absolute inset-0 z-[1] flex flex-col items-center justify-start pt-60 md:pt-40 text-white font-sans pointer-events-none">
         <h1 className="m-0 text-[11vw] leading-none font-extrabold drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
           404
         </h1>
-        <p className="text-2xl mb-12 font-normal opacity-80 drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]">
+        <p className="text-sm md:text-2xl mb-12 font-normal opacity-80 drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]">
           You've drifted too far into the atmosphere.
         </p>
 
