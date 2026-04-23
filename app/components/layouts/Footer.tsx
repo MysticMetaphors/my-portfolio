@@ -12,7 +12,7 @@ export default function Footer() {
             <Image height={800} width={800} src="/bryan.png" alt="Arvo Logo" className="h-10 w-fit rounded-full" />
             <div>
               <h1 className="font-semibold text-white">Von Bryan</h1>
-              <p className="text-gray-300 text-sm font-light">Junior Web Developer</p>
+              <p className="text-gray-300 text-sm font-light">Full-Stack Developer & UI/UX Designer</p>
             </div>
           </div>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
@@ -38,7 +38,7 @@ export default function Footer() {
 
           </div>
         </div>
-        <div className="mt-4">
+        <div className="mt-4 flex sm:justify-end">
           <span className="text-sm text-gray-400 sm:text-center">© 2025 <Link href="#" className="hover:underline font-normal" >VonBryan™</Link>. All Rights Reserved.
           </span>
         </div>

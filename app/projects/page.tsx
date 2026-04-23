@@ -2,7 +2,6 @@
 
 import MyCard from "../components/ui/MyCard";
 import { motion } from "framer-motion";
-import { WavyBackground } from "../components/ui/wavy-background";
 import DefaultLayout from "../components/layouts/DefaultLayout";
 
 export default function projects() {
@@ -63,14 +62,14 @@ export default function projects() {
       design: true,
       icons: ["nextjs", "tailwindcss", "typescript", "html5"]
     },
-    {
-      title: "Fluxo",
-      description: "Fluxo is a showcase of clean and modern web design, featuring responsive layouts, elegant UI components.",
-      image: "projects/fluxos.png",
-      url: "https://fluxo-alpha.vercel.app/",
-      design: true,
-      icons: ["react", "tailwindcss", "javascript", "html5"]
-    },
+    // {
+    //   title: "Fluxo",
+    //   description: "Fluxo is a showcase of clean and modern web design, featuring responsive layouts, elegant UI components.",
+    //   image: "projects/fluxos.png",
+    //   url: "https://fluxo-alpha.vercel.app/",
+    //   design: true,
+    //   icons: ["react", "tailwindcss", "javascript", "html5"]
+    // },
     {
       title: "Arvo",
       description: "Arvo is a creative web-solutions studio that crafts smart, high-performance digital experiences.",
@@ -87,21 +86,45 @@ export default function projects() {
       design: true,
       icons: ["react", "tailwindcss", "supabase", "javascript", "html5"]
     },
+    {
+      title: "Budgeting System",
+      description: "A simple budgeting app that allow you to track & manage your expenses and income. The project allow you to capture your physical receipt and automatically scan it by utilizing AI.",
+      images: [
+        'projects/verge/image_1.jpg',
+        'projects/verge/image_2.jpg',
+        'projects/verge/image_3.jpg',
+        'projects/verge/image_4.jpg',
+      ],
+      icons: ["nextjs", "tailwindcss", "typescript", "laravel"],
+    },
   ];
 
   return (
     <DefaultLayout>
       <section id="projects" className="relative bg-black-primary overflow-hidden sm:p-0 pt-25">
         {/* <div className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3/4 w-full bg-gradient-to-t from-transparent via-darkblue-primary/35 to-transparent pointer-events-none"></div> */}
-
-        <WavyBackground
+        <div
+          className="absolute top-0 left-0 w-full pointer-events-none z-[1]"
+          style={{
+            height: "80vh",
+            backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)
+          `,
+            backgroundSize: "60px 60px",
+            backgroundColor: "#0a0f14",
+            maskImage: "linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 100%)",
+          }}
+        />
+        {/* <WavyBackground
           backgroundFill="#0a0a0af1"
           waveWidth={1}
           blur={0}
           waveOpacity={0}
           sizeOveride={'mt-50 h-250 w-[calc(100% + 20)]'}
-        />
-        <div className="max-w-7xl mx-auto px-6 md:px-6 py-20 lg:py-30 relative z-10">
+        /> */}
+        <div className="max-w-7xl mx-auto px-6 md:px-6 py-20 lg:py-30 mt-10 relative z-10">
           <div className="text-left flex flex-col">
             {/* Section Header */}
             <motion.h2

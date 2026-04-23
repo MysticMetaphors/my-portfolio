@@ -21,10 +21,10 @@ export default function Navigation() {
       label: "Projects",
       link: "/projects"
     },
-    {
-      label: "Resume",
-      link: "/resume"
-    },
+    // {
+    //   label: "Resume",
+    //   link: "/resume"
+    // },
     {
       label: "Contact",
       link: "/contact"

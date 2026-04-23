@@ -201,7 +201,7 @@ export default function MyCard({
     : description.slice(0, 140).trimEnd() + "…";
 
   // ── Featured Card View ─────────────────────────────────────────────────────
-  if (featured) {
+  if (images.length != 0) {
     return (
       <>
         {inspectIndex !== null && (
@@ -222,10 +222,12 @@ export default function MyCard({
           <div className="py-7 border-b border-white/25">
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6">
               <div className="flex-1">
-                <span className="bg-white/5 w-fit rounded-full border border-white/10 py-1 px-3 flex font-semibold items-center gap-2 mb-3">
+               {featured && (
+                 <span className="bg-white/5 w-fit rounded-full border border-white/10 py-1 px-3 flex font-semibold items-center gap-2 mb-3">
                   <div className="w-2 h-2 rounded-full bg-blue-primary/80 shadow-[0_0_5px_#0095ff]" />
                   Featured Project
                 </span>
+               )}
                 <h3 className="text-white text-3xl font-bold tracking-tight mb-4">{title}</h3>
                 <p className="text-gray-400 text-md leading-relaxed">
                   {displayedDescription}
