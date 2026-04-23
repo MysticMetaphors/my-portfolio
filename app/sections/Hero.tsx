@@ -47,7 +47,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
-            I offer <span className="font-bold">100% custom websites</span>, designed and coded from the ground up to reflect your brand.
+            I offer <span className="font-bold">100% custom websites</span>, designed and coded from the ground up to reflect your brand & support your business goals.
             You can also have access to <span className="font-bold">Reliable Maintenance</span> and {" "}
             <span className="font-bold">Technical Support</span> of your site
           </p>

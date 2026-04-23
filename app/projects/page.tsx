@@ -13,7 +13,12 @@ export default function projects() {
         'projects/SIS/image_1.png',
         'projects/SIS/image_2.png',
         'projects/SIS/image_3.png',
-        // 'projects/SIS/image_4.png',
+        'projects/SIS/image_4.png',
+        'projects/SIS/image_5.png',
+        'projects/SIS/image_6.png',
+        'projects/SIS/image_7.png',
+        'projects/SIS/image_8.png',
+        'projects/SIS/image_9.png',
       ],
       collaborators: [
         {
@@ -94,6 +99,9 @@ export default function projects() {
         'projects/verge/image_2.jpg',
         'projects/verge/image_3.jpg',
         'projects/verge/image_4.jpg',
+        'projects/verge/image_5.jpg',
+        'projects/verge/image_6.jpg',
+        'projects/verge/image_7.jpg',
       ],
       icons: ["nextjs", "tailwindcss", "typescript", "laravel"],
     },

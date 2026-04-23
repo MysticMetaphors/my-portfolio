@@ -195,10 +195,10 @@ export default function MyCard({
     ? images.map(item => typeof item === 'string' ? { src: item, type: 'image' } : item)
     : image ? [{ src: image, type: 'image' }] : [];
 
-  const isTruncated = description.length > 140;
-  const displayedDescription = !featured || expanded
-    ? description
-    : description.slice(0, 140).trimEnd() + "…";
+  const isTruncated = description.length > 100;
+  const displayedDescription = expanded
+    ? (description)
+    : (isTruncated ? description.slice(0, 100).trimEnd() + "…" : description);
 
   // ── Featured Card View ─────────────────────────────────────────────────────
   if (images.length != 0) {
@@ -219,7 +219,7 @@ export default function MyCard({
           transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
           className="md:col-span-3 relative "
         >
-          <div className="py-7 border-b border-white/25">
+          <div className="py-7">
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6">
               <div className="flex-1">
                {featured && (
@@ -231,7 +231,7 @@ export default function MyCard({
                 <h3 className="text-white text-3xl font-bold tracking-tight mb-4">{title}</h3>
                 <p className="text-gray-400 text-md leading-relaxed">
                   {displayedDescription}
-                  {isTruncated && (
+                  {isTruncated  && (
                     <button onClick={() => setExpanded(!expanded)} className="ml-1 text-blue-400 font-medium">
                       {expanded ? "show less" : "see all"}
                     </button>
@@ -319,6 +319,7 @@ export default function MyCard({
               />
             )}
           </div>
+          <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
         </motion.div>
       </>
     );

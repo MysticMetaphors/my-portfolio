@@ -2,13 +2,26 @@
 
 import { motion } from "framer-motion"
 import {  Database, FastForward, GitFork, KeyRound, Settings, TabletSmartphone } from "lucide-react"
+import Link from "next/link"
 
 export default function Services() {
   const services = [
     {
-      name: "Responsive Design",
-      description: "Your website will work perfectly to all screen sizes mobile, tablet, and desktop ensuring visitors can access it from anywhere and enjoy a polished UI/UX experience on any device.",
+      name: "UI/UX Design",
+      description: "Your website will be built with UI/UX principles in mind and your brands identity that enchances your users exprience.",
       icon: TabletSmartphone,
+      link_to: "/contact"
+    },
+    {
+      name: "Web Development",
+      description: "Your website shouldn't just look good, it needs to be fast. I develop responsive sites optimized for high performance, ensuring your users get a smooth experience across all devices.",
+      icon: TabletSmartphone,
+      link_to: "/contact"
+    },
+    {
+      name: "Solutions Engineering",
+      description: "I develop solutions that is alighned to your business goal and operations custom built for your needs.",
+      icon: GitFork,
       link_to: "/contact"
     },
     {
@@ -29,18 +42,6 @@ export default function Services() {
       icon: KeyRound,
       link_to: "/contact"
     },
-    {
-      name: "Database Design",
-      description: "I design and create normalized, efficient database structures and optimize queries to ensure fast performance and accurate data handling.",
-      icon: Database,
-      link_to: "/contact"
-    },
-    {
-      name: "API Development",
-      description: "I develop secure and scalable APIs that connects between systems that allow them to comunicate effeciently and seamlessly.",
-      icon: GitFork,
-      link_to: "/contact"
-    }
   ]
 
   return (
@@ -106,9 +107,9 @@ export default function Services() {
                   <p className="text-gray-300">
                     {service.description}
                   </p>
-                  <a href={service.link_to} className="mt-auto underline hover:decoration-transparent underline-offset-3 text-sm font-semibold hover:bg-blue-primary/50 rounded-sm p-1 px-2 w-fit transition-all duration-200">
+                  {/* <Link href={service.link_to} className="mt-auto underline hover:decoration-transparent underline-offset-3 text-sm font-semibold hover:bg-blue-primary/50 rounded-sm p-1 px-2 w-fit transition-all duration-200">
                     Get Started
-                  </a>
+                  </Link> */}
                 </div>
               </motion.div>
             )

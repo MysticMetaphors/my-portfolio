@@ -3,7 +3,7 @@
 import Link from "next/link";
 import MyCard from "../components/ui/MyCard";
 import { motion } from "framer-motion";
-import { WavyBackground } from "../components/ui/wavy-background";
+// import { WavyBackground } from "../components/ui/wavy-background";
 
 export default function Projects() {
   const projects = [
@@ -14,7 +14,12 @@ export default function Projects() {
         'projects/SIS/image_1.png',
         'projects/SIS/image_2.png',
         'projects/SIS/image_3.png',
-        // 'projects/SIS/image_4.png',
+        'projects/SIS/image_4.png',
+        'projects/SIS/image_5.png',
+        'projects/SIS/image_6.png',
+        'projects/SIS/image_7.png',
+        'projects/SIS/image_8.png',
+        'projects/SIS/image_9.png',
       ],
       collaborators: [
         {
@@ -62,13 +67,13 @@ export default function Projects() {
       <section id="projects" className="relative bg-black-primary overflow-hidden">
         {/* <div className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3/4 w-full bg-gradient-to-t from-transparent via-darkblue-primary/35 to-transparent pointer-events-none"></div> */}
 
-        <WavyBackground
+        {/* <WavyBackground
           backgroundFill="#0a0a0af1"
           waveWidth={1}
           blur={0}
           waveOpacity={0}
           sizeOveride={'mt-50 h-250 w-[calc(100% + 20)]'}
-        />
+        /> */}
           <div className="max-w-7xl mx-auto px-6 md:px-6 py-20 lg:py-30 z-10">
             <div className="text-left flex flex-col">
               {/* Section Header */}
@@ -106,9 +111,9 @@ export default function Projects() {
               <Link href="projects" className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
                 View All
               </Link>
-              <Link href="resume" className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary/5 hover:bg-blue-primary hover:text-black text-blue-primary border border-blue-primary font-semibold transition-all duration-300">
+              {/* <Link href="resume" className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary/5 hover:bg-blue-primary hover:text-black text-blue-primary border border-blue-primary font-semibold transition-all duration-300">
                 Resume
-              </Link>
+              </Link> */}
             </div>
           </div>
         {/* </WavyBackground> */}
