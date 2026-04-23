@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 // import { useState } from "react";
 // import { appendToast } from "@/lib/global";
 import { WavyBackground } from "../components/ui/wavy-background";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { sileo } from "sileo";
-import { Bug, MailWarning, Rocket } from "lucide-react";
+import { Bug, Loader2, MailWarning, Rocket } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 // import { sub } from "framer-motion/client";
 
@@ -18,7 +18,7 @@ type ContactProp = {
 }
 
 export default function Contact({ onView }: ContactProp) {
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const searchParams = useSearchParams();
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -27,19 +27,39 @@ export default function Contact({ onView }: ContactProp) {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true)
 
     const formData = new FormData(e.currentTarget);
     const name = formData.get("name");
     const email = formData.get("email");
     const message = formData.get("message");
+    const number = formData.get("number");
 
     //require all fields Name, Email, Message
-    if (!name || !email || !message) {
+    if (!name || !email || !message || !number) {
+      const missing = [
+        !name && "Name",
+        !email && "Email",
+        !message && "Message",
+        !number && "number",
+      ].filter(Boolean).join(", ");
+
       sileo.error({
-        title: "Please fill all fields!",
-        icon: <MailWarning className="size-3.5" />
+        title: "Please fill the following fields!",
+        icon: <MailWarning className="size-3.5" />,
+        description: (
+          <div className="flex gap-1 flex-wrap mt-0.5">
+            {[!name && "Name", !email && "Email", !message && "Message", !number && "Number"]
+              .filter(Boolean)
+              .map((field) => (
+                <span key={field as string} className="text-xs bg-red-500/20 text-red-400 px-1.5 py-0.5 rounded-sm">
+                  {field}
+                </span>
+              ))}
+          </div>
+        )
       })
-      return;
+      return setLoading(false);
     }
 
     const data = Object.fromEntries(formData.entries());
@@ -58,15 +78,18 @@ export default function Contact({ onView }: ContactProp) {
       // appendToast("append-toast", "success", "Thanks for reaching out!");
       sileo.success({
         title: "Thanks for reaching out!",
-        icon: <Rocket className="size-3.5" />
+        icon: <Rocket className="size-3.5" />,
+        description: "I'll get back to you within 24 hours."
       })
       resetForm();
+      return setLoading(false)
     } else {
       sileo.error({
         title: "Unexpected Error Occured!",
         description: "Oops there could be problem in the system",
         icon: <Bug className="size-3.5" />
       })
+      return setLoading(false)
     }
   };
 
@@ -119,7 +142,7 @@ export default function Contact({ onView }: ContactProp) {
                   {...animationY}
                   transition={{ duration: 0.5, delay: 0 * 0.1, ease: "easeOut" }}
                   className="text-gray-400 md:text-lg text-md text-justify mb-8">
-                  Send email to me with all the details you want for your new website, and I'll get back to you within 24 hours. 
+                  Send email to me with all the details you want for your new website, and I'll get back to you within 24 hours.
                   Prefer to talk? Give me a call to connect right away. If I can't answer right away, I'll return your call the same day.
                 </motion.p>
 
@@ -129,7 +152,7 @@ export default function Contact({ onView }: ContactProp) {
                     {...animationX}
                     transition={{ duration: 0.5, delay: 0 * 0.1, ease: "easeOut" }}
                     className="flex gap-4 items-center">
-                    <FontAwesomeIcon icon={faEnvelope} className="text-xl p-1.5 rounded-sm bg-blue-primary/30"/>
+                    <FontAwesomeIcon icon={faEnvelope} className="text-xl p-1.5 rounded-sm bg-blue-primary/30" />
                     <a href="mailto:vonbanalbryan18v@gmail.com" className="text-md underline underline-offset-5">vonbanalbryan18v@gmail.com</a>
                   </motion.div>
                   <motion.div
@@ -137,7 +160,7 @@ export default function Contact({ onView }: ContactProp) {
                     {...animationX}
                     transition={{ duration: 0.5, delay: 1 * 0.1, ease: "easeOut" }}
                     className="flex gap-4 items-center">
-                    <FontAwesomeIcon icon={faPhone} className="text-xl p-1.5 rounded-sm bg-blue-primary/30"/>
+                    <FontAwesomeIcon icon={faPhone} className="text-xl p-1.5 rounded-sm bg-blue-primary/30" />
                     <a href="tel:+639606874147" className="text-md underline underline-offset-5"><span className="font-bold">(+63)</span>-960-687-4147</a>
                   </motion.div>
                   <motion.a
@@ -147,7 +170,7 @@ export default function Contact({ onView }: ContactProp) {
                     transition={{ duration: 0.5, delay: 2 * 0.1, ease: "easeOut" }}
                     href="https://www.linkedin.com/in/von-bryan-ba%C3%B1al-1a1188314/"
                     className="flex gap-4 items-center">
-                    <FontAwesomeIcon icon={faLinkedinIn} className="bg-blue-primary/70 text-xl p-1.5 rounded"/>
+                    <FontAwesomeIcon icon={faLinkedinIn} className="bg-blue-primary/70 text-xl p-1.5 rounded" />
                     <p className="text-md underline underline-offset-5">Von Bryan</p>
                   </motion.a>
                 </div>
@@ -212,9 +235,17 @@ export default function Contact({ onView }: ContactProp) {
 
                   <button
                     type="submit"
-                    className="mt-5 bg-blue-400/70 font-semibold hover:shadow-[0_0_40px_#0095ff] transition-all duration-300 shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black py-3 px-6 rounded-md"
+                    disabled={loading}
+                    className="mt-5 bg-blue-400/70 font-semibold hover:shadow-[0_0_40px_#0095ff] transition-all duration-300 shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black py-3 px-6 rounded-md disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
-                    Submit
+                    {loading ? (
+                      <>
+                        <Loader2 className="size-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      "Submit"
+                    )}
                   </button>
                 </div>
               </motion.form>

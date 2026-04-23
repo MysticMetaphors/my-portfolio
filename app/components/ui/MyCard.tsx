@@ -217,7 +217,7 @@ export default function MyCard({
           initial={{ opacity: 0, y: 40 }}
           {...animationProps}
           transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-          className="md:col-span-3 relative "
+          className="lg:col-span-3 md:col-span-2 relative "
         >
           <div className="py-7">
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6">

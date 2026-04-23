@@ -50,9 +50,7 @@ export default function TechStack() {
         <div className="flex justify-center">
           <div className="bg-gray-900 border border-gray-700 rounded-xl p-2 w-fit">
             <div className="overflow-hidden relative bg-gray-900 border border-gray-700 rounded-xl p-6 max-w-7xl w-full">
-              <div className="relative z-100 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-8 justify-items-center">
-
-
+              <div className="relative z-40 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-8 justify-items-center">
                 {stacks.map((stack, i) => (
                   <div
                     key={i}

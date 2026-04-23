@@ -3,6 +3,7 @@
 import MyCard from "../components/ui/MyCard";
 import { motion } from "framer-motion";
 import DefaultLayout from "../components/layouts/DefaultLayout";
+import { useState } from "react";
 
 export default function projects() {
   const projects = [
@@ -33,7 +34,8 @@ export default function projects() {
         }
       ],
       icons: ["nextjs", "tailwindcss", "typescript", "laravel"],
-      featured: true
+      featured: true,
+      type: "Engineered Solution"
     },
     {
       title: "Seinna Brews",
@@ -41,7 +43,8 @@ export default function projects() {
       image: "projects/seinna_brews.png",
       url: "https://sienna-brews.vercel.app/",
       design: true,
-      icons: ["nextjs", "tailwindcss", "typescript", "html5"]
+      icons: ["nextjs", "tailwindcss", "typescript", "html5"],
+      type: "Landing Page"
     },
     {
       title: "Solara Grand",
@@ -49,7 +52,8 @@ export default function projects() {
       image: "projects/solara_grand.png",
       url: "https://solara-grand.vercel.app/",
       design: true,
-      icons: ["nextjs", "tailwindcss", "typescript", "html5"]
+      icons: ["nextjs", "tailwindcss", "typescript", "html5"],
+      type: "Landing Page"
     },
     {
       title: "Outpost",
@@ -57,7 +61,8 @@ export default function projects() {
       image: "projects/outpost.png",
       url: "https://indie-web-ikp3.vercel.app/",
       design: true,
-      icons: ["nextjs", "tailwindcss", "typescript", "html5"]
+      icons: ["nextjs", "tailwindcss", "typescript", "html5"],
+      type: "Landing Page"
     },
     {
       title: "Slice",
@@ -65,7 +70,8 @@ export default function projects() {
       image: "projects/cake2go.png",
       url: "https://cake2go.vercel.app/",
       design: true,
-      icons: ["nextjs", "tailwindcss", "typescript", "html5"]
+      icons: ["nextjs", "tailwindcss", "typescript", "html5"],
+      type: "Landing Page"
     },
     // {
     //   title: "Fluxo",
@@ -81,7 +87,8 @@ export default function projects() {
       image: "projects/arvo.png",
       url: "https://arvo-alpha.vercel.app/",
       design: true,
-      icons: ["nextjs", "tailwindcss", "typescript", "html5"]
+      icons: ["nextjs", "tailwindcss", "typescript", "html5"],
+      type: "Landing Page"
     },
     {
       title: "PixelForge",
@@ -89,10 +96,11 @@ export default function projects() {
       image: "projects/pixelforge.png",
       url: "https://pixel-forge-omega.vercel.app/",
       design: true,
-      icons: ["react", "tailwindcss", "supabase", "javascript", "html5"]
+      icons: ["react", "tailwindcss", "supabase", "javascript", "html5"],
+      type: "Landing Page"
     },
     {
-      title: "Budgeting System",
+      title: "Budgeting App",
       description: "A simple budgeting app that allow you to track & manage your expenses and income. The project allow you to capture your physical receipt and automatically scan it by utilizing AI.",
       images: [
         'projects/verge/image_1.jpg',
@@ -103,9 +111,16 @@ export default function projects() {
         'projects/verge/image_6.jpg',
         'projects/verge/image_7.jpg',
       ],
-      icons: ["nextjs", "tailwindcss", "typescript", "laravel"],
+      icons: ["nextjs", "tailwindcss", "typescript", "supabase"],
+      type: "Engineered Solution"
     },
   ];
+  const ChipsTypes = ["All Projects", "Engineered Solution", "Landing Page"]
+  const [activeChip, setActiveChip] = useState("All Projects");
+
+  const filteredProjects = activeChip === "All Projects"
+    ? projects
+    : projects.filter((p) => p.type === activeChip);
 
   return (
     <DefaultLayout>
@@ -152,9 +167,32 @@ export default function projects() {
             >
               Just a few things I’ve built along the way.
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="flex gap-2 flex-wrap mb-8"
+            >
+              {ChipsTypes.map((chip) => (
+                <button
+                  key={chip}
+                  onClick={() => setActiveChip(chip)}
+                  className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-300 cursor-pointer
+                  ${activeChip === chip
+                      ? "bg-blue-primary/20 border-blue-primary text-blue-primary"
+                      : "bg-transparent border-gray-700 text-gray-400 hover:border-gray-500 hover:text-gray-300"
+                    }`}
+                >
+                  {chip}
+                </button>
+              ))}
+            </motion.div>
+
+            <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
           </div>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 lg:py-12 md:p-2 sm:p-6">
-            {projects.map((project, i) => (
+            {filteredProjects.map((project, i) => (
               <MyCard
                 onView={true}
                 key={i}

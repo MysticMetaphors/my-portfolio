@@ -180,6 +180,34 @@ body {
   border-radius: 5px;
 }
 
+[data-sileo-canvas] {
+  outline: 10px solid; 
+  border-radius: 16px;
+}
+
+/* [data-sileo-canvas] {
+  outline: 10px solid rgba(255, 0, 0, 0.3); 
+  border-radius: 16px;
+} */
+
+[data-state="error"] [data-sileo-canvas]{
+  outline:10px solid rgba(255, 0, 0, 0.3); 
+  border-radius: 16px;
+}
+
+[data-state="success"] [data-sileo-canvas]{
+  outline:10px solid rgba(34, 197, 94, 0.3); 
+  border-radius: 16px;
+}
+
+/* [data-sileo-canvas] svg {
+  filter: drop-shadow(0 0 0 1.5px rgba(239, 68, 68, 0.6));
+} */
+
+/* [data-sileo-canvas][data-state="success"] svg {
+  filter: drop-shadow(0 0 0 1.5px rgba(34, 197, 94, 0.6));
+} */
+
 /* * {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.2) #141414;

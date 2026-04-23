@@ -29,6 +29,10 @@ export default function Navigation() {
       label: "Contact",
       link: "/contact"
     },
+    {
+      label: "About",
+      link: "/about"
+    },
   ]
 
   return (
