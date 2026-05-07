@@ -88,20 +88,6 @@ export default function About() {
       <section className="relative bg-black-primary overflow-hidden pt-25">
 
         {/* Grid background */}
-        <div
-          className="absolute top-0 left-0 w-full pointer-events-none z-[1]"
-          style={{
-            height: "80vh",
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-            backgroundColor: "#0a0f14",
-            maskImage: "linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 100%)",
-          }}
-        />
 
         <div className="max-w-7xl mx-auto px-6 py-10 lg:py-20 relative z-10">
 

@@ -126,20 +126,6 @@ export default function projects() {
     <DefaultLayout>
       <section id="projects" className="relative bg-black-primary overflow-hidden sm:p-0 pt-25">
         {/* <div className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3/4 w-full bg-gradient-to-t from-transparent via-darkblue-primary/35 to-transparent pointer-events-none"></div> */}
-        <div
-          className="absolute top-0 left-0 w-full pointer-events-none z-[1]"
-          style={{
-            height: "80vh",
-            backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)
-          `,
-            backgroundSize: "60px 60px",
-            backgroundColor: "#0a0f14",
-            maskImage: "linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 100%)",
-          }}
-        />
         {/* <WavyBackground
           backgroundFill="#0a0a0af1"
           waveWidth={1}
