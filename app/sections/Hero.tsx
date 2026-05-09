@@ -42,7 +42,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2}}
-          className="relative text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight"
+          className="relative text-5xl mx-auto max-w-2xl md:text-6xl font-extrabold tracking-tight text-white leading-tight"
           >
             Let’s Build Something
             <span className="relative inline-block border-b-5 border-blue-primary pb-1 text-blue-primary">
