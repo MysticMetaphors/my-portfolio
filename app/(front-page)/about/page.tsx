@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import DefaultLayout from "../components/layouts/DefaultLayout";
 import { AudioLines, Briefcase, Calendar, Cctv, Cpu, Flame, Gamepad2, Globe, Layers, Lightbulb, MapPin, MonitorSmartphone, Palette, Play, Rocket, Sparkles, Users } from "lucide-react";
-import { GridBackground } from "../components/ui/background-grid";
+import { GridBackground } from "../../components/ui/background-grid";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -84,7 +83,6 @@ const likeItems = [
 
 export default function About() {
   return (
-    <DefaultLayout>
       <section className="relative bg-black-primary overflow-hidden pt-25">
 
         {/* Grid background */}
@@ -379,6 +377,5 @@ export default function About() {
 
         </div>
       </section>
-    </DefaultLayout >
   );
 }

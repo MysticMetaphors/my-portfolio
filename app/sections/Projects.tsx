@@ -34,7 +34,9 @@ export default function Projects() {
         }
       ],
       icons: ["nextjs", "tailwindcss", "typescript", "laravel"],
-      featured: true
+      featured: true,
+      type: "Engineered Solution",
+      contribution: "I led the development of the Student Information System (SIS) as the lead developer, overseeing the entire project lifecycle from design to deployment. I collaborated closely with a team of developers and stakeholders to create a robust, user-friendly platform that streamlined school operations and enhanced the student experience."
     },
     {
       title: "Seinna Brews",
@@ -42,7 +44,9 @@ export default function Projects() {
       image: "projects/seinna_brews.png",
       url: "https://sienna-brews.vercel.app/",
       design: true,
-      icons: ["nextjs", "tailwindcss", "typescript", "html5"]
+      icons: ["nextjs", "tailwindcss", "typescript", "html5"],
+      type: "Landing Page",
+      contribution: "I designed and developed the Seinna Brews website, creating a cozy and inviting online presence that reflects the café's focus on comfort and calm moments. I implemented a user-friendly interface and responsive design to ensure an enjoyable browsing experience for visitors."
     },
     {
       title: "Solara Grand",
@@ -50,7 +54,9 @@ export default function Projects() {
       image: "projects/solara_grand.png",
       url: "https://solara-grand.vercel.app/",
       design: true,
-      icons: ["nextjs", "tailwindcss", "typescript", "html5"]
+      icons: ["nextjs", "tailwindcss", "typescript", "html5"],
+      type: "Landing Page",
+      contribution: "I designed and developed the Solara Grand website, creating a luxurious and immersive online presence that reflects the resort's blend of refined comfort and unforgettable adventures. I implemented a visually stunning design and responsive layout to provide an engaging browsing experience for potential guests."
     },
     {
       title: "Outpost",
@@ -58,7 +64,9 @@ export default function Projects() {
       image: "projects/outpost.png",
       url: "https://indie-web-ikp3.vercel.app/",
       design: true,
-      icons: ["nextjs", "tailwindcss", "typescript", "html5"]
+      icons: ["nextjs", "tailwindcss", "typescript", "html5"],
+      type: "Landing Page",
+      contribution: "I designed and developed the Outpost website, creating a visually appealing and immersive online presence that reflects the indie game studio's focus on atmospheric digital worlds. I implemented a user-friendly interface and responsive design to ensure an engaging browsing experience for visitors."
     },
   ];
 

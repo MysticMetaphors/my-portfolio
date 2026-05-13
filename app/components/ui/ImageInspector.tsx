@@ -3,13 +3,15 @@
 import { useEffect, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Info } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import LazyImage from "./LazyImage";
 
 type ImageInspectorProps = {
   images: string[];
   initialIndex?: number;
   title?: string;
+  contribution?: string;
   onClose: () => void;
 };
 
@@ -17,10 +19,12 @@ export default function ImageInspector({
   images,
   initialIndex = 0,
   title = "",
+  contribution,
   onClose,
 }: ImageInspectorProps) {
   const [current, setCurrent] = useState(initialIndex);
   const [mounted, setMounted] = useState(false);
+  const [mobileInfoOpen, setMobileInfoOpen] = useState(false);
 
   const prev = useCallback(() =>
     setCurrent((c) => (c - 1 + images.length) % images.length), [images.length]);
@@ -109,33 +113,125 @@ export default function ImageInspector({
               {current + 1} / {images.length}
             </div>
           )}
+
+          {/* Mobile info toggle */}
+          {contribution && (
+            <button
+              onClick={() => setMobileInfoOpen((v) => !v)}
+              className="md:hidden absolute top-3 right-3 z-20 flex items-center gap-1.5 px-3 h-9 rounded-full
+                         bg-white/10 hover:bg-white/20 border border-white/10 text-white text-xs font-medium
+                         transition-all duration-200"
+            >
+              <Info size={14} />
+              {mobileInfoOpen ? "Hide info" : "My contribution"}
+            </button>
+          )}
+
+          {/* Mobile contribution panel (overlay) */}
+          <AnimatePresence>
+            {contribution && mobileInfoOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="md:hidden absolute inset-x-3 top-14 z-10 max-h-[60vh] overflow-y-auto
+                           rounded-lg border border-white/10 bg-black/85 backdrop-blur-md p-4"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {title && (
+                  <h3 className="text-white text-base font-bold mb-1">{title}</h3>
+                )}
+                <p className="text-white/70 text-[10px] uppercase tracking-widest mb-2">
+                  My Contribution
+                </p>
+                <p className="text-gray-300 text-sm leading-relaxed whitespace-pre-line">
+                  {contribution}
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
-        {/* Thumbnail strip — horizontal on mobile, vertical on desktop */}
-        {images.length > 1 && (
+        {/* Side panel — info + thumbnails */}
+        {(contribution || images.length > 1) && (
           <div
             className="
-              flex flex-row md:flex-col gap-2 p-3 overflow-x-auto overflow-y-hidden md:overflow-x-hidden
-              md:overflow-y-auto border-t md:border-t-0 md:border-l border-white/10
-              h-[110px] md:h-auto md:w-[180px] shrink-0
+              hidden md:flex flex-col gap-3 p-4 overflow-y-auto
+              border-l border-white/10 w-[320px] shrink-0 bg-black/40
             "
             onClick={(e) => e.stopPropagation()}
           >
-            <p className="hidden md:block text-white/40 text-[10px] uppercase tracking-widest mb-1 px-1 shrink-0">
-              Screenshots
-            </p>
+            {contribution && (
+              <div className="shrink-0">
+                {title && (
+                  <h3 className="text-white text-lg font-bold mb-2 leading-tight">{title}</h3>
+                )}
+                <p className="text-white/70 text-[10px] uppercase tracking-widest mb-2">
+                  My Contribution
+                </p>
+                <p className="text-gray-300 text-sm leading-relaxed whitespace-pre-line">
+                  {contribution}
+                </p>
+                {images.length > 1 && (
+                  <div className="h-px w-full bg-white/10 mt-4" />
+                )}
+              </div>
+            )}
+
+            {images.length > 1 && (
+              <div className="flex flex-col gap-2 shrink-0">
+                <p className="text-white/40 text-[10px] uppercase tracking-widest px-1">
+                  Screenshots
+                </p>
+                <div className="grid grid-cols-2 gap-2">
+                  {images.map((img, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrent(i)}
+                      className={`relative shrink-0 rounded-md overflow-hidden border-2 transition-all duration-200
+                        aspect-video w-full
+                        ${i === current
+                          ? "border-blue-500 opacity-100"
+                          : "border-transparent opacity-50 hover:opacity-80"
+                        }`}
+                    >
+                      <LazyImage
+                        src={imgSrc(img)}
+                        alt={`Thumbnail ${i + 1}`}
+                        fill
+                        quality={40}
+                        className="object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Mobile thumbnail strip */}
+        {images.length > 1 && (
+          <div
+            className="
+              md:hidden flex flex-row gap-2 p-3 overflow-x-auto overflow-y-hidden
+              border-t border-white/10 h-[110px] shrink-0
+            "
+            onClick={(e) => e.stopPropagation()}
+          >
             {images.map((img, i) => (
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
                 className={`relative shrink-0 rounded-md overflow-hidden border-2 transition-all duration-200
-                  aspect-video h-[72px] md:h-auto md:w-full
+                  aspect-video h-[72px]
                   ${i === current
                     ? "border-blue-500 opacity-100"
                     : "border-transparent opacity-50 hover:opacity-80"
                   }`}
               >
-                <Image
+                <LazyImage
                   src={imgSrc(img)}
                   alt={`Thumbnail ${i + 1}`}
                   fill

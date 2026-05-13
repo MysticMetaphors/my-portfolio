@@ -1,8 +1,7 @@
 "use client"
 
-import MyCard from "../components/ui/MyCard";
+import MyCard from "../../components/ui/MyCard";
 import { motion } from "framer-motion";
-import DefaultLayout from "../components/layouts/DefaultLayout";
 import { useState } from "react";
 
 export default function projects() {
@@ -35,7 +34,8 @@ export default function projects() {
       ],
       icons: ["nextjs", "tailwindcss", "typescript", "laravel"],
       featured: true,
-      type: "Engineered Solution"
+      type: "Engineered Solution",
+      contribution: "I led the development of the Student Information System (SIS) as the lead developer, overseeing the entire project lifecycle from design to deployment. I collaborated closely with a team of developers and stakeholders to create a robust, user-friendly platform that streamlined school operations and enhanced the student experience."
     },
     {
       title: "Seinna Brews",
@@ -44,7 +44,8 @@ export default function projects() {
       url: "https://sienna-brews.vercel.app/",
       design: true,
       icons: ["nextjs", "tailwindcss", "typescript", "html5"],
-      type: "Landing Page"
+      type: "Landing Page",
+      contribution: "I designed and developed the Seinna Brews website, creating a cozy and inviting online presence that reflects the café's focus on comfort and calm moments. I implemented a user-friendly interface and responsive design to ensure an enjoyable browsing experience for visitors."
     },
     {
       title: "Solara Grand",
@@ -53,7 +54,8 @@ export default function projects() {
       url: "https://solara-grand.vercel.app/",
       design: true,
       icons: ["nextjs", "tailwindcss", "typescript", "html5"],
-      type: "Landing Page"
+      type: "Landing Page",
+      contribution: "I designed and developed the Solara Grand website, creating a luxurious and immersive online presence that reflects the resort's blend of refined comfort and unforgettable adventures. I implemented a visually stunning design and responsive layout to provide an engaging browsing experience for potential guests."
     },
     {
       title: "Outpost",
@@ -62,7 +64,8 @@ export default function projects() {
       url: "https://indie-web-ikp3.vercel.app/",
       design: true,
       icons: ["nextjs", "tailwindcss", "typescript", "html5"],
-      type: "Landing Page"
+      type: "Landing Page",
+      contribution: "I designed and developed the Outpost website, creating a visually appealing and immersive online presence that reflects the indie game studio's focus on atmospheric digital worlds. I implemented a user-friendly interface and responsive design to ensure an engaging browsing experience for visitors."
     },
     {
       title: "Slice",
@@ -71,7 +74,8 @@ export default function projects() {
       url: "https://cake2go.vercel.app/",
       design: true,
       icons: ["nextjs", "tailwindcss", "typescript", "html5"],
-      type: "Landing Page"
+      type: "Landing Page",
+      contribution: "I designed and developed the Slice website, creating a visually appealing and user-friendly online presence that reflects the cake shop's focus on delivering delightful treats for every occasion. I implemented a responsive design to ensure an enjoyable browsing experience for visitors."
     },
     // {
     //   title: "Fluxo",
@@ -88,7 +92,8 @@ export default function projects() {
       url: "https://arvo-alpha.vercel.app/",
       design: true,
       icons: ["nextjs", "tailwindcss", "typescript", "html5"],
-      type: "Landing Page"
+      type: "Landing Page",
+      contribution: "I designed and developed the Arvo website, co;;aborating closely with the Arvo team & stakeholders to reflect the brand identity and values."
     },
     {
       title: "PixelForge",
@@ -97,7 +102,8 @@ export default function projects() {
       url: "https://pixel-forge-omega.vercel.app/",
       design: true,
       icons: ["react", "tailwindcss", "supabase", "javascript", "html5"],
-      type: "Landing Page"
+      type: "Landing Page",
+      contribution: "I designed and developed the PixelForge website, creating a visually appealing and user-friendly online presence that reflects the platform's focus on providing free pixel art and AI resources for developers and artists. I implemented a responsive design to ensure an enjoyable browsing experience for visitors."
     },
     {
       title: "Budgeting App",
@@ -112,8 +118,9 @@ export default function projects() {
         'projects/verge/image_7.jpg',
       ],
       icons: ["nextjs", "tailwindcss", "typescript", "supabase"],
-      type: "Engineered Solution"
-    },
+      type: "Engineered Solution",
+      contribution: "I designed and developed the Budgeting App, creating a user-friendly platform that allows users to track and manage their expenses and income. my primary users now is my family & friends"
+    }
   ];
   const ChipsTypes = ["All Projects", "Engineered Solution", "Landing Page"]
   const [activeChip, setActiveChip] = useState("All Projects");
@@ -123,7 +130,6 @@ export default function projects() {
     : projects.filter((p) => p.type === activeChip);
 
   return (
-    <DefaultLayout>
       <section id="projects" className="relative bg-black-primary overflow-hidden sm:p-0 pt-25">
         {/* <div className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3/4 w-full bg-gradient-to-t from-transparent via-darkblue-primary/35 to-transparent pointer-events-none"></div> */}
         {/* <WavyBackground
@@ -189,6 +195,5 @@ export default function projects() {
           </div>
         </div>
       </section>
-    </DefaultLayout>
   )
 }

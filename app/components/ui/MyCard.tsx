@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowUpRightFromSquare, Link2, Lock } from "lucide-react";
 import { useState } from "react";
 import ImageInspector from "./ImageInspector";
+import LazyImage from "./LazyImage";
 import Link from "next/link";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
@@ -33,6 +34,7 @@ type ArvoCardProps = {
   collaborators?: Collaborator[];
   isPrivate?: boolean;
   isGray?: boolean;
+  contribution?: string;
 };
 
 // ─── Featured Bento Grid ─────────────────────────────────────────────────────
@@ -102,7 +104,7 @@ function FeaturedBentoGrid({
       }
     } else {
       mediaContent = (
-        <Image
+        <LazyImage
           src={src}
           alt={item.caption || title}
           fill
@@ -118,12 +120,11 @@ function FeaturedBentoGrid({
         onClick={() => onClickMedia(index)}
         className={`relative group overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 cursor-pointer ${className}`}
       >
-        {!isExternalVideo && (
-          isVideo ? (
-            <video src={src} muted loop className="absolute inset-0 w-full h-full object-cover opacity-20 blur-xl scale-110" />
-          ) : (
-            <Image src={src} alt="bg" fill className="object-cover opacity-20 blur-xl scale-110" />
-          )
+        {!isExternalVideo && !isVideo && (
+          <LazyImage src={src} alt="bg" fill className="object-cover opacity-20 blur-xl scale-110" />
+        )}
+        {!isExternalVideo && isVideo && (
+          <video src={src} muted loop className="absolute inset-0 w-full h-full object-cover opacity-20 blur-xl scale-110" />
         )}
         {mediaContent}
         <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-500/50 rounded-xl transition-colors duration-300 pointer-events-none" />
@@ -182,6 +183,7 @@ export default function MyCard({
   collaborators = [],
   isPrivate = false,
   isGray = false,
+  contribution,
 }: ArvoCardProps) {
   const [expanded, setExpanded] = useState(false);
   const [inspectIndex, setInspectIndex] = useState<number | null>(null);
@@ -209,6 +211,7 @@ export default function MyCard({
             images={allMedia.map(m => m.src)}
             initialIndex={inspectIndex}
             title={title}
+            contribution={contribution}
             onClose={() => setInspectIndex(null)}
           />
         )}
@@ -333,6 +336,7 @@ export default function MyCard({
           images={allMedia.map(m => m.src)}
           initialIndex={inspectIndex}
           title={title}
+          contribution={contribution}
           onClose={() => setInspectIndex(null)}
         />
       )}
