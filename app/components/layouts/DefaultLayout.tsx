@@ -1,3 +1,4 @@
+import AIChatbot from "../ui/AI-Chatbot";
 import GridBg from "../ui/GridBackground";
 import ScrollToTopButton from "../ui/ScrollToTopButton";
 import Footer from "./Footer";
@@ -30,6 +31,7 @@ export default function DefaultLayout({ children }: Readonly<{ children: React.R
       {children}
       <Footer />
       <ScrollToTopButton />
+      <AIChatbot />
     </>
   )
 }
