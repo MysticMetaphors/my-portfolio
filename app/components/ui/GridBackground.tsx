@@ -19,13 +19,17 @@ type VerticalLine = BaseLineProps & {
 type GridBgType = {
   color: string,
   height: string,
+  reverse?: boolean,
   horizontal_lines?: HorizontalLine[]
   vertical_line?: VerticalLine[]
 }
 
-export default function GridBg({ color, height, horizontal_lines, vertical_line }: GridBgType) {
+export default function GridBg({ color, height, reverse, horizontal_lines, vertical_line }: GridBgType) {
+  const maskDirection = reverse ? 'to top' : 'to bottom';
+  const maskImage = `linear-gradient(${maskDirection}, rgba(0,0,0,0.85) 0%, transparent 100%)`;
+
   return (
-    < div className="absolute top-0 left-0 w-full pointer-events-none z-[1] overflow-hidden"
+    < div className={`absolute left-0 w-full pointer-events-none z-[1] overflow-hidden ${reverse ? 'bottom-0' : 'top-0'}`}
       style={{ height: height }
       }
     >
@@ -38,8 +42,8 @@ export default function GridBg({ color, height, horizontal_lines, vertical_line 
       `,
           backgroundSize: '60px 60px',
           backgroundColor: '#0a0f14',
-          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, transparent 100%)',
+          maskImage,
+          WebkitMaskImage: maskImage,
         }}
       />
 

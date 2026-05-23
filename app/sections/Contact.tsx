@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 // import { useState } from "react";
 // import { appendToast } from "@/lib/global";
-import { WavyBackground } from "../components/ui/wavy-background";
+// import { WavyBackground } from "../components/ui/wavy-background";
 import { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
@@ -11,6 +11,7 @@ import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { sileo } from "sileo";
 import { Bug, Loader2, MailWarning, Rocket } from "lucide-react";
 import { useSearchParams } from "next/navigation";
+import GridBg from "../components/ui/GridBackground";
 // import { sub } from "framer-motion/client";
 
 type ContactProp = {
@@ -118,141 +119,155 @@ export default function Contact({ onView }: ContactProp) {
   return (
     <section id="contact" className="relative overflow-hidden bg-black-primary">
       {/* <div className="absolute z-11 top-0 left-0 h-full w-full bg-linear-to-t from-blue-primary/20 from-5% via-transparent via-50% to-transparent"></div> */}
-      <WavyBackground
-        backgroundFill="#0a0a0af1"
-        waveWidth={1}
-        blur={0}
-        waveOpacity={0}
-        containerClassName="w-full"
-      >
-        <div className="z-12 mx-auto px-6 py-10 md:py-30 max-w-7xl">
-          <div className="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-2 gap-7">
+      <GridBg
+        color="#0095ff" height="80vh"
+        reverse={true}
+        vertical_line={[
+          { left: '180px', duration: '8s', delay: '0s', height: '100px', opacity: 0.4 },
+          { left: '360px', duration: '10s', delay: '0s', height: '70px', opacity: 0.25 },
+          { left: '540px', duration: '7s', delay: '0s', height: '120px', opacity: 0.45 },
+          { left: '120px', duration: '12s', delay: '0s', height: '60px', opacity: 0.2 },
+          { left: '480px', duration: '9s', delay: '0s', height: '90px', opacity: 0.3 },
+          { left: '1260px', duration: '9s', delay: '0s', height: '120px', opacity: 0.3 },
+          { left: '1380px', duration: '5s', delay: '0s', height: '80px', opacity: 0.5 },
+          { left: '1440px', duration: '13s', delay: '0s', height: '120px', opacity: 0.3 },
+        ]}
+        horizontal_lines={[
+          { top: '120px', duration: '6s', delay: '0s', width: '140px', opacity: 0.5 },
+          { top: '300px', duration: '9s', delay: '0s', width: '80px', opacity: 0.3 },
+          { top: '480px', duration: '7s', delay: '0s', width: '110px', opacity: 0.45 },
+          { top: '60px', duration: '11s', delay: '0s', width: '60px', opacity: 0.25 },
+          { top: '240px', duration: '8s', delay: '0s', width: '90px', opacity: 0.35 },
+        ]}
+      />
 
-            <div className="col-span-2 z-10">
-              <div>
-                <motion.h2
-                  initial={{ opacity: 0, y: 40 }}
-                  {...animationY}
-                  transition={{ duration: 0.5, delay: 0 * 0.1, ease: "easeOut" }}
-                  className="mb-4 text-4xl leading-tight font-extrabold text-white">
-                  Let's <span className="text-blue-primary">Connect</span>
-                </motion.h2>
-                <motion.p
-                  initial={{ opacity: 0, y: 40 }}
-                  {...animationY}
-                  transition={{ duration: 0.5, delay: 0 * 0.1, ease: "easeOut" }}
-                  className="text-gray-400 md:text-lg text-md text-justify mb-8">
-                  Send email to me with all the details you want for your new website, and I'll get back to you within 24 hours.
-                  Prefer to talk? Give me a call to connect right away. If I can't answer right away, I'll return your call the same day.
-                </motion.p>
+      <div className="z-12 mx-auto px-6 py-10 md:py-30 max-w-7xl">
+        <div className="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-2 gap-7">
 
-                <div className="space-y-8 md:p-8">
-                  <motion.div
-                    initial={{ opacity: 0, x: -40 }}
-                    {...animationX}
-                    transition={{ duration: 0.5, delay: 0 * 0.1, ease: "easeOut" }}
-                    className="flex gap-4 items-center">
-                    <FontAwesomeIcon icon={faEnvelope} className="text-xl p-1.5 rounded-sm bg-blue-primary/30" />
-                    <a href="mailto:vonbanalbryan18v@gmail.com" className="text-md underline underline-offset-5">vonbanalbryan18v@gmail.com</a>
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, x: -40 }}
-                    {...animationX}
-                    transition={{ duration: 0.5, delay: 1 * 0.1, ease: "easeOut" }}
-                    className="flex gap-4 items-center">
-                    <FontAwesomeIcon icon={faPhone} className="text-xl p-1.5 rounded-sm bg-blue-primary/30" />
-                    <a href="tel:+639606874147" className="text-md underline underline-offset-5"><span className="font-bold">(+63)</span>-960-687-4147</a>
-                  </motion.div>
-                  <motion.a
-                    initial={{ opacity: 0, x: -40 }}
-                    {...animationX}
-                    target="_blank"
-                    transition={{ duration: 0.5, delay: 2 * 0.1, ease: "easeOut" }}
-                    href="https://www.linkedin.com/in/von-bryan-ba%C3%B1al-1a1188314/"
-                    className="flex gap-4 items-center">
-                    <FontAwesomeIcon icon={faLinkedinIn} className="bg-blue-primary/70 text-xl p-1.5 rounded" />
-                    <p className="text-md underline underline-offset-5">Von Bryan</p>
-                  </motion.a>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-span-3 z-10 pl-0 lg:pl-20">
-              <motion.form
-                onSubmit={handleSubmit}
+          <div className="col-span-2 z-10">
+            <div>
+              <motion.h2
                 initial={{ opacity: 0, y: 40 }}
                 {...animationY}
                 transition={{ duration: 0.5, delay: 0 * 0.1, ease: "easeOut" }}
-                ref={formRef}
-                action="" className="bg-gray-900 border border-gray-700 rounded-lg h-full w-full p-2 z-10">
-                <div className="flex flex-col gap-5 border border-gray-700 rounded-lg h-full w-full p-6 md:p-8">
+                className="mb-4 text-4xl leading-tight font-extrabold text-white">
+                Let's <span className="text-blue-primary">Connect</span>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 40 }}
+                {...animationY}
+                transition={{ duration: 0.5, delay: 0 * 0.1, ease: "easeOut" }}
+                className="text-gray-400 md:text-lg text-md text-justify mb-8">
+                Send email to me with all the details you want for your new website, and I'll get back to you within 24 hours.
+                Prefer to talk? Give me a call to connect right away. If I can't answer right away, I'll return your call the same day.
+              </motion.p>
+
+              <div className="space-y-8 md:p-8">
+                <motion.div
+                  initial={{ opacity: 0, x: -40 }}
+                  {...animationX}
+                  transition={{ duration: 0.5, delay: 0 * 0.1, ease: "easeOut" }}
+                  className="flex gap-4 items-center">
+                  <FontAwesomeIcon icon={faEnvelope} className="text-xl p-1.5 rounded-sm bg-blue-primary/30" />
+                  <a href="mailto:vonbanalbryan18v@gmail.com" className="text-md underline underline-offset-5">vonbanalbryan18v@gmail.com</a>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: -40 }}
+                  {...animationX}
+                  transition={{ duration: 0.5, delay: 1 * 0.1, ease: "easeOut" }}
+                  className="flex gap-4 items-center">
+                  <FontAwesomeIcon icon={faPhone} className="text-xl p-1.5 rounded-sm bg-blue-primary/30" />
+                  <a href="tel:+639606874147" className="text-md underline underline-offset-5"><span className="font-bold">(+63)</span>-960-687-4147</a>
+                </motion.div>
+                <motion.a
+                  initial={{ opacity: 0, x: -40 }}
+                  {...animationX}
+                  target="_blank"
+                  transition={{ duration: 0.5, delay: 2 * 0.1, ease: "easeOut" }}
+                  href="https://www.linkedin.com/in/von-bryan-ba%C3%B1al-1a1188314/"
+                  className="flex gap-4 items-center">
+                  <FontAwesomeIcon icon={faLinkedinIn} className="bg-blue-primary/70 text-xl p-1.5 rounded" />
+                  <p className="text-md underline underline-offset-5">Von Bryan</p>
+                </motion.a>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-span-3 z-10 pl-0 lg:pl-20">
+            <motion.form
+              onSubmit={handleSubmit}
+              initial={{ opacity: 0, y: 40 }}
+              {...animationY}
+              transition={{ duration: 0.5, delay: 0 * 0.1, ease: "easeOut" }}
+              ref={formRef}
+              action="" className="bg-gray-900 border border-gray-700 rounded-lg h-full w-full p-2 z-10">
+              <div className="flex flex-col gap-5 border border-gray-700 rounded-lg h-full w-full p-6 md:p-8">
+                <div>
+                  <label htmlFor="name" className="block text-white mb-2">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    className="w-full p-3 py-2 rounded-sm bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-primary"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="name" className="block text-white mb-2">Name</label>
+                    <label htmlFor="email" className="block text-white mb-2">Email</label>
                     <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      placeholder="Your name"
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="example@gmail.com"
                       className="w-full p-3 py-2 rounded-sm bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-primary"
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="email" className="block text-white mb-2">Email</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="example@gmail.com"
-                        className="w-full p-3 py-2 rounded-sm bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-primary"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="number" className="block text-white mb-2">Number</label>
-                      <input
-                        type="tel"
-                        id="number"
-                        name="number"
-                        placeholder="+1-800-123-4567"
-                        className="w-full p-3 py-2 rounded-sm bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-primary"
-                      />
-                    </div>
-                  </div>
-
                   <div>
-                    <label htmlFor="message" className="block text-white mb-2">Message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      defaultValue={defaultMessage}
-                      placeholder="Describe your project idea..."
-                      rows={5}
+                    <label htmlFor="number" className="block text-white mb-2">Number</label>
+                    <input
+                      type="tel"
+                      id="number"
+                      name="number"
+                      placeholder="+1-800-123-4567"
                       className="w-full p-3 py-2 rounded-sm bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-primary"
-                    ></textarea>
+                    />
                   </div>
-
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="mt-5 bg-blue-400/70 font-semibold hover:shadow-[0_0_40px_#0095ff] transition-all duration-300 shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black py-3 px-6 rounded-md disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                  >
-                    {loading ? (
-                      <>
-                        <Loader2 className="size-4 animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      "Submit"
-                    )}
-                  </button>
                 </div>
-              </motion.form>
-            </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-white mb-2">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    defaultValue={defaultMessage}
+                    placeholder="Describe your project idea..."
+                    rows={5}
+                    className="w-full p-3 py-2 rounded-sm bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-primary"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="mt-5 bg-blue-400/70 font-semibold hover:shadow-[0_0_40px_#0095ff] transition-all duration-300 shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black py-3 px-6 rounded-md disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="size-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Submit"
+                  )}
+                </button>
+              </div>
+            </motion.form>
           </div>
         </div>
-      </WavyBackground>
+      </div>
     </section>
   )
 }
