@@ -6,6 +6,7 @@ import Providers from "@/providers/provide";
 import { auth0 } from "@/lib/auth0";
 import { domMax, LazyMotion } from "framer-motion";
 import { Toaster } from 'sileo';
+import AIChatbot from "./components/ui/AI-Chatbot";
 
 export const metadata: Metadata = {
   title: "Von Bryan | Creative Web Solutions",
@@ -102,6 +103,7 @@ export default async function RootLayout({
             },
           }}
         />
+        <AIChatbot />
       </body>
     </html>
   );

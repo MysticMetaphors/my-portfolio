@@ -230,3 +230,145 @@ body {
 *::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.35);
 } */
+
+@layer utilities {
+  @keyframes slideUpFade {
+    from {
+      opacity: 0;
+      transform: translateY(25px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up-fade {
+    animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+  }
+
+  @keyframes inViewUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes inViewLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes inViewRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes inViewScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes inViewGrowX {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+
+  @keyframes sweepHighlight {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(250%); }
+  }
+
+  .animate-sweep {
+    animation: sweepHighlight 4s linear infinite;
+  }
+
+  @keyframes skeletonShimmer {
+    from { background-position: 200% 0; }
+    to   { background-position: -200% 0; }
+  }
+
+  .in-view-up,
+  .in-view-left,
+  .in-view-right,
+  .in-view-scale,
+  .in-view-grow-x {
+    position: relative;
+    will-change: opacity, transform;
+  }
+
+  .in-view-up:not(.in-view)    { visibility: hidden; transform: translateY(40px); }
+  .in-view-left:not(.in-view)  { visibility: hidden; transform: translateX(-40px); }
+  .in-view-right:not(.in-view) { visibility: hidden; transform: translateX(40px); }
+  .in-view-scale:not(.in-view) { visibility: hidden; transform: scale(0.9); }
+  .in-view-grow-x:not(.in-view) { transform: scaleX(0); transform-origin: left center; }
+
+  .in-view-up::after,
+  .in-view-left::after,
+  .in-view-right::after,
+  .in-view-scale::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    visibility: visible;
+    pointer-events: none;
+    border-radius: inherit;
+    background-color: rgba(255, 255, 255, 0.04);
+    background-image: linear-gradient(
+      90deg,
+      transparent 25%,
+      rgba(255, 255, 255, 0.08) 50%,
+      transparent 75%
+    );
+    background-size: 200% 100%;
+    animation: skeletonShimmer 1.6s linear infinite;
+    transition: opacity 0.4s ease-out;
+  }
+
+  .in-view.in-view-up::after,
+  .in-view.in-view-left::after,
+  .in-view.in-view-right::after,
+  .in-view.in-view-scale::after {
+    opacity: 0;
+  }
+
+  .in-view.in-view-up,
+  .in-view.in-view-left,
+  .in-view.in-view-right,
+  .in-view.in-view-scale,
+  .in-view.in-view-grow-x {
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    animation-fill-mode: both;
+  }
+  .in-view.in-view-up     { animation-name: inViewUp; }
+  .in-view.in-view-left   { animation-name: inViewLeft; }
+  .in-view.in-view-right  { animation-name: inViewRight; }
+  .in-view.in-view-scale  { animation-name: inViewScale; }
+  .in-view.in-view-grow-x { animation-name: inViewGrowX; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-slide-up-fade {
+      animation: none;
+      opacity: 1;
+    }
+    .animate-sweep {
+      animation: none;
+    }
+    .in-view-up,
+    .in-view-left,
+    .in-view-right,
+    .in-view-scale,
+    .in-view-grow-x {
+      animation: none;
+      visibility: visible;
+      opacity: 1;
+      transform: none;
+    }
+    .in-view-up::after,
+    .in-view-left::after,
+    .in-view-right::after,
+    .in-view-scale::after {
+      display: none;
+    }
+  }
+}

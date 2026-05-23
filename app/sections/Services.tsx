@@ -1,8 +1,4 @@
-"use client"
-
-import { motion } from "framer-motion"
-import {  Database, FastForward, GitFork, KeyRound, Settings, TabletSmartphone } from "lucide-react"
-import Link from "next/link"
+import { FastForward, GitFork, KeyRound, Settings, TabletSmartphone } from "lucide-react";
 
 export default function Services() {
   const services = [
@@ -42,57 +38,38 @@ export default function Services() {
       icon: KeyRound,
       link_to: "/contact"
     },
-  ]
+  ];
 
   return (
     <section id="services" className="relative bg-black-primary overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-6 py-20 lg:py-30 z-10">
-        {/* <WavyBackground
-          backgroundFill="#0a0a0af1"
-          waveWidth={1}
-
-          blur={0}
-          waveOpacity={0}
-        > */}
         <div className="text-left flex flex-col">
-          {/* Section Header */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="mb-4 text-4xl text-center leading-tight font-extrabold text-gray-300"
-          >
+          <h1 className="in-view-up mb-4 text-4xl text-center leading-tight font-extrabold text-gray-300">
             What I <span className="text-blue-primary/70">Do</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 80 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="text-gray-400 mb-12 text-center"
+          <p
+            className="in-view-up text-gray-400 mb-12 text-center"
+            style={{ animationDelay: "0.1s" }}
           >
             Things that I do, not only to improve your brand.
-          </motion.p>
+          </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 grid gap-8">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
           {services.map((service, i) => {
             const Icon = service.icon;
             const isLastAndOdd = i === services.length - 1 && services.length % 2 !== 0;
 
             return (
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
-                viewport={{ once: true }}
+              <div
                 key={i}
+                style={{ animationDelay: `${i * 0.1}s` }}
                 className={`
-                  bg-gray-900/90 hover:bg-gray-900 group border border-gray-700 
-                  hover:border-blue-primary hover:shadow-blue-primary/20 
-                  hover:-translate-y-2 transform shadow-lg rounded-lg h-full w-full p-2 z-10 
+                  in-view-up
+                  bg-gray-900/90 hover:bg-gray-900 group border border-gray-700
+                  hover:border-blue-primary hover:shadow-blue-primary/20
+                  hover:-translate-y-2 transform shadow-lg rounded-lg h-full w-full p-2 z-10
                   transition-all duration-300
                   ${isLastAndOdd ? "lg:col-span-1 md:col-span-2" : "col-span-1"}
                 `}
@@ -104,20 +81,13 @@ export default function Services() {
                     </div>
                     <h2 className="text-xl font-bold">{service.name}</h2>
                   </div>
-                  <p className="text-gray-300">
-                    {service.description}
-                  </p>
-                  {/* <Link href={service.link_to} className="mt-auto underline hover:decoration-transparent underline-offset-3 text-sm font-semibold hover:bg-blue-primary/50 rounded-sm p-1 px-2 w-fit transition-all duration-200">
-                    Get Started
-                  </Link> */}
+                  <p className="text-gray-300">{service.description}</p>
                 </div>
-              </motion.div>
-            )
+              </div>
+            );
           })}
         </div>
-        {/* </WavyBackground> */}
       </div>
-
-    </section >
-  )
+    </section>
+  );
 }

@@ -116,7 +116,7 @@ export default function Contact({ onView }: ContactProp) {
     };
 
   return (
-    <section id="contact" className="relative overflow-hidden">
+    <section id="contact" className="relative overflow-hidden bg-black-primary">
       {/* <div className="absolute z-11 top-0 left-0 h-full w-full bg-linear-to-t from-blue-primary/20 from-5% via-transparent via-50% to-transparent"></div> */}
       <WavyBackground
         backgroundFill="#0a0a0af1"
