@@ -29,7 +29,7 @@ export default function Hero() {
           </h1>
 
           <p
-            className="animate-slide-up-fade mt-6 text-gray-300 text-lg md:text-xl max-w-2xl mx-auto"
+            className="animate-slide-up-fade mt-6 text-gray-300 text-lg md:text-xl max-w-3xl mx-auto"
             style={{ animationDelay: "0.4s" }}
           >
             I develop <span className="font-bold">100% custom websites, web applications, and business systems</span> {" "}
