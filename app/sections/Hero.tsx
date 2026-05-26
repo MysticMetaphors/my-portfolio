@@ -1,7 +1,7 @@
 import { FlipWords } from "../components/ui/flip-words";
 
 export default function Hero() {
-  const WORDS = ["Functional", "Meaningful", "Powerful", "Beautiful" ]
+  const WORDS = ["Functional", "Meaningful", "Powerful", "Beautiful"]
   return (
     <section className="relative flex flex-col bg-black-primary items-center justify-center min-h-screen text-center overflow-hidden md:pt-0 pt-25 bg-black">
       <div className="flex flex-col items-center justify-center min-h-screen w-screen px-6 sm:p-0">
@@ -32,9 +32,9 @@ export default function Hero() {
             className="animate-slide-up-fade mt-6 text-gray-300 text-lg md:text-xl max-w-2xl mx-auto"
             style={{ animationDelay: "0.4s" }}
           >
-            I offer <span className="font-bold">100% custom websites</span>, designed and coded from the ground up to reflect your brand & support your business goals.
-            You can also have access to <span className="font-bold">Reliable Maintenance</span> and{" "}
-            <span className="font-bold">Technical Support</span> of your site
+            I develop <span className="font-bold">100% custom websites, web applications, and business systems</span> {" "}
+            designed to improve user experience, streamline operations, and support your business goals, from 
+            landing pages to scalable internal platforms.
           </p>
 
           <div
