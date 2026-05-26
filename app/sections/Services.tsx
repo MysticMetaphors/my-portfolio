@@ -3,8 +3,8 @@ import { FastForward, GitFork, KeyRound, Settings, TabletSmartphone } from "luci
 export default function Services() {
   const services = [
     {
-      name: "UI/UX Design",
-      description: "Your website will be built with UI/UX principles in mind and your brands identity that enchances your users exprience.",
+      name: "UI/UX Development & Design",
+      description: "Interfaces built directly in code with a strong focus on usability, responsiveness, accessibility, and seamless user experience aligned with your brand identity.",
       icon: TabletSmartphone,
       link_to: "/contact"
     },

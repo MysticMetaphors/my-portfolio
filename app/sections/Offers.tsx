@@ -84,10 +84,10 @@ export default function Offers() {
                       Web Design & Development
                     </h2>
                     <p className="text-gray-400 text-justify">
-                      I design and develop websites (up to 5 pages) tailored to your brand.
-                      If you need more pages, we can discuss custom solutions that fit your
-                      needs and budget. I am flexible and committed to delivering a website
-                      that meets your requirements.
+                      I design and develop modern, responsive websites tailored to your brand 
+                      from landing pages and portfolio sites to business websites and web platforms. 
+                      Whether you need a simple front-facing website or a more dynamic experience, 
+                      I create solutions focused on performance, usability, and clean design.
                     </p>
                   </div>
                 </div>
@@ -100,12 +100,13 @@ export default function Offers() {
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold text-white mb-2">
-                      Workflow Automation System
+                      Development Support & Collaboration
                     </h2>
                     <p className="text-gray-400 text-justify">
-                      If your business struggles with repetitive tasks or slow workflows,
-                      we can create simple systems and automations that save time and
-                      improve efficiency, allowing you to focus on what matters most to you.
+                      Need an additional developer on your team? I can collaborate with existing
+                      teams to help build features, improve frontend experiences, develop full-stack 
+                      functionality, fix issues, and accelerate ongoing projects while maintaining 
+                      clean and maintainable code.
                     </p>
                   </div>
                 </div>
@@ -118,12 +119,13 @@ export default function Offers() {
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold text-white mb-2">
-                      UI/UX Audits & Redesign
+                      Custom System Development
                     </h2>
                     <p className="text-gray-400 text-justify">
-                      If your current website or application has usability issues or an outdated design,
-                      I can conduct a thorough audit and provide actionable recommendations to enhance the
-                      user experience and modernize your interface.
+                      I develop custom web applications and business systems built around your 
+                      specific operational needs. Whether it’s dashboards, management systems, 
+                      client portals, or internal tools, I create scalable solutions that help 
+                      businesses operate more effectively and grow efficiently.
                     </p>
                   </div>
                 </div>
