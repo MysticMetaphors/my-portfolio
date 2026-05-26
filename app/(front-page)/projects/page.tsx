@@ -93,7 +93,7 @@ export default function projects() {
       design: true,
       icons: ["nextjs", "tailwindcss", "typescript", "html5"],
       type: "Landing Page",
-      contribution: "I designed and developed the Arvo website, co;;aborating closely with the Arvo team & stakeholders to reflect the brand identity and values."
+      contribution: "I designed and developed the Arvo website, collaborating closely with the Arvo team & stakeholders to reflect the brand identity and values."
     },
     {
       title: "PixelForge",

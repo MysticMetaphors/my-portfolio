@@ -11,6 +11,7 @@ type ImageInspectorProps = {
   images: string[];
   initialIndex?: number;
   title?: string;
+  url?: string;
   contribution?: string;
   onClose: () => void;
 };
@@ -20,6 +21,7 @@ export default function ImageInspector({
   initialIndex = 0,
   title = "",
   contribution,
+  url,
   onClose,
 }: ImageInspectorProps) {
   const [current, setCurrent] = useState(initialIndex);
@@ -170,9 +172,14 @@ export default function ImageInspector({
                 <p className="text-white/70 text-[10px] uppercase tracking-widest mb-2">
                   My Contribution
                 </p>
-                <p className="text-gray-300 text-sm leading-relaxed whitespace-pre-line">
+                <p className="text-gray-300 text-sm leading-relaxed whitespace-pre-line mb-4">
                   {contribution}
                 </p>
+                {url && (
+                  <a href={url} className="text-sm font-semibold px-3 my-3 cursor-pointer flex justify-center items-center py-1 gap-1 w-fit h-fit mt-auto bg-blue-primary/5 rounded-sm border border-blue-primary/20 text-blue-primary/60 hover:bg-blue-primary hover:text-black transition-all duration-300">
+                    Live Preview
+                  </a>
+                )}
                 {images.length > 1 && (
                   <div className="h-px w-full bg-white/10 mt-4" />
                 )}

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowUpRightFromSquare, Link2, Lock } from "lucide-react";
+import { ArrowUpRight, ArrowUpRightFromSquare, ArrowUpRightSquare, Eye, Link2, Lock } from "lucide-react";
 import { useState } from "react";
 import ImageInspector from "./ImageInspector";
 import LazyImage from "./LazyImage";
@@ -336,6 +336,7 @@ export default function MyCard({
           images={allMedia.map(m => m.src)}
           initialIndex={inspectIndex}
           title={title}
+          url={url}
           contribution={contribution}
           onClose={() => setInspectIndex(null)}
         />
@@ -376,9 +377,9 @@ export default function MyCard({
 
             </div>
             {url ?
-              <a href={url} target="_blank" className="px-2 flex justify-center items-center gap-2 py-1 w-fit h-fit mt-auto bg-blue-primary/5 rounded-sm border border-blue-primary/20 text-blue-primary/60 hover:bg-blue-primary hover:text-black transition-all duration-300">
-                <ArrowUpRightFromSquare size={18} /> Live
-              </a>
+              <div onClick={() => setInspectIndex(0)} className="px-3 cursor-pointer flex justify-center items-center py-1 gap-1 w-fit h-fit mt-auto bg-blue-primary/5 rounded-sm border border-blue-primary/20 text-blue-primary/60 hover:bg-blue-primary hover:text-black transition-all duration-300">
+                View <ArrowUpRightFromSquare size={18}/>
+              </div>
               : ''}
           </div>
         </div>
