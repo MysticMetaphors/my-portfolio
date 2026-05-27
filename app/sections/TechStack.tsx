@@ -37,14 +37,14 @@ export default function TechStack() {
         <div className="flex justify-center">
           <div className="bg-gray-900 border border-gray-700 rounded-xl p-2 w-fit">
             <div className="overflow-hidden relative bg-gray-900 border border-gray-700 rounded-xl p-6 max-w-7xl w-full">
-              <div className="relative z-40 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-8 justify-items-center">
+              <div className="relative z-40 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9 gap-8 justify-items-center">
                 {stacks.map((stack, i) => (
                   <div
                     key={i}
                     style={{ animationDelay: `${0.2 + i * 0.05}s` }}
                     className="in-view-scale flex flex-col items-center justify-center rounded-xl p-6 w-32 h-32"
                   >
-                    <Image alt={stack.icon} height={100} width={100} quality={50} src={`/techstack/${stack.img}`} className="h-14 w-fit mb-3" />
+                    <Image alt={stack.icon} height={100} width={100} quality={50} src={`/techstack/${stack.img}`} className="h-10 md:h-14 w-fit mb-3" />
                     <span className="text-gray-300 text-sm font-medium">{stack.name}</span>
                   </div>
                 ))}
