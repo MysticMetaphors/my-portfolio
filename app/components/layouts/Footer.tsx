@@ -9,7 +9,17 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-15">
         <div className="sm:flex sm:items-center sm:justify-between">
           <div className="flex gap-3 items-center">
-            <Image height={800} width={800} src="/bryan.png" alt="Arvo Logo" className="h-10 w-fit rounded-full" />
+            <div className="relative flex-shrink-0">
+  <div className="w-11 h-11 rounded-full overflow-hidden border border-zinc-700 bg-zinc-800 flex items-center justify-center">
+    <Image 
+      height={40} 
+      width={40} 
+      src="/about-profile.png" 
+      alt="Arvo Logo" 
+      className="h-10 w-10 rounded-full object-cover" 
+    />
+  </div>
+</div>
             <div>
               <h1 className="font-semibold text-white">Von Bryan</h1>
               <p className="text-gray-300 text-sm font-light">Full-Stack Developer & UI/UX Designer</p>

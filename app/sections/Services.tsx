@@ -44,12 +44,12 @@ export default function Services() {
     <section id="services" className="relative bg-black-primary overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-6 py-20 lg:py-30 z-10">
         <div className="text-left flex flex-col">
-          <h1 className="in-view-up mb-4 text-4xl text-center leading-tight font-extrabold text-gray-300">
+          <h1 className="font-jersey font-semibold tracking-wide uppercase in-view-up text-5xl md:text-6xl md:text-center leading-tight font-extrabold text-gray-300">
             What I <span className="text-blue-primary/70">Do</span>
           </h1>
 
           <p
-            className="in-view-up text-gray-400 mb-12 text-center"
+            className="in-view-up text-gray-400 mb-12 md:text-center"
             style={{ animationDelay: "0.1s" }}
           >
             Things that I do, not only to improve your brand.
@@ -79,7 +79,7 @@ export default function Services() {
                     <div className="bg-blue-primary/50 rounded-md p-2">
                       <Icon size={24} />
                     </div>
-                    <h2 className="text-xl font-bold">{service.name}</h2>
+                    <h2 className="text-2xl font-jersey tracking-[0.05em] uppercase">{service.name}</h2>
                   </div>
                   <p className="text-gray-300">{service.description}</p>
                 </div>

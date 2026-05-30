@@ -10,6 +10,7 @@ import {
   Sparkles,
   X,
   Linkedin,
+  Box,
 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useChat } from "@ai-sdk/react";
@@ -118,8 +119,8 @@ export default function AIChatbot() {
             className="group fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-blue-primary px-3 md:px-4 py-3 font-semibold text-black transition-all duration-300 hover:shadow-[0_0_40px_#0095ff] cursor-pointer"
           >
             <span className="absolute inset-0 rounded-full bg-blue-primary opacity-60 blur-md -z-10 animate-pulse" />
-            <Sparkles className="size-4.5" />
-            <span className="hidden sm:inline text-sm">Ask AI</span>
+            <Box className="size-4.5" />
+            <span className="hidden sm:inline text-sm">AI Assistant</span>
             <span className="absolute top-0 right-0 flex size-3">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
               <span className="relative inline-flex size-3 rounded-full bg-green-400 border border-black" />
@@ -155,12 +156,12 @@ export default function AIChatbot() {
               <div className="relative rounded-t-lg z-10 flex items-center justify-between border-b border-gray-700/80 bg-black-primary/60 px-4 py-3 backdrop-blur">
                 <div className="flex items-center gap-3">
                   <div className="relative flex size-9 items-center justify-center rounded-full bg-blue-primary/15 border border-blue-primary/40">
-                    <Sparkles className="size-4.5 text-blue-primary" />
+                    <Box className="size-4.5 text-blue-primary" />
                     <span className="absolute -bottom-0.5 -right-0.5 size-2.5 rounded-full bg-green-400 ring-2 ring-gray-900" />
                   </div>
                   <div className="flex flex-col leading-tight">
                     <div className="flex items-center gap-1.5">
-                      <span className="text-sm font-semibold text-white">
+                      <span className="text-lg font-jersey uppercase tracking-widest text-white">
                         Von's AI Assistant
                       </span>
                     </div>

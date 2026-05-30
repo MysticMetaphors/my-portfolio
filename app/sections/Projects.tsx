@@ -69,7 +69,7 @@ export default function Projects() {
     <section id="projects" className="relative bg-black-primary overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-6 py-20 lg:py-30 z-10">
         <div className="text-left flex flex-col">
-          <h2 className="in-view-up mb-4 text-4xl text-center leading-tight font-extrabold text-gray-300">
+          <h2 className="in-view-up mb-4 text-6xl text-center font-jersey font-semibold tracking-wide uppercase leading-tight font-extrabold text-gray-300">
             What I’ve <span className="text-blue-primary/70">Worked</span> On
           </h2>
 
@@ -91,7 +91,7 @@ export default function Projects() {
           ))}
         </div>
         <div className="flex w-full justify-center mt-10 gap-4">
-          <Link href="projects" className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
+          <Link href="projects" className="text-xl font-jersey font-semibold tracking-wide uppercase cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
             View All
           </Link>
         </div>

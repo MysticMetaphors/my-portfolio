@@ -59,7 +59,7 @@ export default function Offers() {
 
           <div className="col-span-3 md:order-2 order-1 z-10">
             <div>
-              <h1 className="in-view-up mb-4 text-4xl leading-tight font-extrabold text-white">
+              <h1 className="font-jersey font-semibold tracking-wide uppercase in-view-up text-5xl md:text-6xl leading-tight font-extrabold text-white">
                 What I <span className="text-blue-primary">Offer</span>
               </h1>
               <p
@@ -76,11 +76,11 @@ export default function Offers() {
                   className="in-view-right mb-4 flex items-start gap-4"
                   style={{ animationDelay: "0.2s" }}
                 >
-                  <div className="bg-blue-primary/60 rounded-full p-1">
+                  <div className="bg-blue-primary/60 rounded-full p-1 mt-2">
                     <Check size={18} />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-white mb-2">
+                    <h2 className="font-jersey font-semibold tracking-widest md:tracking-wide uppercase text-2xl md:text-4xl font-bold text-white mb-2">
                       Web Design & Development
                     </h2>
                     <p className="text-gray-400 text-justify">
@@ -95,11 +95,11 @@ export default function Offers() {
                   className="in-view-right mb-4 flex items-start gap-4"
                   style={{ animationDelay: "0.35s" }}
                 >
-                  <div className="bg-blue-primary/60 rounded-full p-1">
+                  <div className="bg-blue-primary/60 rounded-full p-1 mt-2">
                     <Check size={18} />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-white mb-2">
+                    <h2 className="font-jersey font-semibold tracking-widest md:tracking-wide uppercase text-2xl md:text-4xl font-bold text-white mb-2">
                       Development Support & Collaboration
                     </h2>
                     <p className="text-gray-400 text-justify">
@@ -114,11 +114,11 @@ export default function Offers() {
                   className="in-view-right mb-4 flex items-start gap-4"
                   style={{ animationDelay: "0.5s" }}
                 >
-                  <div className="bg-blue-primary/60 rounded-full p-1">
+                  <div className="bg-blue-primary/60 rounded-full p-1 mt-2">
                     <Check size={18} />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-white mb-2">
+                    <h2 className="font-jersey font-semibold tracking-widest md:tracking-wide uppercase text-2xl md:text-4xl font-bold text-white mb-2">
                       Custom System Development
                     </h2>
                     <p className="text-gray-400 text-justify">
@@ -131,7 +131,7 @@ export default function Offers() {
                 </div>
               </div>
 
-              <Link href="/contact" className="cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
+              <Link href="/contact" className="font-jersey font-semibold tracking-wide uppercase text-xl cursor-pointer px-6 py-2 rounded-md bg-blue-primary text-black font-semibold shadow-[0_0_10px_#0095ff] hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
                 Contact Me
               </Link>
             </div>

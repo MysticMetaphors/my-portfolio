@@ -150,7 +150,7 @@ export default function Contact({ onView }: ContactProp) {
                 initial={{ opacity: 0, y: 40 }}
                 {...animationY}
                 transition={{ duration: 0.5, delay: 0 * 0.1, ease: "easeOut" }}
-                className="mb-4 text-4xl leading-tight font-extrabold text-white">
+                className="text-5xl md:text-6xl leading-tight font-extrabold text-white font-jersey font-semibold tracking-wide uppercase">
                 Let's <span className="text-blue-primary">Connect</span>
               </motion.h2>
               <motion.p
@@ -252,7 +252,7 @@ export default function Contact({ onView }: ContactProp) {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="mt-5 bg-blue-400/70 font-semibold hover:shadow-[0_0_40px_#0095ff] transition-all duration-300 shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black py-3 px-6 rounded-md disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="font-jersey font-semibold tracking-wide uppercase text-xl mt-5 bg-blue-400/70 font-semibold hover:shadow-[0_0_40px_#0095ff] transition-all duration-300 shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black py-3 px-6 rounded-md disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {loading ? (
                     <>
@@ -260,7 +260,7 @@ export default function Contact({ onView }: ContactProp) {
                       Sending...
                     </>
                   ) : (
-                    "Submit"
+                    "Send Message"
                   )}
                 </button>
               </div>

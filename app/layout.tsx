@@ -2,11 +2,18 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
+import { Jersey_10 } from 'next/font/google';
 import Providers from "@/providers/provide";
 import { auth0 } from "@/lib/auth0";
 import { domMax, LazyMotion } from "framer-motion";
 import { Toaster } from 'sileo';
 import AIChatbot from "./components/ui/AI-Chatbot";
+
+const jersey = Jersey_10({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-jersey',
+});
 
 export const metadata: Metadata = {
   title: "Von Bryan | Creative Web Solutions",
@@ -78,7 +85,7 @@ export default async function RootLayout({
   const user = session?.user || null;
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${jersey.variable}`}>
       <body className="antialiased bg-darkblue-primary">
         {/* <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" /> */}
         {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /> */}

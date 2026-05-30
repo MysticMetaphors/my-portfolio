@@ -22,8 +22,8 @@ export default function TechStack() {
 
   return (
     <section id="techStack" className="py-20 bg-black-primary text-white">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="in-view-up mb-4 text-4xl leading-tight font-extrabold text-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="font-jersey font-semibold tracking-wide uppercase in-view-up text-5xl md:text-6xl leading-tight font-extrabold text-white">
           My <span className="text-blue-primary">Tech Stack</span>
         </h2>
 

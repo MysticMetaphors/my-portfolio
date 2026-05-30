@@ -142,7 +142,7 @@ export default function ImageInspector({
                 onClick={(e) => e.stopPropagation()}
               >
                 {title && (
-                  <h3 className="text-white text-base font-bold mb-1">{title}</h3>
+                  <h3 className="font-jersey font-semibold tracking-wide uppercase text-xl text-white text-base font-bold mb-1">{title}</h3>
                 )}
                 <p className="text-white/70 text-[10px] uppercase tracking-widest mb-2">
                   My Contribution
@@ -167,7 +167,7 @@ export default function ImageInspector({
             {contribution && (
               <div className="shrink-0">
                 {title && (
-                  <h3 className="text-white text-lg font-bold mb-2 leading-tight">{title}</h3>
+                  <h3 className="text-white font-jersey font-semibold tracking-wide uppercase text-2xl font-bold mb-2 leading-tight">{title}</h3>
                 )}
                 <p className="text-white/70 text-[10px] uppercase tracking-widest mb-2">
                   My Contribution
@@ -176,7 +176,7 @@ export default function ImageInspector({
                   {contribution}
                 </p>
                 {url && (
-                  <a href={url} className="text-sm font-semibold px-3 my-3 cursor-pointer flex justify-center items-center py-1 gap-1 w-fit h-fit mt-auto bg-blue-primary/5 rounded-sm border border-blue-primary/20 text-blue-primary/60 hover:bg-blue-primary hover:text-black transition-all duration-300">
+                  <a href={url} className="font-jersey font-semibold tracking-wide uppercase text-lg font-semibold px-3 my-3 cursor-pointer flex justify-center items-center py-1 gap-1 w-fit h-fit mt-auto bg-blue-primary/5 rounded-sm border border-blue-primary/20 text-blue-primary/60 hover:bg-blue-primary hover:text-black transition-all duration-300">
                     Live Preview
                   </a>
                 )}

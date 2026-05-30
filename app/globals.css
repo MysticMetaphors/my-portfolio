@@ -22,6 +22,7 @@ body {
 */
 
 @theme inline {
+  --font-jersey: var(--font-jersey);
   --color-blue-primary: #0095ff;
   --color-darkblue-primary: #141E30;
   --color-black-primary: #0a0a0a;
@@ -181,7 +182,7 @@ body {
 }
 
 [data-sileo-canvas] {
-  outline: 10px solid; 
+  outline: 10px solid;
   border-radius: 16px;
 }
 
@@ -190,13 +191,13 @@ body {
   border-radius: 16px;
 } */
 
-[data-state="error"] [data-sileo-canvas]{
-  outline:10px solid rgba(255, 0, 0, 0.3); 
+[data-state="error"] [data-sileo-canvas] {
+  outline: 10px solid rgba(255, 0, 0, 0.3);
   border-radius: 16px;
 }
 
-[data-state="success"] [data-sileo-canvas]{
-  outline:10px solid rgba(34, 197, 94, 0.3); 
+[data-state="success"] [data-sileo-canvas] {
+  outline: 10px solid rgba(34, 197, 94, 0.3);
   border-radius: 16px;
 }
 
@@ -237,6 +238,7 @@ body {
       opacity: 0;
       transform: translateY(25px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -249,33 +251,71 @@ body {
   }
 
   @keyframes inViewUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @keyframes inViewLeft {
-    from { opacity: 0; transform: translateX(-40px); }
-    to   { opacity: 1; transform: translateX(0); }
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   @keyframes inViewRight {
-    from { opacity: 0; transform: translateX(40px); }
-    to   { opacity: 1; transform: translateX(0); }
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   @keyframes inViewScale {
-    from { opacity: 0; transform: scale(0.9); }
-    to   { opacity: 1; transform: scale(1); }
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   @keyframes inViewGrowX {
-    from { transform: scaleX(0); }
-    to   { transform: scaleX(1); }
+    from {
+      transform: scaleX(0);
+    }
+
+    to {
+      transform: scaleX(1);
+    }
   }
 
   @keyframes sweepHighlight {
-    from { transform: translateX(-100%); }
-    to   { transform: translateX(250%); }
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(250%);
+    }
   }
 
   .animate-sweep {
@@ -296,11 +336,30 @@ body {
     will-change: opacity, transform;
   }
 
-  .in-view-up      { opacity: 0; transform: translateY(40px); }
-  .in-view-left    { opacity: 0; transform: translateX(-40px); }
-  .in-view-right   { opacity: 0; transform: translateX(40px); }
-  .in-view-scale   { opacity: 0; transform: scale(0.9); }
-  .in-view-grow-x  { transform: scaleX(0); transform-origin: left center; }
+  .in-view-up {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  .in-view-left {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  .in-view-right {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  .in-view-scale {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  .in-view-grow-x {
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
 
 
   /* .in-view-up:not(.in-view)    { visibility: hidden; transform: translateY(40px); }
@@ -347,20 +406,37 @@ body {
     animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
     animation-fill-mode: both;
   }
-  .in-view.in-view-up     { animation-name: inViewUp; }
-  .in-view.in-view-left   { animation-name: inViewLeft; }
-  .in-view.in-view-right  { animation-name: inViewRight; }
-  .in-view.in-view-scale  { animation-name: inViewScale; }
-  .in-view.in-view-grow-x { animation-name: inViewGrowX; }
+
+  .in-view.in-view-up {
+    animation-name: inViewUp;
+  }
+
+  .in-view.in-view-left {
+    animation-name: inViewLeft;
+  }
+
+  .in-view.in-view-right {
+    animation-name: inViewRight;
+  }
+
+  .in-view.in-view-scale {
+    animation-name: inViewScale;
+  }
+
+  .in-view.in-view-grow-x {
+    animation-name: inViewGrowX;
+  }
 
   @media (prefers-reduced-motion: reduce) {
     .animate-slide-up-fade {
       animation: none;
       opacity: 1;
     }
+
     .animate-sweep {
       animation: none;
     }
+
     .in-view-up,
     .in-view-left,
     .in-view-right,
@@ -371,6 +447,7 @@ body {
       opacity: 1;
       transform: none;
     }
+
     /* .in-view-up::after,
     .in-view-left::after,
     .in-view-right::after,
@@ -378,4 +455,16 @@ body {
       display: none;
     } */
   }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }

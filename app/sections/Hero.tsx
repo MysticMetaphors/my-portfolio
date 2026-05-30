@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative flex flex-col bg-black-primary items-center justify-center min-h-screen text-center overflow-hidden md:pt-0 pt-25 bg-black">
       <div className="flex flex-col items-center justify-center min-h-screen w-screen px-6 sm:p-0">
         <div className="relative z-20 max-w-4xl">
-          <div className="animate-slide-up-fade flex-wrap items-center justify-center md:flex hidden gap-4 mb-3">
+          {/* <div className="animate-slide-up-fade flex-wrap items-center justify-center md:flex hidden gap-4 mb-3">
             <span className="bg-white/5 rounded-full border border-white/10 py-1 px-3 flex font-semibold items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-blue-primary/80 shadow-[0_0_5px_#0095ff]" />
               Custom Design
@@ -15,10 +15,14 @@ export default function Hero() {
               <span className="w-2 h-2 rounded-full bg-blue-primary/80 shadow-[0_0_5px_#0095ff]" />
               Open for Hire
             </span>
-          </div>
+          </div> */}
+
+          <span className="font-jersey text-blue-primary text-md md:text-xl tracking-[0.2em] uppercase block mb-2 drop-shadow-sm">
+              {'------<<'} Web Developer {'>>------'}
+            </span>
 
           <h1
-            className="animate-slide-up-fade relative text-5xl mx-auto max-w-2xl md:text-6xl font-extrabold tracking-tight text-white leading-tight"
+            className="font-jersey animate-slide-up-fade relative text-5xl mx-auto max-w-3xl md:text-7xl font-semibold tracking-wide uppercase text-white  leading-tight"
             style={{ animationDelay: "0.2s" }}
           >
             Let’s Build Something
@@ -41,10 +45,10 @@ export default function Hero() {
             className="animate-slide-up-fade mt-10 flex flex-col sm:flex-row gap-4 justify-center"
             style={{ animationDelay: "0.6s" }}
           >
-            <a href="#projects" className="px-6 py-2 rounded-full bg-blue-primary shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black font-semibold hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
+            <a href="#projects" className="text-lg font-jersey font-semibold tracking-wide uppercase px-6 py-2 rounded-full bg-blue-primary shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black font-semibold hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
               Projects
             </a>
-            <a href="#contact" className="px-6 py-2 bg-blue-primary/5 rounded-full border border-blue-primary text-blue-primary hover:bg-blue-primary hover:text-black transition-all duration-300">
+            <a href="#contact" className="text-lg font-jersey font-semibold tracking-wide uppercase px-6 py-2 bg-blue-primary/5 rounded-full border border-blue-primary text-blue-primary hover:bg-blue-primary hover:text-black transition-all duration-300">
               Contact
             </a>
           </div>

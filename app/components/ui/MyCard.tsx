@@ -231,7 +231,7 @@ export default function MyCard({
                   Featured Project
                 </span>
                )}
-                <h3 className="text-white text-3xl font-bold tracking-tight mb-4">{title}</h3>
+                <h3 className="text-white font-jersey font-semibold tracking-wide uppercase text-4xl tracking-tight mb-4">{title}</h3>
                 <p className="text-gray-400 text-md leading-relaxed">
                   {displayedDescription}
                   {isTruncated  && (
@@ -250,11 +250,11 @@ export default function MyCard({
                 </div>
               ) : (
                 <>
-                  <Link href={`/contact?demo=${title}`} className="group px-5 py-2.5 bg-gray-900/90 rounded-md border border-blue-primary text-blue-primary flex items-center gap-2 font-medium hover:bg-blue-primary hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(0,149,255,0.1)] hover:shadow-[0_0_20px_rgba(0,149,255,0.3)]">
+                  <Link href={`/contact?demo=${title}`} className="font-jersey font-semibold tracking-wide uppercase text-xl group px-5 py-2.5 bg-gray-900/90 rounded-md border border-blue-primary text-blue-primary flex items-center gap-2 font-medium hover:bg-blue-primary hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(0,149,255,0.1)] hover:shadow-[0_0_20px_rgba(0,149,255,0.3)]">
                     <span>Contact for Demo</span>
                   </Link>
                   {url && (
-                    <a href={url} target="_blank" className="px-3 py-2.5 flex items-center gap-1.5 border border-blue-900/50 bg-blue-950/20 text-blue-400 text-sm rounded-lg hover:bg-blue-900/30">
+                    <a href={url} target="_blank" className="font-jersey font-semibold tracking-wide uppercase text-xl px-3 py-2.5 flex items-center gap-1.5 border border-blue-900/50 bg-blue-950/20 text-blue-400 text-sm rounded-lg hover:bg-blue-900/30">
                       <ArrowUpRightFromSquare size={14} /> Live
                     </a>
                   )}
@@ -365,7 +365,7 @@ export default function MyCard({
         )}
 
         <div className="p-8 py-4">
-          <h3 className="text-white lg:text-lg mb:text-md font-semibold tracking-tight mb-2">{title}</h3>
+          <h3 className="text-white lg:text-3xl text-2xl font-semibold tracking-tight mb-2 font-jersey font-semibold tracking-wide uppercase">{title}</h3>
           <p className="text-gray-400 lg:text-md md:text-md mb-2">{description}</p>
           <div className="flex justify-between flex-row gap-4 mt-4">
             <div className="flex flex-wrap gap-4">
@@ -377,7 +377,7 @@ export default function MyCard({
 
             </div>
             {url ?
-              <div onClick={() => setInspectIndex(0)} className="px-3 cursor-pointer flex justify-center items-center py-1 gap-1 w-fit h-fit mt-auto bg-blue-primary/5 rounded-sm border border-blue-primary/20 text-blue-primary/60 hover:bg-blue-primary hover:text-black transition-all duration-300">
+              <div onClick={() => setInspectIndex(0)} className="font-jersey font-semibold tracking-wide uppercase text-xl px-3 cursor-pointer flex justify-center items-center py-1 gap-1 w-fit h-fit mt-auto bg-blue-primary/5 rounded-sm border border-blue-primary/20 text-blue-primary/60 hover:bg-blue-primary hover:text-black transition-all duration-300">
                 View <ArrowUpRightFromSquare size={18}/>
               </div>
               : ''}

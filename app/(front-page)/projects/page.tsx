@@ -23,7 +23,7 @@ export default function projects() {
       collaborators: [
         {
           name: 'Von Bryan',
-          avatar: 'bryan.png',
+          avatar: 'about-profile.png',
           linkedin: 'https://www.linkedin.com/in/von-bryan-ba%C3%B1al-1a1188314/'
         },
         {
@@ -146,9 +146,9 @@ export default function projects() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mb-4 text-4xl leading-tight font-extrabold text-gray-300"
+              className="text-5xl md:text-6xl font-jersey font-semibold tracking-wide uppercase leading-tight font-extrabold text-gray-300"
             >
-              What I’ve <span className="text-blue-primary/70">Worked</span> On
+              Things I’ve <span className="text-blue-primary/70">Built</span>
             </motion.h2>
 
             <motion.p
@@ -170,7 +170,7 @@ export default function projects() {
                 <button
                   key={chip}
                   onClick={() => setActiveChip(chip)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-300 cursor-pointer
+                  className={`px-4 py-1.5 text-md font-jersey tracking-[0.05em] uppercase rounded-full text-sm font-medium border transition-all duration-300 cursor-pointer
                   ${activeChip === chip
                       ? "bg-blue-primary/20 border-blue-primary text-blue-primary"
                       : "bg-transparent border-gray-700 text-gray-400 hover:border-gray-500 hover:text-gray-300"
