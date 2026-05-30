@@ -18,8 +18,8 @@ export default function Hero() {
           </div> */}
 
           <span className="font-jersey text-blue-primary text-md md:text-xl tracking-[0.2em] uppercase block mb-2 drop-shadow-sm">
-              {'------<<'} Web Developer {'>>------'}
-            </span>
+            {'------<<'} Web Developer {'>>------'}
+          </span>
 
           <h1
             className="font-jersey animate-slide-up-fade relative text-5xl mx-auto max-w-3xl md:text-7xl font-semibold tracking-wide uppercase text-white  leading-tight"
@@ -37,20 +37,28 @@ export default function Hero() {
             style={{ animationDelay: "0.4s" }}
           >
             I develop <span className="font-bold">100% custom websites, web applications, and business systems</span> {" "}
-            designed to improve user experience, streamline operations, and support your business goals, from 
+            designed to improve user experience, streamline operations, and support your business goals, from
             landing pages to scalable internal platforms.
           </p>
 
           <div
-            className="animate-slide-up-fade mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+            className="animate-slide-up-fade mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center"
             style={{ animationDelay: "0.6s" }}
           >
-            <a href="#projects" className="text-lg font-jersey font-semibold tracking-wide uppercase px-6 py-2 rounded-full bg-blue-primary shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black font-semibold hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
+            {/* Projects Button */}
+            <a href="#projects" className="text-lg font-jersey font-semibold tracking-wide uppercase px-6 py-2 rounded-full bg-blue-primary shadow-[0_0_5px_#0095ff] text-black hover:shadow-[0_0_40px_#0095ff] transition-all duration-300">
               Projects
             </a>
-            <a href="#contact" className="text-lg font-jersey font-semibold tracking-wide uppercase px-6 py-2 bg-blue-primary/5 rounded-full border border-blue-primary text-blue-primary hover:bg-blue-primary hover:text-black transition-all duration-300">
-              Contact
-            </a>
+
+            <div className="flex items-center bg-blue-primary/5 border border-blue-primary rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_#0095ff]/30">
+              <a href="#contact" className="text-lg font-jersey font-semibold tracking-wide uppercase px-5 py-2 text-blue-primary hover:bg-blue-primary hover:text-black transition-all duration-300">
+                Contact Me
+              </a>
+              <span className="h-11 w-[1px] bg-blue-primary" />
+              <a href="https://cal.com/von-bryan-banal-icmjdv" target="_blank" rel="noopener noreferrer" className="text-lg font-jersey font-semibold tracking-wide uppercase px-5 py-2 text-blue-primary hover:bg-blue-primary hover:text-black transition-all duration-300">
+                Book a Meet
+              </a>
+            </div>
           </div>
         </div>
       </div>
