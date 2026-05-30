@@ -69,12 +69,12 @@ export default function Projects() {
     <section id="projects" className="relative bg-black-primary overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-6 py-20 lg:py-30 z-10">
         <div className="text-left flex flex-col">
-          <h2 className="in-view-up mb-4 text-6xl text-center font-jersey font-semibold tracking-wide uppercase leading-tight font-extrabold text-gray-300">
-            What I’ve <span className="text-blue-primary/70">Worked</span> On
+          <h2 className="in-view-up text-5xl md:text-6xl md:text-center font-jersey font-semibold tracking-wide uppercase leading-tight font-extrabold text-gray-300">
+            Things I’ve <span className="text-blue-primary/70">Built</span>
           </h2>
 
           <p
-            className="in-view-up text-gray-400 md:mb-0 mb-12 text-center"
+            className="in-view-up text-gray-400 md:mb-0 mb-12 md:text-center"
             style={{ animationDelay: "0.1s" }}
           >
             Just a few things I’ve built along the way.
