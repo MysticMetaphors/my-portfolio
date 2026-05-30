@@ -246,7 +246,7 @@ export default function Contact({ onView }: ContactProp) {
 
                   {/* Secondary Action: Book a Call Link (Styled as a Button) */}
                   <a
-                    href="https://www.cal.eu/von-bryan-banal-bopoxz"
+                    href="https://cal.com/von-bryan-banal-icmjdv"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto hover:bg-blue-primary hover:text-black font-jersey font-semibold tracking-wide uppercase text-xl bg-transparent border-2 border-blue-primary/40 hover:border-blue-primary text-white transition-all duration-300 py-3 px-6 rounded-md flex items-center justify-center gap-2"
