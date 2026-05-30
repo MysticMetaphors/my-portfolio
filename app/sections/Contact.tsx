@@ -249,20 +249,33 @@ export default function Contact({ onView }: ContactProp) {
                   ></textarea>
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="font-jersey font-semibold tracking-wide uppercase text-xl mt-5 bg-blue-400/70 font-semibold hover:shadow-[0_0_40px_#0095ff] transition-all duration-300 shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black py-3 px-6 rounded-md disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                >
-                  {loading ? (
-                    <>
-                      <Loader2 className="size-4 animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    "Send Message"
-                  )}
-                </button>
+                <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 mt-5 w-full">
+                  {/* Primary Action: Send Message Form Submit */}
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full sm:w-auto font-jersey font-semibold tracking-wide uppercase text-xl bg-blue-400/70 hover:shadow-[0_0_40px_#0095ff] transition-all duration-300 shadow-[0_0_5px_#0095ff] hover:bg-blue-primary text-black py-3 px-6 rounded-md disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  >
+                    {loading ? (
+                      <>
+                        <Loader2 className="size-4 animate-spin" />
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      "Send Message"
+                    )}
+                  </button>
+
+                  {/* Secondary Action: Book a Call Link (Styled as a Button) */}
+                  <a
+                    href="https://www.cal.eu/von-bryan-banal-bopoxz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto hover:bg-blue-primary hover:text-black font-jersey font-semibold tracking-wide uppercase text-xl bg-transparent border-2 border-blue-primary/40 hover:border-blue-primary text-white transition-all duration-300 py-3 px-6 rounded-md flex items-center justify-center gap-2"
+                  >
+                    Book a Call
+                  </a>
+                </div>
               </div>
             </motion.form>
           </div>
