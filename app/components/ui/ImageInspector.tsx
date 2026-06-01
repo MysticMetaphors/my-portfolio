@@ -176,7 +176,7 @@ export default function ImageInspector({
                   {contribution}
                 </p>
                 {url && (
-                  <a href={url} className="font-jersey font-semibold tracking-wide uppercase text-lg font-semibold px-3 my-3 cursor-pointer flex justify-center items-center py-1 gap-1 w-fit h-fit mt-auto bg-blue-primary/5 rounded-sm border border-blue-primary/20 text-blue-primary/60 hover:bg-blue-primary hover:text-black transition-all duration-300">
+                  <a href={url} target="_blank" rel="noopener noreferrer" className="font-jersey font-semibold tracking-wide uppercase text-lg font-semibold px-3 my-3 cursor-pointer flex justify-center items-center py-1 gap-1 w-fit h-fit mt-auto bg-blue-primary/5 rounded-sm border border-blue-primary/20 text-blue-primary/60 hover:bg-blue-primary hover:text-black transition-all duration-300">
                     Live Preview
                   </a>
                 )}

@@ -118,7 +118,7 @@ function FeaturedBentoGrid({
       <div
         key={index}
         onClick={() => onClickMedia(index)}
-        className={`relative group overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 cursor-pointer ${className}`}
+        className={`relative group overflow-hidden rounded-xl bg-zinc-500 dark:bg-zinc-900 cursor-pointer ${className}`}
       >
         {!isExternalVideo && !isVideo && (
           <LazyImage src={src} alt="bg" fill className="object-cover opacity-20 blur-xl scale-110" />

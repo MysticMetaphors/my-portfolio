@@ -7,35 +7,18 @@ import { useState } from "react";
 export default function projects() {
   const projects = [
     {
-      title: "Student Information System",
-      description: "The Student Information System (SIS) is a centralized web-based platform designed to manage and streamline school operations from Grade 1 to Grade 12. It supports multiple user roles and handles the full student lifecycle—from initial inquiry to enrollment and academic management.",
+      title: "Athrox (Still in development)",
+      description: "Send emails, manage contacts, and see exactly how people interact with your messages—all in one place. With this platform, you can track important email activity such as whether an email was delivered, opened, or clicked. You can also see how engaged people are with your emails and easily manage unsubscribes for compliance. You can organize your contacts into different groups, run email campaigns, and view simple reports to see what's working and what needs improvement. We're also planning to add support for multiple sending domains, reusable email templates, and sender health monitoring to help improve email deliverability and reputation.",
       images: [
-        'projects/SIS/image_1.png',
-        'projects/SIS/image_2.png',
-        'projects/SIS/image_3.png',
-        'projects/SIS/image_4.png',
-        'projects/SIS/image_5.png',
-        'projects/SIS/image_6.png',
-        'projects/SIS/image_7.png',
-        'projects/SIS/image_8.png',
-        'projects/SIS/image_9.png',
+        'projects/athrox/image_1.png',
+        'projects/athrox/image_4.png',
+        'projects/athrox/image_3.png',
+        'projects/athrox/image_2.png',
       ],
-      collaborators: [
-        {
-          name: 'Von Bryan',
-          avatar: 'about-profile.png',
-          linkedin: 'https://www.linkedin.com/in/von-bryan-ba%C3%B1al-1a1188314/'
-        },
-        {
-          name: 'Darhyl Borcelis',
-          avatar: 'collaborators/darhyl.png',
-          linkedin: 'https://www.linkedin.com/in/darhyl-borcelis-159640403/'
-        }
-      ],
-      icons: ["nextjs", "tailwindcss", "typescript", "laravel"],
       featured: true,
+      icons: ["nextjs", "tailwindcss", "typescript", "laravel", "php"],
       type: "Engineered Solution",
-      contribution: "I led the development of the Student Information System (SIS) as the lead developer, overseeing the entire project lifecycle from design to deployment. I collaborated closely with a team of developers and stakeholders to create a robust, user-friendly platform that streamlined school operations and enhanced the student experience."
+      contribution: "I designed and developed the Athrox platform, creating a user-friendly interface that allows users to send emails, manage contacts, and track email interactions. I implemented features such as email activity tracking, contact management, email campaigns, and reporting to provide users with insights into their email performance. Additionally, I am working on adding support for multiple sending domains, reusable email templates, and sender health monitoring to enhance the platform's functionality and improve email deliverability."
     },
     {
       title: "Seinna Brews",
@@ -106,6 +89,37 @@ export default function projects() {
       contribution: "I designed and developed the PixelForge website, creating a visually appealing and user-friendly online presence that reflects the platform's focus on providing free pixel art and AI resources for developers and artists. I implemented a responsive design to ensure an enjoyable browsing experience for visitors."
     },
     {
+      title: "Student Information System",
+      description: "The Student Information System (SIS) is a centralized web-based platform designed to manage and streamline school operations from Grade 1 to Grade 12. It supports multiple user roles and handles the full student lifecycle—from initial inquiry to enrollment and academic management.",
+      images: [
+        'projects/SIS/image_1.png',
+        'projects/SIS/image_2.png',
+        'projects/SIS/image_3.png',
+        'projects/SIS/image_4.png',
+        'projects/SIS/image_5.png',
+        'projects/SIS/image_6.png',
+        'projects/SIS/image_7.png',
+        'projects/SIS/image_8.png',
+        'projects/SIS/image_9.png',
+      ],
+      collaborators: [
+        {
+          name: 'Von Bryan',
+          avatar: 'about-profile.png',
+          linkedin: 'https://www.linkedin.com/in/von-bryan-ba%C3%B1al-1a1188314/'
+        },
+        {
+          name: 'Darhyl Borcelis',
+          avatar: 'collaborators/darhyl.png',
+          linkedin: 'https://www.linkedin.com/in/darhyl-borcelis-159640403/'
+        }
+      ],
+      icons: ["nextjs", "tailwindcss", "typescript", "laravel"],
+      featured: true,
+      type: "Engineered Solution",
+      contribution: "I led the development of the Student Information System (SIS) as the lead developer, overseeing the entire project lifecycle from design to deployment. I collaborated closely with a team of developers and stakeholders to create a robust, user-friendly platform that streamlined school operations and enhanced the student experience."
+    },
+    {
       title: "Budgeting App",
       description: "A simple budgeting app that allow you to track & manage your expenses and income. The project allow you to capture your physical receipt and automatically scan it by utilizing AI.",
       images: [
@@ -120,7 +134,7 @@ export default function projects() {
       icons: ["nextjs", "tailwindcss", "typescript", "supabase"],
       type: "Engineered Solution",
       contribution: "I designed and developed the Budgeting App, creating a user-friendly platform that allows users to track and manage their expenses and income. my primary users now is my family & friends"
-    }
+    },
   ];
   const ChipsTypes = ["All Projects", "Engineered Solution", "Landing Page"]
   const [activeChip, setActiveChip] = useState("All Projects");
@@ -130,70 +144,70 @@ export default function projects() {
     : projects.filter((p) => p.type === activeChip);
 
   return (
-      <section id="projects" className="relative bg-black-primary overflow-hidden sm:p-0 pt-25">
-        {/* <div className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3/4 w-full bg-gradient-to-t from-transparent via-darkblue-primary/35 to-transparent pointer-events-none"></div> */}
-        {/* <WavyBackground
+    <section id="projects" className="relative bg-black-primary overflow-hidden sm:p-0 pt-25">
+      {/* <div className="absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3/4 w-full bg-gradient-to-t from-transparent via-darkblue-primary/35 to-transparent pointer-events-none"></div> */}
+      {/* <WavyBackground
           backgroundFill="#0a0a0af1"
           waveWidth={1}
           blur={0}
           waveOpacity={0}
           sizeOveride={'mt-50 h-250 w-[calc(100% + 20)]'}
         /> */}
-        <div className="max-w-7xl mx-auto px-6 md:px-6 py-20 lg:py-30 mt-10 relative z-10">
-          <div className="text-left flex flex-col">
-            {/* Section Header */}
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="text-5xl md:text-6xl font-jersey font-semibold tracking-wide uppercase leading-tight font-extrabold text-gray-300"
-            >
-              Things I’ve <span className="text-blue-primary/70">Built</span>
-            </motion.h2>
+      <div className="max-w-7xl mx-auto px-6 md:px-6 py-20 lg:py-30 mt-10 relative z-10">
+        <div className="text-left flex flex-col">
+          {/* Section Header */}
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-5xl md:text-6xl font-jersey font-semibold tracking-wide uppercase leading-tight font-extrabold text-gray-300"
+          >
+            Things I’ve <span className="text-blue-primary/70">Built</span>
+          </motion.h2>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-              className="text-gray-400 mb-12"
-            >
-              Just a few things I’ve built along the way.
-            </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="text-gray-400 mb-12"
+          >
+            Just a few things I’ve built along the way.
+          </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="flex gap-2 flex-wrap mb-8"
-            >
-              {ChipsTypes.map((chip) => (
-                <button
-                  key={chip}
-                  onClick={() => setActiveChip(chip)}
-                  className={`px-4 py-1.5 text-md font-jersey tracking-[0.05em] uppercase rounded-full text-sm font-medium border transition-all duration-300 cursor-pointer
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="flex gap-2 flex-wrap mb-8"
+          >
+            {ChipsTypes.map((chip) => (
+              <button
+                key={chip}
+                onClick={() => setActiveChip(chip)}
+                className={`px-4 py-1.5 text-md font-jersey tracking-[0.05em] uppercase rounded-full text-sm font-medium border transition-all duration-300 cursor-pointer
                   ${activeChip === chip
-                      ? "bg-blue-primary/20 border-blue-primary text-blue-primary"
-                      : "bg-transparent border-gray-700 text-gray-400 hover:border-gray-500 hover:text-gray-300"
-                    }`}
-                >
-                  {chip}
-                </button>
-              ))}
-            </motion.div>
-
-            <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
-          </div>
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 lg:py-12 md:p-2 sm:p-6">
-            {filteredProjects.map((project, i) => (
-              <MyCard
-                onView={true}
-                key={i}
-                index={i}
-                {...project}
-              />
+                    ? "bg-blue-primary/20 border-blue-primary text-blue-primary"
+                    : "bg-transparent border-gray-700 text-gray-400 hover:border-gray-500 hover:text-gray-300"
+                  }`}
+              >
+                {chip}
+              </button>
             ))}
-          </div>
+          </motion.div>
+
+          <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
         </div>
-      </section>
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 lg:py-12 md:p-2 sm:p-6">
+          {filteredProjects.map((project, i) => (
+            <MyCard
+              onView={true}
+              key={i}
+              index={i}
+              {...project}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }
