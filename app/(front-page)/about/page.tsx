@@ -233,10 +233,10 @@ export default function About() {
                       <span>{'-----<<'}  My Story {'>>-----'}</span>
                     </div>
                     <p>
-                      My journey into this industry started with a complete fascination with how security networks and modular environments worked on movies its absolutely facinating. That curiosity snowballed quickly when I got my laptop, and pushed further by collaborating with execution-focused peers building unique systems, excellent early technical mentorship, and deep-dive logic sessions.
+                      My journey into this industry started with a movie I was completely fascinated by hackers on screen and couldn't stop thinking about how that world worked. That curiosity continued and, pushed further by classmates who were already building things, a first boss who gave me the room to stumble and figure things out, and professors who guided me when I needed it most.
                     </p>
                     <p>
-                      Thus it has turned into a continuous loop of native code design, self-taught mechanics, and genuine system obsession. At this point, crafting performant, fluid digital products is just a dedicated hobby I happen to get paid for.
+                      It's been a mix of self-taught grind, good mentorship, and genuine obsession that got me to this level, and despite that I still striving for more and learn more from the industry.
                     </p>
                   </div>
 

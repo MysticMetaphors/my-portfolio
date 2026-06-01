@@ -249,7 +249,7 @@ export default function Contact({ onView }: ContactProp) {
                     href="https://cal.com/von-bryan-banal-icmjdv"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto hover:bg-blue-primary hover:text-black font-jersey font-semibold tracking-wide uppercase text-xl bg-transparent border-2 border-blue-primary/40 hover:border-blue-primary text-white transition-all duration-300 py-3 px-6 rounded-md flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto hover:bg-blue-primary hover:text-black font-jersey font-semibold tracking-wide uppercase text-xl bg-blue-primary/5 border border-blue-primary hover:border-blue-primary text-blue-primary transition-all duration-300 py-3 px-6 rounded-md flex items-center justify-center gap-2"
                   >
                     Book a Call
                   </a>
