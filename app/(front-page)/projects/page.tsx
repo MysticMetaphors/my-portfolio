@@ -89,6 +89,21 @@ export default function projects() {
       contribution: "I designed and developed the PixelForge website, creating a visually appealing and user-friendly online presence that reflects the platform's focus on providing free pixel art and AI resources for developers and artists. I implemented a responsive design to ensure an enjoyable browsing experience for visitors."
     },
     {
+      title: "The Potatophile",
+      description: "A conversion-driven landing page redesign for The Potatophile franchising, engineered to elevate the brand's digital presence through optimized UI/UX, strategic user flows, and a premium visual aesthetic.",
+      images: [
+        'projects/potatophile/mockup.png',
+        'projects/potatophile/image_1.png',
+        'projects/potatophile/image_2.png',
+        'projects/potatophile/image_3.png',
+      ],
+      // featured: true,
+      url: "https://www.figma.com/proto/4VE6tWzRSM8YvEmfQHO98u/The-Potatophile?node-id=1002-129&t=DSNMZ2FZtVMMt24U-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+      icons: ["figma"],
+      type: "Landing Page",
+      contribution: "Spearheaded the end-to-end UI/UX engineering, defining the structural layout, user flows, and custom interactive elements to ensure a premium, friction-free dashboard experience."
+    },
+    {
       title: "Student Information System",
       description: "The Student Information System (SIS) is a centralized web-based platform designed to manage and streamline school operations from Grade 1 to Grade 12. It supports multiple user roles and handles the full student lifecycle—from initial inquiry to enrollment and academic management.",
       images: [

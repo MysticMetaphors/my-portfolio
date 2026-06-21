@@ -250,12 +250,14 @@ export default function MyCard({
                 </div>
               ) : (
                 <>
-                  <Link href={`/contact?demo=${title}`} className="font-jersey font-semibold tracking-wide uppercase text-xl group px-5 py-2.5 bg-gray-900/90 rounded-md border border-blue-primary text-blue-primary flex items-center gap-2 font-medium hover:bg-blue-primary hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(0,149,255,0.1)] hover:shadow-[0_0_20px_rgba(0,149,255,0.3)]">
-                    <span>Contact for Demo</span>
-                  </Link>
+                  {!url && (
+                    <Link href={`/contact?demo=${title}`} className="font-jersey font-semibold tracking-wide uppercase text-xl group px-5 py-2.5 bg-gray-900/90 rounded-md border border-blue-primary text-blue-primary flex items-center gap-2 font-medium hover:bg-blue-primary hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(0,149,255,0.1)] hover:shadow-[0_0_20px_rgba(0,149,255,0.3)]">
+                      <span>Contact for Demo</span>
+                    </Link>
+                  )}
                   {url && (
                     <a href={url} target="_blank" className="font-jersey font-semibold tracking-wide uppercase text-xl px-3 py-2.5 flex items-center gap-1.5 border border-blue-900/50 bg-blue-950/20 text-blue-400 text-sm rounded-lg hover:bg-blue-900/30">
-                      <ArrowUpRightFromSquare size={14} /> Live
+                      <ArrowUpRightFromSquare size={14} /> Live Demo
                     </a>
                   )}
                 </>
