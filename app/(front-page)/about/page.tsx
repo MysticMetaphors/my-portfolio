@@ -65,6 +65,47 @@ const workWithItems = [
   },
 ];
 
+const experienceItems = [
+  {
+    role: "Frontend Developer & UI/UX Designer",
+    company: "AR.VO IT Services",
+    location: "Antipolo City, Philippines",
+    period: "Sep 2025 – May 2026",
+    stack: [
+      { name: "Next.js", img: "nextjs-original.svg" },
+      { name: "Vue.js", img: "vuejs-original.svg" },
+      { name: "React.js", img: "react-original.svg" },
+      { name: "Tailwind", img: "tailwindcss-original.svg" },
+      { name: "Figma", img: "figma-original.svg" },
+    ],
+    points: [
+      "Communicated directly with clients to understand their design requirements and desired changes.",
+      "Ensured websites were not only appealing but performance efficient.",
+      "Aligned closely with backend developers and lead developers to ship cohesive features.",
+      "Handled code-level designing to close the gap between design and code, and maintained live websites.",
+    ],
+  },
+  {
+    role: "Freelance Developer",
+    company: "Self-Employed",
+    location: "Antipolo City, Philippines",
+    period: "May 2025 – Present",
+    stack: [
+      { name: "React.js", img: "react-original.svg" },
+      { name: "Vue.js", img: "vuejs-original.svg" },
+      { name: "Next.js", img: "nextjs-original.svg" },
+      { name: "Laravel", img: "laravel-original.svg" },
+      { name: "MySQL", img: "mysql-original-wordmark.svg" },
+      { name: "Figma", img: "figma-original.svg" },
+    ],
+    points: [
+      "Communicated with clients to understand their design and functional requirements.",
+      "Offered custom systems tailored to fit their business operations.",
+      "Implemented requested modifications within agreed timeframes to ensure timely delivery.",
+    ],
+  },
+];
+
 const likeItems = [
   {
     icon: <Gamepad2 className="size-7 text-white" />,
@@ -257,6 +298,67 @@ export default function About() {
                       </span>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            {/* --- EXPERIENCE --- */}
+            <div className="w-full bg-gray-900/90 hover:bg-gray-900 group border border-gray-700 rounded-lg p-2 space-y-6">
+              <div className="w-full border border-gray-700 rounded-lg p-4 md:p-6 space-y-6">
+
+                <div className="flex font-jersey text-md items-center gap-2 text-zinc-400 uppercase tracking-widest">
+                  <span>{'-----<<'}  Experience {'>>-----'}</span>
+                </div>
+
+                <div className="space-y-4">
+                  {experienceItems.map((exp, i) => (
+                    <div
+                      key={i}
+                      className="bg-gray-800/40 border border-gray-700 rounded-lg p-4 md:p-5 hover:border-blue-primary/50 transition-colors duration-300"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                        <div>
+                          <h3 className="text-lg md:text-xl font-jersey tracking-[0.05em] uppercase text-white">
+                            {exp.role}
+                          </h3>
+                          <p className="text-blue-primary text-sm font-mono mt-0.5">{exp.company}</p>
+                        </div>
+                        <div className="flex flex-col sm:items-end gap-1 font-mono text-xs text-zinc-400 flex-shrink-0">
+                          <span className="flex items-center gap-1.5">
+                            <Calendar className="w-3.5 h-3.5 text-zinc-500" />
+                            {exp.period}
+                          </span>
+                          <span className="flex items-center gap-1.5">
+                            <MapPin className="w-3.5 h-3.5 text-zinc-500" />
+                            {exp.location}
+                          </span>
+                        </div>
+                      </div>
+
+                      <ul className="mt-4 space-y-2 text-zinc-400 text-sm leading-relaxed">
+                        {exp.points.map((point, j) => (
+                          <li key={j} className="flex gap-2.5">
+                            <span className="text-blue-primary mt-1.5 w-1 h-1 rounded-full bg-blue-primary flex-shrink-0" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {exp.stack.map((tech) => (
+                          <span
+                            key={tech.name}
+                            className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-gray-800/90 border border-gray-700 text-xs font-mono text-zinc-300 hover:border-zinc-600 hover:text-white transition-all"
+                          >
+                            {tech.img && (
+                              <Image alt={tech.name} src={`/techstack/${tech.img}`} height={12} width={12} />
+                            )}
+                            <span>{tech.name}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

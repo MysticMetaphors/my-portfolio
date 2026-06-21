@@ -11,6 +11,7 @@ export default function TechStack() {
     { name: "Tailwind", icon: "tailwindcss", img: "tailwindcss-original.svg" },
     { name: "Laravel", icon: "laravel", img: "laravel-original.svg" },
     { name: "Supabase", icon: "supabase", img: "supabase-original.svg" },
+    { name: "Figma", icon: "figma", img: "figma-original.svg" },
     { name: "HTML5", icon: "html5", img: "html5-original.svg" },
     { name: "CSS", icon: "css3", img: "css3-original.svg" },
     { name: "Javascript", icon: "javascript", img: "javascript-original.svg" },

@@ -109,141 +109,143 @@ export default function AIChatbot() {
 
   return (
     <>
-      <AnimatePresence>
-        {!open && (
-          <button
-            key="chat-fab"
-            type="button"
-            onClick={() => setOpen(true)}
-            aria-label="Open AI chat"
-            className="group fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-blue-primary px-3 md:px-4 py-3 font-semibold text-black transition-all duration-300 hover:shadow-[0_0_40px_#0095ff] cursor-pointer"
-          >
-            <span className="absolute inset-0 rounded-full bg-blue-primary opacity-60 blur-md -z-10 animate-pulse" />
-            <Box className="size-4.5" />
-            <span className="hidden sm:inline text-sm">AI Assistant</span>
-            <span className="absolute top-0 right-0 flex size-3">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex size-3 rounded-full bg-green-400 border border-black" />
-            </span>
-          </button>
-        )}
-      </AnimatePresence>
-
+      {/* Click-away backdrop to collapse the chat back into the prompt panel */}
       <AnimatePresence>
         {open && (
           <motion.div
-            key="chat-panel"
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ type: "spring", stiffness: 280, damping: 26 }}
-            className="fixed bottom-6 right-6 p-2 z-50 flex h-[min(640px,calc(100vh-3rem))] w-[min(380px,calc(100vw-3rem))] flex-col overflow-hidden rounded-lg border border-gray-700 bg-gray-900"
-          >
-            <div className="flex flex-col overflow-hidden rounded-lg border border-gray-700 h-[min(640px,calc(100vh-3rem))]">
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 opacity-40"
-                style={{
-                  backgroundImage: `linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)`,
-                  backgroundSize: "32px 32px",
-                  maskImage:
-                    "radial-gradient(circle at 30% 0%, rgba(0,0,0,0.7) 0%, transparent 70%)",
-                  WebkitMaskImage:
-                    "radial-gradient(circle at 30% 0%, rgba(0,0,0,0.7) 0%, transparent 70%)",
-                }}
-              />
-
-              <div className="relative rounded-t-lg z-10 flex items-center justify-between border-b border-gray-700/80 bg-black-primary/60 px-4 py-3 backdrop-blur">
-                <div className="flex items-center gap-3">
-                  <div className="relative flex size-9 items-center justify-center rounded-full bg-blue-primary/15 border border-blue-primary/40">
-                    <Box className="size-4.5 text-blue-primary" />
-                    <span className="absolute -bottom-0.5 -right-0.5 size-2.5 rounded-full bg-green-400 ring-2 ring-gray-900" />
-                  </div>
-                  <div className="flex flex-col leading-tight">
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-lg font-jersey uppercase tracking-widest text-white">
-                        Von's AI Assistant
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <button
-                  onClick={() => setOpen(false)}
-                  aria-label="Close chat"
-                  className="rounded-full p-1.5 text-gray-400 hover:bg-white/5 hover:text-white transition cursor-pointer"
-                >
-                  <X className="size-4" />
-                </button>
-              </div>
-
-              <div
-                ref={scrollRef}
-                className="scrollbar-custom relative z-10 flex-1 overflow-y-auto px-4 py-4 space-y-3"
-              >
-                {messages.map((m) => (
-                  <MessageBubble key={m.id} message={m} />
-                ))}
-
-                {loading && <TypingDots />}
-
-                {error && (
-                  <div className="rounded-md border border-red-500/30 bg-red-500/10 px-3 py-2 text-xs text-red-300">
-                    Something went wrong. Please try again.
-                  </div>
-                )}
-
-                {messages.length === 1 && !loading && (
-                  <SuggestionChips
-                    label="Suggested"
-                    items={STARTER_SUGGESTIONS}
-                    onPick={send}
-                  />
-                )}
-
-                {!loading && latestAssistantSuggestions && messages.length > 1 && (
-                  <SuggestionChips
-                    label="You might ask"
-                    items={latestAssistantSuggestions}
-                    onPick={send}
-                  />
-                )}
-              </div>
-
-              <form
-                onSubmit={handleSubmit}
-                className="relative rounded-b-lg z-10 border-t border-gray-700/80 bg-black-primary/60 p-3 backdrop-blur"
-              >
-                <div className="flex items-center gap-2 rounded-full border border-gray-700 bg-gray-800/80 pl-4 pr-1.5 py-1 focus-within:border-blue-primary focus-within:shadow-[0_0_15px_rgba(0,149,255,0.25)] transition">
-                  <input
-                    ref={inputRef}
-                    type="text"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    placeholder="Ask anything..."
-                    disabled={loading}
-                    className="flex-1 bg-transparent py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none disabled:opacity-60"
-                  />
-                  <button
-                    type="submit"
-                    disabled={loading || !input.trim()}
-                    aria-label="Send message"
-                    className="flex size-9 items-center justify-center rounded-full bg-blue-primary text-black shadow-[0_0_10px_#0095ff] transition hover:shadow-[0_0_25px_#0095ff] disabled:opacity-40 disabled:shadow-none disabled:cursor-not-allowed cursor-pointer"
-                  >
-                    {loading ? (
-                      <Loader2 className="size-4 animate-spin" />
-                    ) : (
-                      <Send className="size-4" />
-                    )}
-                  </button>
-                </div>
-                <p className="mt-2 text-center text-[10px] text-gray-500">
-                  AI responses are generated — for anything official use the Contact form.
-                </p>
-              </form>
-            </div>
-          </motion.div>
+            key="chat-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setOpen(false)}
+            className="fixed inset-0 z-40 bg-black/40 backdrop-blur-[2px]"
+          />
         )}
       </AnimatePresence>
+
+      {/* Centered bottom prompt panel — the chat window grows out of it */}
+      <div className="fixed bottom-6 left-1/2 z-50 flex w-[min(620px,calc(100vw-2rem))] -translate-x-1/2 flex-col items-stretch gap-3">
+
+        {/* Expanding chat window */}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              key="chat-window"
+              initial={{ opacity: 0, height: 0, y: 24 }}
+              animate={{ opacity: 1, height: "auto", y: 0 }}
+              exit={{ opacity: 0, height: 0, y: 24 }}
+              transition={{ type: "spring", stiffness: 220, damping: 28 }}
+              style={{ transformOrigin: "bottom center" }}
+              className="w-full overflow-hidden rounded-lg border border-gray-700 bg-gray-900 p-2"
+            >
+              <div className="relative flex h-[min(560px,calc(100vh-11rem))] flex-col overflow-hidden rounded-lg border border-gray-700">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 opacity-40"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)`,
+                    backgroundSize: "32px 32px",
+                    maskImage:
+                      "radial-gradient(circle at 30% 0%, rgba(0,0,0,0.7) 0%, transparent 70%)",
+                    WebkitMaskImage:
+                      "radial-gradient(circle at 30% 0%, rgba(0,0,0,0.7) 0%, transparent 70%)",
+                  }}
+                />
+
+                <div className="relative rounded-t-lg z-10 flex items-center justify-between border-b border-gray-700/80 bg-black-primary/60 px-4 py-3 backdrop-blur">
+                  <div className="flex items-center gap-3">
+                    <div className="relative flex size-9 items-center justify-center rounded-full bg-blue-primary/15 border border-blue-primary/40">
+                      <Box className="size-4.5 text-blue-primary" />
+                      <span className="absolute -bottom-0.5 -right-0.5 size-2.5 rounded-full bg-green-400 ring-2 ring-gray-900" />
+                    </div>
+                    <div className="flex flex-col leading-tight">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-lg font-jersey uppercase tracking-widest text-white">
+                          Von's AI Assistant
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setOpen(false)}
+                    aria-label="Close chat"
+                    className="rounded-full p-1.5 text-gray-400 hover:bg-white/5 hover:text-white transition cursor-pointer"
+                  >
+                    <X className="size-4" />
+                  </button>
+                </div>
+
+                <div
+                  ref={scrollRef}
+                  className="scrollbar-custom relative z-10 flex-1 overflow-y-auto px-4 py-4 space-y-3"
+                >
+                  {messages.map((m) => (
+                    <MessageBubble key={m.id} message={m} />
+                  ))}
+
+                  {loading && <TypingDots />}
+
+                  {error && (
+                    <div className="rounded-md border border-red-500/30 bg-red-500/10 px-3 py-2 text-xs text-red-300">
+                      Something went wrong. Please try again.
+                    </div>
+                  )}
+
+                  {messages.length === 1 && !loading && (
+                    <SuggestionChips
+                      label="Suggested"
+                      items={STARTER_SUGGESTIONS}
+                      onPick={send}
+                    />
+                  )}
+
+                  {!loading && latestAssistantSuggestions && messages.length > 1 && (
+                    <SuggestionChips
+                      label="You might ask"
+                      items={latestAssistantSuggestions}
+                      onPick={send}
+                    />
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Always-visible prompt bar (the panel) */}
+        <motion.form
+          layout
+          onSubmit={handleSubmit}
+          className="relative z-50 w-full rounded-full border border-gray-700 bg-gray-900/95 p-2 shadow-[0_0_40px_rgba(0,0,0,0.5)] backdrop-blur"
+        >
+          <div className="flex items-center gap-2 rounded-full border border-gray-700 bg-gray-800/80 pl-4 pr-1.5 py-1 focus-within:border-blue-primary focus-within:shadow-[0_0_15px_rgba(0,149,255,0.25)] transition">
+            <Sparkles className="size-4 flex-shrink-0 text-blue-primary" />
+            <input
+              ref={inputRef}
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onFocus={() => setOpen(true)}
+              placeholder={open ? "Ask anything..." : "Ask Von's AI assistant anything..."}
+              disabled={loading}
+              className="flex-1 bg-transparent py-2 text-sm text-white placeholder:text-gray-500 focus:outline-none disabled:opacity-60"
+            />
+            <button
+              type="submit"
+              disabled={loading || !input.trim()}
+              aria-label="Send message"
+              className="flex size-9 items-center justify-center rounded-full bg-blue-primary text-black shadow-[0_0_10px_#0095ff] transition hover:shadow-[0_0_25px_#0095ff] disabled:opacity-40 disabled:shadow-none disabled:cursor-not-allowed cursor-pointer"
+            >
+              {loading ? (
+                <Loader2 className="size-4 animate-spin" />
+              ) : (
+                <Send className="size-4" />
+              )}
+            </button>
+          </div>
+        </motion.form>
+      </div>
     </>
   );
 }
