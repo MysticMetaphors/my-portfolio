@@ -105,7 +105,7 @@ export default function projects() {
       url: "https://www.figma.com/proto/4VE6tWzRSM8YvEmfQHO98u/The-Potatophile?node-id=1002-129&t=DSNMZ2FZtVMMt24U-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
       icons: ["figma"],
       type: "Landing Page",
-      contribution: "Spearheaded the end-to-end UI/UX engineering, defining the structural layout, user flows, and custom interactive elements to ensure a premium, friction-free dashboard experience."
+      contribution: "Spearheaded the end-to-end UI/UX engineering, defining the structural layout, user flows, and custom interactive elements to ensure a premium, friction-free experience."
     },
     {
       title: "Student Information System",
@@ -117,9 +117,9 @@ export default function projects() {
         'projects/SIS/image_4.png',
         'projects/SIS/image_5.png',
         'projects/SIS/image_6.png',
-        'projects/SIS/image_7.png',
-        'projects/SIS/image_8.png',
-        'projects/SIS/image_9.png',
+        // 'projects/SIS/image_7.png',
+        // 'projects/SIS/image_8.png',
+        // 'projects/SIS/image_9.png',
       ],
       collaborators: [
         {
