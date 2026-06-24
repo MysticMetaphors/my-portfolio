@@ -94,11 +94,11 @@ export default function projects() {
       images: [
         'projects/potatophile/mockup.png',
         'projects/potatophile/image_1.png',
+        'projects/potatophile/image_6.png',
         'projects/potatophile/image_2.png',
         'projects/potatophile/image_3.png',
         'projects/potatophile/image_4.png',
         'projects/potatophile/image_5.png',
-        'projects/potatophile/image_6.png',
         'projects/potatophile/image_7.png',
       ],
       // featured: true,
