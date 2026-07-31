@@ -41,54 +41,6 @@ export default function projects() {
       contribution: "I designed and developed the Solara Grand website, creating a luxurious and immersive online presence that reflects the resort's blend of refined comfort and unforgettable adventures. I implemented a visually stunning design and responsive layout to provide an engaging browsing experience for potential guests."
     },
     {
-      title: "Outpost",
-      description: "A premier indie game studio that builds atmospheric digital worlds through clean code and immersive design",
-      image: "projects/outpost.png",
-      url: "https://indie-web-ikp3.vercel.app/",
-      design: true,
-      icons: ["nextjs", "tailwindcss", "typescript", "html5"],
-      type: "Landing Page",
-      contribution: "I designed and developed the Outpost website, creating a visually appealing and immersive online presence that reflects the indie game studio's focus on atmospheric digital worlds. I implemented a user-friendly interface and responsive design to ensure an engaging browsing experience for visitors."
-    },
-    {
-      title: "Slice",
-      description: "A premium cake shop Demo website that offers a delightful selection of cakes for every occasion",
-      image: "projects/cake2go.png",
-      url: "https://cake2go.vercel.app/",
-      design: true,
-      icons: ["nextjs", "tailwindcss", "typescript", "html5"],
-      type: "Landing Page",
-      contribution: "I designed and developed the Slice website, creating a visually appealing and user-friendly online presence that reflects the cake shop's focus on delivering delightful treats for every occasion. I implemented a responsive design to ensure an enjoyable browsing experience for visitors."
-    },
-    // {
-    //   title: "Fluxo",
-    //   description: "Fluxo is a showcase of clean and modern web design, featuring responsive layouts, elegant UI components.",
-    //   image: "projects/fluxos.png",
-    //   url: "https://fluxo-alpha.vercel.app/",
-    //   design: true,
-    //   icons: ["react", "tailwindcss", "javascript", "html5"]
-    // },
-    {
-      title: "Arvo",
-      description: "Arvo is a creative web-solutions studio that crafts smart, high-performance digital experiences.",
-      image: "projects/arvo.png",
-      url: "https://arvo-alpha.vercel.app/",
-      design: true,
-      icons: ["nextjs", "tailwindcss", "typescript", "html5"],
-      type: "Landing Page",
-      contribution: "I designed and developed the Arvo website, collaborating closely with the Arvo team & stakeholders to reflect the brand identity and values."
-    },
-    {
-      title: "PixelForge",
-      description: "PixelForge offers free pixel art and AI resources to support developers and artists in creating their games.",
-      image: "projects/pixelforge.png",
-      url: "https://pixel-forge-omega.vercel.app/",
-      design: true,
-      icons: ["react", "tailwindcss", "supabase", "javascript", "html5"],
-      type: "Landing Page",
-      contribution: "I designed and developed the PixelForge website, creating a visually appealing and user-friendly online presence that reflects the platform's focus on providing free pixel art and AI resources for developers and artists. I implemented a responsive design to ensure an enjoyable browsing experience for visitors."
-    },
-    {
       title: "The Potatophile",
       description: "A conversion-driven landing page redesign for The Potatophile franchising, engineered to elevate the brand's digital presence through optimized UI/UX, strategic user flows, and a premium visual aesthetic.",
       images: [
@@ -106,53 +58,6 @@ export default function projects() {
       icons: ["figma"],
       type: "Landing Page",
       contribution: "Spearheaded the end-to-end UI/UX engineering, defining the structural layout, user flows, and custom interactive elements to ensure a premium, friction-free experience."
-    },
-    {
-      title: "Student Information System",
-      description: "The Student Information System (SIS) is a centralized web-based platform designed to manage and streamline school operations from Grade 1 to Grade 12. It supports multiple user roles and handles the full student lifecycle—from initial inquiry to enrollment and academic management.",
-      images: [
-        'projects/SIS/image_1.png',
-        'projects/SIS/image_2.png',
-        'projects/SIS/image_3.png',
-        'projects/SIS/image_4.png',
-        'projects/SIS/image_5.png',
-        'projects/SIS/image_6.png',
-        // 'projects/SIS/image_7.png',
-        // 'projects/SIS/image_8.png',
-        // 'projects/SIS/image_9.png',
-      ],
-      collaborators: [
-        {
-          name: 'Von Bryan',
-          avatar: 'about-profile.png',
-          linkedin: 'https://www.linkedin.com/in/von-bryan-ba%C3%B1al-1a1188314/'
-        },
-        {
-          name: 'Darhyl Borcelis',
-          avatar: 'collaborators/darhyl.png',
-          linkedin: 'https://www.linkedin.com/in/darhyl-borcelis-159640403/'
-        }
-      ],
-      icons: ["nextjs", "tailwindcss", "typescript", "laravel"],
-      featured: true,
-      type: "Engineered Solution",
-      contribution: "I led the development of the Student Information System (SIS) as the lead developer, overseeing the entire project lifecycle from design to deployment. I collaborated closely with a team of developers and stakeholders to create a robust, user-friendly platform that streamlined school operations and enhanced the student experience."
-    },
-    {
-      title: "Budgeting App",
-      description: "A simple budgeting app that allow you to track & manage your expenses and income. The project allow you to capture your physical receipt and automatically scan it by utilizing AI.",
-      images: [
-        'projects/verge/image_1.jpg',
-        'projects/verge/image_2.jpg',
-        'projects/verge/image_3.jpg',
-        'projects/verge/image_4.jpg',
-        'projects/verge/image_5.jpg',
-        'projects/verge/image_6.jpg',
-        'projects/verge/image_7.jpg',
-      ],
-      icons: ["nextjs", "tailwindcss", "typescript", "supabase"],
-      type: "Engineered Solution",
-      contribution: "I designed and developed the Budgeting App, creating a user-friendly platform that allows users to track and manage their expenses and income. my primary users now is my family & friends"
     },
   ];
   const ChipsTypes = ["All Projects", "Engineered Solution", "Landing Page"]

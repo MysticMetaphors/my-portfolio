@@ -1,25 +1,14 @@
-// proxy.ts
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { auth0 } from "./lib/auth0";
 
 export async function proxy(request: NextRequest) {
-  const { searchParams, pathname } = new URL(request.url);
-  const error = searchParams.get("error");
+  const { pathname } = new URL(request.url);
 
-  if (error === "access_denied") {
-    return NextResponse.redirect(new URL("/unauthorized", request.url));
+  if (pathname !== "/decommissioned") {
+    return NextResponse.redirect(new URL("/decommissioned", request.url));
   }
 
-  if (pathname.startsWith("/dashboard")) {
-    const session = await auth0.getSession(request);
-
-    if (!session) {
-      return NextResponse.redirect(new URL("/auth/login", request.url));
-    }
-  }
-
-  return await auth0.middleware(request);
+  return NextResponse.next();
 }
 
 export const config = {

@@ -110,7 +110,7 @@ export default async function RootLayout({
             },
           }}
         />
-        <AIChatbot />
+        {/* <AIChatbot /> */}
       </body>
     </html>
   );
